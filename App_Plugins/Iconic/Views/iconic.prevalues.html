@@ -12,7 +12,7 @@
                     <a href class="umb-node-preview__action umb-node-preview__action--red" ng-click="removeItem($index)" prevent-default>Remove</a>
                 </div>
             </div>
-            <div class="koben-iconic__params_panelbody control-group" ng-show="currentItem == item">                
+            <div class="koben-iconic__params_panelbody control-group" ng-show="currentItem == item">
                 <p><strong>Name: </strong>{{item.name}}</p>
                 <p><strong>Extra classes: </strong>{{item.extraClasses}} </p>
                 <p><strong>Selector: </strong>{{item.selector}}</p>
@@ -40,26 +40,15 @@
             <label for="newExtraClasses">Extra Classes</label><br />
             <input name="newExtraClasses" type="text" ng-model="newItem.extraClasses" /><br />
         </div>
-        <label for="newCssFiles">Css file</label><br />
-        <div>
+        <div class="koben-iconic__params_input_group">
+            <label for="newCssFiles">Css file</label><br />
             <input name="newCssFiles" type="text" ng-model="newItem.cssfile" ng-text-change="analysing = 'init'" val-highlight="{{newItemFormErrors.cssfile}}" />
-            <umb-button action="extractStyles(newItem)"
-                        type="button"
-                        button-style="info"
-                        state="analysing"
-                        label="Analyse"
-                        disabled="!newItem.cssfile">
-            </umb-button>
-            <!--<button ng-show="newItem.cssfiles" ng-click="extractStyles(newItem)" prevent-default>Analyse</button>-->
-            <input name="newExtractedStyles" type="hidden" ng-model="newItem.extractedStyles" />
-            <p><small>Extracted styles: {{newItem.extractedStyles.length}}</small></p>
-            <p ng-show="newItemFormErrors.extractedStyles" style="color: red;">There are not extracted styles</p>
         </div>
         <umb-button action="addNewItem()"
                     type="button"
                     button-style="success"
                     label="Add package"
-                    disabled="newItem.extractedStyles.length <= 0">
+                    state="analysing">
         </umb-button>
         <button class="btn umb-button__button btn-warning" ng-click="hideItemForm()" prevent-default>Cancel</button>
     </div>

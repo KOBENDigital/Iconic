@@ -25,18 +25,7 @@
         //it will store the package selected if any
         $scope.pckg;
              
-        $scope.overlay = {
-            view: "/app_plugins/iconic/views/iconic.dialog.html",            
-            title: "Select and icon",
-            hideSubmitButton: true,
-            submit: $scope.selectIcon,
-            close: function () {
-                $scope.overlay.show = false;
-                $scope.overlay = null;
-            },
-            pickerData: $scope.model.value,
-            pickerConfig: config
-        }
+        
 
         $scope.selectIcon = function (model) {
             if (model.pickerData.style && model.pickerData.packageAlias) {
@@ -49,6 +38,18 @@
         $scope.removeIcon = function () {
             $scope.model.value = {};            
             $scope.modelIsValid = false;
+        }
+
+        $scope.overlay = {
+            view: "/app_plugins/iconic/views/iconic.dialog.html",
+            title: "Select and icon",
+            hideSubmitButton: true,
+            submit: $scope.selectIcon,
+            close: function () {
+                $scope.overlay.show = false;                
+            },
+            pickerData: $scope.model.value,
+            pickerConfig: config
         }
 
 
