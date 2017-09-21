@@ -45,7 +45,9 @@ To add or modify your icon just click on the placeholder, this will open a dialo
 ### Displaying the icon
 Iconic comes with a value converter that will return a string containing the icon class. So you just have to use the model of your template like so:
 
+```
 <i class="@Model.Content.MyIcon" />
+```
 
 ---
 
