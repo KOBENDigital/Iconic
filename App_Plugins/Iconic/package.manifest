@@ -1,0 +1,36 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "Koben.IconPicker",
+      "name": "Extended Icon Picker",
+      "icon": "icon-binoculars",
+      "group": "Pickers",
+      "editor": {
+        "view": "~/App_Plugins/Koben/IconPicker/iconpicker.html",
+        "valueType": "JSON"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Packages configuration",
+            "description": "Add the font packages you want to use",
+            "key": "packages",
+            "view": "/App_Plugins/Koben/IconPicker/iconpicker.prevalues.html"
+          }
+        ]
+      }
+    }
+  ],
+
+  "javascript": [
+    "~/App_Plugins/Koben/IconPicker/iconpicker.controller.js",
+    "~/App_Plugins/Koben/IconPicker/iconpicker.dialog.controller.js",
+    "~/App_Plugins/Koben/IconPicker/iconpicker.prevalues.controller.js"
+
+  ],
+  "css": [
+    "~/App_Plugins/Koben/IconPicker/iconpicker.css"
+  ]
+
+
+}

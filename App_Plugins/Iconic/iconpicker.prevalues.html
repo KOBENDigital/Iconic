@@ -1,0 +1,71 @@
+﻿<section class="koben-iconpicker__params umb-editor " ng-controller="Koben.IconPicker.Prevalues.Packages">
+
+    <div ui-sortable="sortableOptions" ng-model="model.value">
+        <div ng-repeat="item in model.value">
+            <div class="umb-node-preview">
+                <i class="umb-node-preview__icon icon-navigation handle"></i>
+                <div class="umb-node-preview__content" ng-click="selectItem(item)">
+                    <div class="umb-node-preview__name">{{item.name}}</div>
+                    <div class="umb-node-preview__description">Styles: {{item.extractedStyles.length}}</div>
+                </div>
+                <div class="umb-node-preview__actions">
+                    <a href class="umb-node-preview__action umb-node-preview__action--red" ng-click="removeItem(item)" prevent-default>Remove</a>
+                </div>
+            </div>
+            <div class="koben-iconpicker__params_panelbody control-group" ng-show="currentItem == item">
+                <p><strong>Alias: </strong>{{item.alias}}</p>
+                <p><strong>Name: </strong>{{item.name}}</p>
+                <p><strong>Extra classes: </strong>{{item.extraClasses}} </p>
+                <p><strong>Selector: </strong>{{item.selector}}</p>
+                <p><strong>Css file: </strong>{{item.cssfile}}</p>
+                <p>Extracted styles: {{item.extractedStyles.length}}</p>
+            </div>
+        </div>
+    </div>
+    <a href class="umb-node-preview-add" ng-click="showNewItemForm = true" prevent-default>
+        <localize key="general_add">Add</localize>
+    </a>
+    <div class="koben-iconpicker__params_add-new-form control-group" ng-if="showNewItemForm">
+        <div>
+            <h3>Add new package</h3>
+        </div>
+        <div class="koben-iconpicker__params_input_group">
+            <label>Alias</label><br />
+            <input name="newAlias" type="text" ng-model="newItem.alias" val-highlight="{{newItemFormErrors.alias}}" /><br />
+        </div>
+        <div class="koben-iconpicker__params_input_group">
+            <label for="newName">Name</label><br />
+            <input name="newName" type="text" ng-model="newItem.name" val-highlight="{{newItemFormErrors.name}}"><br />
+        </div>
+        <div class="koben-iconpicker__params_input_group">
+            <label for="newSelector">Selector</label><br />
+            <input name="newSelector" type="text" ng-model="newItem.selector" val-highlight="{{newItemFormErrors.selector}}"><br />
+        </div>
+        <div class="koben-iconpicker__params_input_group">
+            <label for="newExtraClasses">Extra Classes</label><br />
+            <input name="newExtraClasses" type="text" ng-model="newItem.extraClasses" /><br />
+        </div>
+        <label for="newCssFiles">Css file</label><br />
+        <div>
+            <input name="newCssFiles" type="text" ng-model="newItem.cssfile" ng-text-change="analysing = 'init'" val-highlight="{{newItemFormErrors.cssfile}}" />
+            <umb-button action="extractStyles(newItem)"
+                        type="button"
+                        button-style="info"
+                        state="analysing"
+                        label="Analyse"
+                        disabled="!newItem.cssfile">
+            </umb-button>
+            <!--<button ng-show="newItem.cssfiles" ng-click="extractStyles(newItem)" prevent-default>Analyse</button>-->
+            <input name="newExtractedStyles" type="hidden" ng-model="newItem.extractedStyles" />
+            <p><small>Extracted styles: {{newItem.extractedStyles.length}}</small></p>
+            <p ng-show="newItemFormErrors.extractedStyles" style="color: red;">There are not extracted styles</p>
+        </div>
+        <umb-button action="addNewItem()"
+                    type="button"
+                    button-style="success"
+                    label="Add package"
+                    disabled="newItem.extractedStyles.length <= 0">
+        </umb-button>
+        <button class="btn umb-button__button btn-warning" ng-click="hideItemForm()" prevent-default>Cancel</button>
+    </div>
+</section>
