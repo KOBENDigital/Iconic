@@ -9,11 +9,10 @@
                     <div class="umb-node-preview__description">Styles: {{item.extractedStyles.length}}</div>
                 </div>
                 <div class="umb-node-preview__actions">
-                    <a href class="umb-node-preview__action umb-node-preview__action--red" ng-click="removeItem(item)" prevent-default>Remove</a>
+                    <a href class="umb-node-preview__action umb-node-preview__action--red" ng-click="removeItem($index)" prevent-default>Remove</a>
                 </div>
             </div>
-            <div class="koben-iconic__params_panelbody control-group" ng-show="currentItem == item">
-                <p><strong>Alias: </strong>{{item.alias}}</p>
+            <div class="koben-iconic__params_panelbody control-group" ng-show="currentItem == item">                
                 <p><strong>Name: </strong>{{item.name}}</p>
                 <p><strong>Extra classes: </strong>{{item.extraClasses}} </p>
                 <p><strong>Selector: </strong>{{item.selector}}</p>
@@ -28,10 +27,6 @@
     <div class="koben-iconic__params_add-new-form control-group" ng-if="showNewItemForm">
         <div>
             <h3>Add new package</h3>
-        </div>
-        <div class="koben-iconic__params_input_group">
-            <label>Alias</label><br />
-            <input name="newAlias" type="text" ng-model="newItem.alias" val-highlight="{{newItemFormErrors.alias}}" /><br />
         </div>
         <div class="koben-iconic__params_input_group">
             <label for="newName">Name</label><br />

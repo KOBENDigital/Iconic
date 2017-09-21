@@ -26,8 +26,7 @@
         $scope.pckg;
              
         $scope.overlay = {
-            view: "/app_plugins/iconic/views/iconic.dialog.html",
-            show: true,
+            view: "/app_plugins/iconic/views/iconic.dialog.html",            
             title: "Select and icon",
             hideSubmitButton: true,
             submit: $scope.selectIcon,

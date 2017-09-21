@@ -17,7 +17,6 @@
         if (!angular.isArray($scope.model.value)) $scope.model.value = [];
         $scope.newItemFormErrors = []; //remove errors
 
-        if (!$scope.newItem.alias) $scope.newItemFormErrors.alias = true;
         if (!$scope.newItem.name) $scope.newItemFormErrors.name = true;
         if (!$scope.newItem.selector) $scope.newItemFormErrors.selector = true;
         if (!$scope.newItem.cssfile) $scope.newItemFormErrors.cssfile = true;
@@ -25,6 +24,7 @@
 
         if (Object.keys($scope.newItemFormErrors).length > 0) return;
 
+        $scope.newItem.alias = uuid();
         $scope.model.value.push(angular.copy($scope.newItem));
         $scope.newItem = {};
     }
@@ -36,11 +36,8 @@
             $scope.currentItem = item;
     }
 
-    $scope.removeItem = function (item) {
-
-        $scope.model.value = _.reject($scope.model.value, function (x) {
-            return x.alias === item.alias;
-        });
+    $scope.removeItem = function (index) {
+        $scope.model.value.splice(index, 1);
     }
 
     $scope.hideItemForm = function () {
@@ -58,7 +55,7 @@
             return;
         }
 
-        
+
         $http.get(item.cssfile).success(function (data) {
             item.extractedStyles = [];
             var pattern = new RegExp(item.selector, 'g');
@@ -70,22 +67,32 @@
             }
 
             if (item.extractedStyles.length > 0) {
-
-                assetsService.loadCss(item.cssfile).then(function () {
-                    $scope.analysing = "success";
-                });
+                $scope.analysing = "success";
             } else {
                 $scope.analysing = "error";
                 //if matches are 0 it's probably because the regex is wrong.
                 $scope.newItemFormErrors.selector = true;
                 return;
-                
+
             }
 
         }).error(function (response) {
             $scope.analysing = "error";
         })
 
+    }
+
+    function uuid() {
+        var uuid = "", i, random;
+        for (i = 0; i < 32; i++) {
+            random = Math.random() * 16 | 0;
+
+            if (i == 8 || i == 12 || i == 16 || i == 20) {
+                uuid += "-"
+            }
+            uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
+        }
+        return uuid;
     }
 
     //$scope.model.value = [{
