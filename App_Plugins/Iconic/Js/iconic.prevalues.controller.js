@@ -1,4 +1,4 @@
-﻿angular.module("umbraco").controller("Koben.IconPicker.Prevalues.Packages", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
+﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
 
     $scope.newItem = {
         alias: "",

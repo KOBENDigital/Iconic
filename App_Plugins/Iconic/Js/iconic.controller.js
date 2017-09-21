@@ -1,5 +1,5 @@
 ﻿angular.module("umbraco")
-    .controller("Koben.IconPicker.Controller", ['$scope', 'dialogService', 'assetsService', function ($scope, dialogService, assetsService) {
+    .controller("Koben.Iconic.Controller", ['$scope', 'dialogService', 'assetsService', function ($scope, dialogService, assetsService) {
 
         //--------- NOTES: -----------------
         //
@@ -26,7 +26,7 @@
         $scope.pckg;
              
         $scope.overlay = {
-            view: "/app_plugins/koben/iconpicker/iconpicker.dialog.html",
+            view: "/app_plugins/iconic/views/iconic.dialog.html",
             show: true,
             title: "Select and icon",
             hideSubmitButton: true,

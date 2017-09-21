@@ -1,4 +1,4 @@
-﻿<div class="koben-iconpicker__container" ng-controller="Koben.IconPicker.Controller">
+﻿<div class="koben-iconic__container" ng-controller="Koben.Iconic.Controller">
 
     <div class="umb-panel-header-icon " ng-click="overlay.show = true"
          ng-class="{'-placeholder': model.value===null ||model.value===''}"
@@ -7,7 +7,7 @@
         <umb-load-indicator ng-if="loading"></umb-load-indicator>
 
     </div>
-    <p ng-if="modelIsValid" class="koben-iconpicker__remove"><small><a href ng-click="removeIcon()" prevent-default>Remove</a></small></p>
+    <p ng-if="modelIsValid" class="koben-iconic__remove"><small><a href ng-click="removeIcon()" prevent-default>Remove</a></small></p>
     <umb-overlay ng-if="overlay.show"
                  model="overlay"
                  view="overlay.view"
