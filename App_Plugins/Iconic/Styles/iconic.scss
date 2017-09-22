@@ -30,7 +30,7 @@
         padding: 15px;
         background-color: #fbfbfb;
 
-        input {
+        input[type="text"] {
             width: 100%;
         }
     }
@@ -39,4 +39,11 @@
         margin-bottom: 15px;
     }
    
+}
+
+.group-horizontal{
+    display: flex;
+    & *{
+        margin-right: 1em;
+    }
 }
