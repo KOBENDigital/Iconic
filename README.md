@@ -49,8 +49,8 @@ You can add as many packages you like. You can also arrange their order or remov
 
 ### Using the DataType
 Once you have configured your datatype, you can use it as a property editor.
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/select-editor.png" width="300" alt="Create property" >
 
+<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/select-editor.png" width="300" alt="Create property" >
 
 To add or modify your icon just click on the placeholder, this will open a dialog where you can select form your configured packages. Once a package is selected, all the icons will be displayed below.
 <img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/using-iconic.png" width="600" alt="Using Iconic" >
