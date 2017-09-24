@@ -1,5 +1,5 @@
 # Iconic
-The ultimate icon picker for Umbraco (hopefully)
+Highly configurable icon picker for Umbraco.
 
 ## Introduction
 With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will  be able to select your icon from more than one package on the same property.
@@ -68,6 +68,9 @@ Remember to wrap the icon in Html.Raw so Razor displays the returned html proper
 
 ### Glyphicons
 If you try to use Glyphicons as part of the Bootstrap package, you will realise that the whole css file will be loaded on your backoffice. This might brake some of the backoffice functionality, i.e. buttons or the grid editor. To avoid this you should export the Glyphicons classes into their own separate file. You can do this from [this link](https://getbootstrap.com/docs/3.3/customize/) and select only Glyphicons from the **Components** section.
+
+### Ligatures
+Ligatures are not currently supported. Some packages like Material Icons are not supported.
 
 ---
 
