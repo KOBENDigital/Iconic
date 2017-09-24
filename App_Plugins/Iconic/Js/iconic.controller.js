@@ -14,7 +14,7 @@
         //     alias: "alias",
         //     name: "package name",
         //     selector: "regex to extract the classes from css file",
-        //     extraClasses: "add any extra classes apart of the specific one that the icon needs to be display"
+        //     template: "template",
         //     cssfile: "url to the css file"
         // }]
         //
@@ -24,15 +24,30 @@
 
         //it will store the package selected if any
         $scope.pckg;
-             
-        
-
+        $scope.modelIsValid = false;
+        $scope.icon;
+                    
         $scope.selectIcon = function (model) {
-            if (model.pickerData.style && model.pickerData.packageAlias) {
+            if (model.pickerData.iconStyle && model.pickerData.packageId) {
+                $scope.pckg = loadPackage(config.packages, model.pickerData.packageId);
                 $scope.model.value = model.pickerData;
+                $scope.model.value.iconDisplay = parseIconTemplate($scope.pckg.template, $scope.model.value.iconStyle);
                 $scope.modelIsValid = true;
+            } else {
+                $scope.modelIsValid = false;
             }
             
+        }
+
+
+        $scope.displayIcon = function (icon) {
+            if ($scope.modelIsValid) {
+                return parseIconTemplate($scope.pckg.template, icon)
+            }
+        }
+
+        function parseIconTemplate(template, icon) {
+            return template.replace("{icon}", icon);
         }
 
         $scope.removeIcon = function () {
@@ -48,25 +63,28 @@
             close: function () {
                 $scope.overlay.show = false;                
             },
-            pickerData: $scope.model.value,
+            pickerData: new Icon($scope.model.value.iconStyle,  $scope.model.value.packageId),
             pickerConfig: config
         }
 
 
-        function loadPackage(packages, packageAlias) {
-            return packages.find((el) => el.alias == packageAlias);
+        function loadPackage(packages, packageId) {
+            return packages.find((el) => el.id == packageId);
         }
 
         function initPicker() {
             $scope.loading = true;
             if (!angular.isObject($scope.model.value)) $scope.model.value = {};
 
-            if ($scope.model.value && $scope.model.value.packageAlias && $scope.model.value.style) {
-                $scope.pckg = loadPackage(config.packages, $scope.model.value.packageAlias);
+            if ($scope.model.value && $scope.model.value.packageId && $scope.model.value.iconStyle) {
+                
+                $scope.pckg = loadPackage(config.packages, $scope.model.value.packageId);
                 if ($scope.pckg) {
                     assetsService.loadCss($scope.pckg.cssfile);
                     $scope.modelIsValid = true;
                 }
+            } else {
+                $scope.modelIsValid = false;
             }
             $scope.loading = false;
         }

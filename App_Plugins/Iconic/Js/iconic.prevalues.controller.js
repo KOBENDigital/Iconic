@@ -1,13 +1,6 @@
 ﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
 
-    $scope.newItem = {
-        alias: "",
-        name: "",
-        selector: "",
-        extraClasses: "",
-        cssfile: "",
-        extractedStyles: []
-    }
+    $scope.newItem = new Package();
 
     $scope.currentItem;
     $scope.analysing = "init";
@@ -31,10 +24,12 @@
             return;
         }
 
-        extractStyles($scope.newItem, function () {
-            $scope.newItem.alias = uuid();
+        extractStyles($scope.newItem, function () {            
             $scope.model.value.push(angular.copy($scope.newItem));
-            $scope.newItem = {};
+
+            //restart new item form model
+            $scope.newItem = new Package(); 
+            $scope.showNewItemForm = false;
             $scope.analysing = "success";
         }, function () {
             $scope.newItemFormErrors.selector = true;
@@ -86,42 +81,33 @@
             if (item.extractedStyles.length > 0) {
                 successCallback();
             } else {
+                console.error("Extracted styles are 0");
                 errorCallback();
 
             }
 
         }).error(function (response) {
+            console.error("File couldn't be loaded.");
             errorCallback();
         })
 
     }
 
-    function uuid() {
-        var uuid = "", i, random;
-        for (i = 0; i < 32; i++) {
-            random = Math.random() * 16 | 0;
 
-            if (i == 8 || i == 12 || i == 16 || i == 20) {
-                uuid += "-"
-            }
-            uuid += (i == 12 ? 4 : (i == 16 ? (random & 3 | 8) : random)).toString(16);
-        }
-        return uuid;
-    }
 
     $scope.preconfig = [{
         name: 'Glyphicons',
         selector: '\\.(glyphicon-[\\w-]+):before{',
-        extraClasses: 'glyphicon',
+        template: '<i class="glyphicon {icon}"></i>',
     }, {
         name: 'Font Awesome',
         selector: '\\.(fa-[\\w-]+):before{',
-        extraClasses: 'fa',
+        template: '<i class="fa {icon}"></i>',
     },
     {
         name: 'Foundation Icons',
         selector: '\\.(fi-[\\w-]+):before{',
-        extraClasses: '',
+        template: '<i class="{icon}"></i>',
     }];
 
 

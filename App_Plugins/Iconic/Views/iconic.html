@@ -3,7 +3,8 @@
     <div class="umb-panel-header-icon " ng-click="overlay.show = true"
          ng-class="{'-placeholder': model.value===null ||model.value===''}"
          title="{{model.value.style}}">
-        <i class="{{pckg.extraClasses}} {{model.value.style}}" ng-if="model.value!==null || model.value !==''"></i>
+
+        <span ng-if="modelIsValid" ng-bind-html="displayIcon(model.value.iconStyle)"></span>        
         <umb-load-indicator ng-if="loading"></umb-load-indicator>
 
     </div>

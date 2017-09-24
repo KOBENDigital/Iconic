@@ -13,9 +13,9 @@
                 </div>
             </div>
             <div class="koben-iconic__params_panelbody control-group" ng-show="currentItem == item">
-                <p><strong>Name: </strong>{{item.name}}</p>
-                <p><strong>Extra classes: </strong>{{item.extraClasses}} </p>
+                <p><strong>Name: </strong>{{item.name}}</p>                
                 <p><strong>Selector: </strong>{{item.selector}}</p>
+                <p><strong>Template: </strong>{{item.template}} </p>
                 <p><strong>Css file: </strong>{{item.cssfile}}</p>
                 <p>Extracted styles: {{item.extractedStyles.length}}</p>
             </div>
@@ -48,8 +48,8 @@
             <input name="newSelector" type="text" ng-model="newItem.selector" val-highlight="{{newItemFormErrors.selector}}"><br />
         </div>
         <div class="koben-iconic__params_input_group">
-            <label for="newExtraClasses">Extra Classes</label><br />
-            <input name="newExtraClasses" type="text" ng-model="newItem.extraClasses" /><br />
+            <label for="newExtraClasses">Template</label><br />
+            <input name="newExtraClasses" type="text" ng-model="newItem.template" /><br />
         </div>
         <div class="koben-iconic__params_input_group">
             <label for="newCssFiles">Css file</label><br />

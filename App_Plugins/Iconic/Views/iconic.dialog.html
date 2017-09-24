@@ -18,7 +18,7 @@
 
     <div class="umb-control-group">
         <select class="input-block-level" ng-model="pckgselected"
-                                        ng-change="loadPackage()"
+                                        ng-change="loadPackage(pckgselected)"
                                         ng-options="p as p.name for p in packages">
             <option value="">Select an option...</option>
         </select>  
@@ -29,8 +29,7 @@
     <div class="umb-control-group" ng-show="!loading && filtered.length > 0">
         <ul class="umb-iconpicker" ng-show="pckgselected.extractedStyles">
             <li class="umb-iconpicker-item" ng-repeat="icon in filtered = (pckgselected.extractedStyles | filter: searchTerm) track by $index">
-                <a href="#" title="{{icon}}" ng-click="selectIcon(icon)" prevent-default>
-                    <i class="{{pckgselected.extraClasses}} {{icon}}"></i>
+                <a href="#" title="{{icon}}" ng-click="selectIcon(icon)" ng-bind-html="displayIcon(icon)" prevent-default>                                        
                 </a>
             </li>
         </ul>
