@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Mario Lopez</authors>
+    <owners>KØBEN digital</owners>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/KOBENDigital/Iconic</projectUrl>
+    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      <![CDATA[Highly configurable icon picker for Umbraco. With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.</description>
+    <releaseNotes>Support for css based font packages. ]]>
+    </description>
+    <releaseNotes>
+      <![CDATA[Highly configurable icon picker for Umbraco. With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.</description>
+    <releaseNotes>Support for css based font packages. ]]>
+    </description>
+    <tags>Iconic Umbraco icon picker editor backoffice</tags>
+    <dependencies>
+      <dependency id="UmbracoCms.Core" version="[7.7,]" />
+    </dependencies>
+  </metadata>
+
+</package>

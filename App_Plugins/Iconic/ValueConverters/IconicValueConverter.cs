@@ -7,7 +7,7 @@ using System.Web;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.PropertyEditors;
 
-namespace KobenUmbracoTests.App_Plugins.Iconic.ValueConverters
+namespace Koben.Iconic.ValueConverters
 {
     [PropertyValueType(typeof(HtmlString))]
     [PropertyValueCache(PropertyCacheValue.All, PropertyCacheLevel.Content)]
@@ -21,7 +21,7 @@ namespace KobenUmbracoTests.App_Plugins.Iconic.ValueConverters
 
         public override object ConvertSourceToObject(PublishedPropertyType propertyType, object source, bool preview)
         {
-            if (String.IsNullOrEmpty((string)source)) return String.Empty;
+            if (source == null) return string.Empty;
             var obj = JObject.Parse((string)source);
             return new HtmlString(obj["iconDisplay"].ToString());
         }

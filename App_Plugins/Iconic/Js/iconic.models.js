@@ -1,8 +1,8 @@
 ﻿class Icon {
     constructor(iconStyle, packageId, iconDisplay) {
-        this.iconDisplay = iconDisplay;
-        this.iconStyle = iconStyle;
-        this.packageId = packageId;
+        this.iconDisplay = iconDisplay || "";
+        this.iconStyle = iconStyle || "";
+        this.packageId = packageId || "";
     }
 }
 
