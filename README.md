@@ -30,8 +30,9 @@ At this point I would recommend you to save your datatype as the configuration c
 ### Iconic Configuration
 On the Packages Configuration property, click the Add button. This will display a new form that you will use to configure your new font package.
 1. Enter the name for your package
-2. Create your selector. This will use regex to extract your icons css from the font package.
-3. Path to your font package css file.
+2. Create your selector. This will use regex to extract your icons from the font package.
+3. Select your icons source file. More info below.
+3. Path to your font package css file. This file will be used only on the backoffice.
     * You can use absolute paths: http:\\www.yoursite.com\sytles\fonts\my-font-package.css. This allows you to use external files,  like the ones from a CDN.
     * Or relative to the root: \styles\fonts\my-font-package.css
  4. Template. This will be the template your icon will be based on. You can use the value {icon} as placeholder for your icon specific css rule. For instance =, for Font Awesome you should enter something like: <i class="fa {icon}"></i>
@@ -39,6 +40,17 @@ On the Packages Configuration property, click the Add button. This will display 
 
 <img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPackage.png" width="600" alt="Add package" >
 
+
+#### Icons source file
+Some packages like Font Awesome use css rules to apply the specific icon:
+```
+<i class="fa fa-glass"></i>
+```
+
+Other packages like Material Icons use the glyph codes or even ligatures to display the icon instead a specific css selector. So this file can be the same css file or another files use to extrac the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
+```
+<i class="material-icons">alarm</i>
+```
 
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
@@ -69,8 +81,6 @@ Remember to wrap the icon in Html.Raw so Razor displays the returned html proper
 ### Glyphicons
 If you try to use Glyphicons as part of the Bootstrap package, you will realise that the whole css file will be loaded on your backoffice. This might brake some of the backoffice functionality, i.e. buttons or the grid editor. To avoid this you should export the Glyphicons classes into their own separate file. You can do this from [this link](https://getbootstrap.com/docs/3.3/customize/) and select only Glyphicons from the **Components** section.
 
-### Material Icons
-Some packages like Material Icons are not currently supported. This is because it doesn't use css classes to display the font characters and the pluign doesn't support character extraction from the font file.
 
 ---
 

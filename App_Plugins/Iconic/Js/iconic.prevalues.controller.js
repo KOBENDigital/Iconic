@@ -68,7 +68,7 @@
             errorCallback();
         }
 
-        $http.get(item.cssfile).success(function (data) {
+        $http.get(item.sourcefile).success(function (data) {
             item.extractedStyles = [];
             var pattern = new RegExp(item.selector, 'g');
 
@@ -108,6 +108,11 @@
         name: 'Foundation Icons',
         selector: '\\.(fi-[\\w-]+):before{',
         template: '<i class="{icon}"></i>',
+    },
+    {
+        name: 'Material Icons',
+        selector: '([\\w_]+)\\se',
+        template: '<i class="material-icons">{icon}</i>'
     }];
 
 

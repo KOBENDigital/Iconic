@@ -45,17 +45,25 @@
             <input name="newName" type="text" ng-model="newItem.name" val-highlight="{{newItemFormErrors.name}}"><br />
         </div>
         <div class="koben-iconic__params_input_group">
-            <label for="newSelector">Selector</label><br />
-            <input name="newSelector" type="text" ng-model="newItem.selector" val-highlight="{{newItemFormErrors.selector}}"><br />
-        </div>
-        <div class="koben-iconic__params_input_group">
             <label for="newExtraClasses">Template</label><br />
             <input name="newExtraClasses" type="text" ng-model="newItem.template" /><br />
         </div>
+        
         <div class="koben-iconic__params_input_group">
-            <label for="newCssFiles">Css file</label><br />
-            <input name="newCssFiles" type="text" ng-model="newItem.cssfile" ng-text-change="analysing = 'init'" val-highlight="{{newItemFormErrors.cssfile}}" />
+            <label for="newCssFile">Css file</label><br />
+            <input name="newCssFile" type="text" ng-model="newItem.cssfile" ng-text-change="analysing = 'init'" val-highlight="{{newItemFormErrors.cssfile}}" />
         </div>
+        <fieldset>
+            <legend>Icons</legend>
+            <div class="koben-iconic__params_input_group">
+                <label for="newSelector">Selector</label><br />
+                <input name="newSelector" type="text" ng-model="newItem.selector" val-highlight="{{newItemFormErrors.selector}}"><br />
+            </div>
+            <div class="koben-iconic__params_input_group">
+                <label for="newSourceFile">Source file</label><br />
+                <input name="newSourceFile" type="text" ng-model="newItem.sourcefile" ng-text-change="analysing = 'init'" val-highlight="{{newItemFormErrors.cssfile}}" />
+            </div>
+        </fieldset>
         <umb-button action="addNewItem()"
                     type="button"
                     button-style="success"
