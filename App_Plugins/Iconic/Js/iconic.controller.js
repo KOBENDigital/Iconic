@@ -1,25 +1,5 @@
 ﻿angular.module("umbraco")
     .controller("Koben.Iconic.Controller", ['$scope', 'dialogService', 'assetsService', function ($scope, dialogService, assetsService) {
-
-        //--------- NOTES: -----------------
-        //
-        //// It accepts a value as:
-        // model.value = {
-        //     packageAlias: "alias",
-        //     style: "selected style"
-        //}
-
-        ////and config
-        // model.value.config.packages = [{
-        //     alias: "alias",
-        //     name: "package name",
-        //     selector: "regex to extract the classes from css file",
-        //     template: "template",
-        //     cssfile: "url to the css file"
-        // }]
-        //
-        //----------------------------------
-
         var config = $scope.model.config;
 
         //it will store the package selected if any

@@ -3,39 +3,30 @@
     $scope.newItem = new Package();
 
     $scope.currentItem;
-    $scope.analysing = "init";
-    $scope.newItemFormErrors = [];
+    $scope.analysing = "init";    
     $scope.configType = "custom";
     $scope.selectedPreConfig = {};
 
-    $scope.addNewItem = function () {
+    if (!angular.isArray($scope.model.value)) $scope.model.value = [];
 
-        $scope.analysing = "busy";
 
-        if (!angular.isArray($scope.model.value)) $scope.model.value = [];
-        $scope.newItemFormErrors = []; //remove errors
+    $scope.addNewItem = function (formValid) {
 
-        if (!$scope.newItem.name) $scope.newItemFormErrors.name = true;
-        if (!$scope.newItem.selector) $scope.newItemFormErrors.selector = true;
-        if (!$scope.newItem.cssfile) $scope.newItemFormErrors.cssfile = true;
+        if (formValid) {
+            $scope.analysing = "busy";
 
-        if (Object.keys($scope.newItemFormErrors).length > 0) {
-            $scope.analysing = "error";
-            return;
+            extractStyles($scope.newItem, function () {
+                $scope.model.value.push(angular.copy($scope.newItem));
+
+                //restart new item form model
+                $scope.newItem = new Package();
+                $scope.showNewItemForm = false;
+                $scope.analysing = "success";
+            }, function () {                                
+                $scope.analysing = "error";
+            });
+
         }
-
-        extractStyles($scope.newItem, function () {            
-            $scope.model.value.push(angular.copy($scope.newItem));
-
-            //restart new item form model
-            $scope.newItem = new Package(); 
-            $scope.showNewItemForm = false;
-            $scope.analysing = "success";
-        }, function () {
-            $scope.newItemFormErrors.selector = true;
-            $scope.newItemFormErrors.cssfile = true;
-            $scope.analysing = "error";
-        });
 
     }
 
