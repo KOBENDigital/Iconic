@@ -1,11 +1,13 @@
-﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
+﻿
+angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
 
     $scope.newItem = new Package();
 
     $scope.currentItem;
-    $scope.analysing = "init";    
+    $scope.analysing = "init";
     $scope.configType = "custom";
     $scope.selectedPreConfig = {};
+
 
     if (!angular.isArray($scope.model.value)) $scope.model.value = [];
 
@@ -22,12 +24,27 @@
                 $scope.newItem = new Package();
                 $scope.showNewItemForm = false;
                 $scope.analysing = "success";
-            }, function () {                                
+            }, function () {
                 $scope.analysing = "error";
             });
 
         }
 
+    }
+
+    $scope.submitEditPackage = function (item, formIsValid) {
+        if (formIsValid) {
+            extractStyles(item, function () {
+                $scope.$apply = function () {
+                    $scope.analysing = "success";
+                    $scope.editPackage = false;
+                }
+            }, function () {
+                $scope.$apply = function () {
+                    $scope.analysing = "error";
+                }
+            });
+        }
     }
 
 
@@ -58,6 +75,8 @@
         if (!item.selector || item.selector.length <= 0) {
             errorCallback();
         }
+
+        if (!item.sourcefile) item.sourcefile = item.cssfile;
 
         $http.get(item.sourcefile).success(function (data) {
             item.extractedStyles = [];

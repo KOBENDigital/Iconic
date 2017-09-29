@@ -12,12 +12,56 @@
                     <a href class="umb-node-preview__action umb-node-preview__action--red" ng-click="removeItem($index)" prevent-default>Remove</a>
                 </div>
             </div>
-            <div class="koben-iconic__params_panelbody control-group" ng-if="currentItem == item" ng-form="editItem">
-                <p><strong>Name: </strong>{{item.name}}</p>
-                <p><strong>Selector: </strong>{{item.selector}}</p>
-                <p><strong>Template: </strong>{{item.template}} </p>
-                <p><strong>Css file: </strong>{{item.cssfile}}</p>
-                <p>Extracted styles: {{item.extractedStyles.length}}</p>
+            <div class="koben-iconic__params_panelbody control-group" ng-if="currentItem == item">
+                <div ng-show="!editPackage">
+                    <p><strong>Name: </strong>{{item.name}}</p>
+                    <p><strong>Selector: </strong>{{item.selector}}</p>
+                    <p><strong>Template: </strong>{{item.template}} </p>
+                    <p><strong>Css file: </strong>{{item.cssfile}}</p>
+                    <p>Extracted styles: {{item.extractedStyles.length}}</p>
+                    <a href ng-click="editPackage = true">Edit</a>
+                </div>
+                <ng-form name="editPackageForm" ng-show="editPackage">
+                    <div ng-show="analysing==='error'">
+                        There was an error extracting icon rules. Please check the files paths and Selector regex.
+                    </div>
+                    <div class="koben-iconic__params_input_group">
+                        <label for="editName">Name</label><br />
+                        <input name="editName" type="text" ng-model="item.name" val-highlight="{{editPackageForm.editName.$error}}" required>
+                        <p ng-show="editPackageForm.editName.$error.required && editPackageForm.editName.$dirty">Please enter a name</p>
+                    </div>
+                    <div class="koben-iconic__params_input_group">
+                        <label for="editTemplate">Template</label><br />
+                        <input name="editTemplate" type="text" ng-model="item.template" val-highlight="{{editPackageForm.editTemplate.$invalid}}" required />
+                        <p ng-show="editPackageForm.editTemplate.$error.required && editPackageForm.editTemplate.$dirty">Please enter a name</p>
+                    </div>
+
+                    <div class="koben-iconic__params_input_group">
+                        <label for="editCssFile">Css file</label><br />
+                        <input name="editCssFile" type="text" ng-model="item.cssfile" ng-text-change="analysing = 'init'" val-highlight="{{editPackageForm.editCssFile.$invalid}}" required />
+                        <p ng-show="editPackageForm.editCssFile.$error.required && editPackageForm.editCssFile.$dirty">Please select a css file</p>
+                    </div>
+                    <fieldset>
+                        <legend>Icons</legend>
+                        <div class="koben-iconic__params_input_group">
+                            <label for="editSelector">Selector</label><br />
+                            <input name="editSelector" type="text" ng-model="item.selector" val-highlight="{{editPackageForm.editSelector.$invalid}}" required>
+                            <p ng-show="editPackageForm.editSelector.$error.required && editPackageForm.editSelector.$dirty">Please enter a selector</p>
+                        </div>
+                        <div class="koben-iconic__params_input_group">
+                            <label for="editSourceFile">Source file</label><br />
+                            <input name="editSourceFile" type="text" ng-model="item.sourcefile" ng-text-change="analysing = 'init'" val-highlight="{{itemFormErrors.cssfile.$invalid}}" />
+                        </div>
+                    </fieldset>
+                    <umb-button action="submitEditPackage(item, editPackageForm.$valid)"
+                                type="button"
+                                button-style="success"
+                                label="Save"
+                                state="analysing"
+                                disabled="editPackageForm.$invalid">
+                    </umb-button>
+                    <a href ng-click="editPackage = false" prevent-default>Cancel</a>
+                </ng-form>
             </div>
         </div>
     </div>
@@ -75,7 +119,7 @@
                     button-style="success"
                     label="Add package"
                     state="analysing"
-                    disabled="newPackageForm.$invalid">
+                    disabled="newPackageForm.$invalid">s
         </umb-button>
         <button class="btn umb-button__button btn-warning" ng-click="hideItemForm()" prevent-default>Cancel</button>
     </div>
