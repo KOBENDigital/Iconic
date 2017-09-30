@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="koben-iconic__params_panelbody control-group" ng-if="data.selectedItem == item">
-                <div ng-show="data.editPackage == false">
+                <div ng-show="!data.editPackage">
                     <p><strong>Name: </strong>{{item.name}}</p>
                     <p><strong>Selector: </strong>{{item.selector}}</p>
                     <p><strong>Template: </strong>{{item.template}} </p>
@@ -25,7 +25,7 @@
                                 icon="icon-edit"
                                 state="data.analysing"
                                 label="Edit package"></div>
-                <ng-form name="editPackageForm" ng-show="data.editPackage == true">
+                <ng-form name="editPackageForm" ng-show="data.editPackage">
                    
                     <div ng-show="data.analysing==='error'">
                         There was an error extracting icon rules. Please check the files paths and Selector regex.
@@ -76,10 +76,10 @@
             </div>
         </div>
     </div>
-    <a href class="umb-node-preview-add" ng-click="showNewItemForm = true" prevent-default>
+    <a href class="umb-node-preview-add" ng-click="data.showNewItemForm = true" prevent-default>
         <localize key="general_add">Add</localize>
     </a>
-    <div class="koben-iconic__params_add-new-form control-group" ng-if="showNewItemForm" ng-form="newPackageForm">
+    <div class="koben-iconic__params_add-new-form control-group" ng-if="data.showNewItemForm" ng-form="newPackageForm">
         <div>
             <h3>Add new package</h3>
         </div>
@@ -99,30 +99,30 @@
         </div>
         <div class="koben-iconic__params_input_group">
             <label for="newName">Name</label><br />
-            <input name="newName" type="text" ng-model="newItem.name" val-highlight="{{newPackageForm.newName.$error}}" required>
+            <input name="newName" type="text" ng-model="newItem.name" val-highlight="{{newPackageForm.newName.$invalid && newPackageForm.newName.$dirty}}" required>
             <p ng-show="newPackageForm.newName.$error.required && newPackageForm.newName.$dirty" >Please enter a name</p>
         </div>
         <div class="koben-iconic__params_input_group">
             <label for="newTemplate">Template</label><br />
-            <input name="newTemplate" type="text" ng-model="newItem.template" val-highlight="{{newPackageForm.newTemplate.$invalid}}" required />
+            <input name="newTemplate" type="text" ng-model="newItem.template" val-highlight="{{newPackageForm.newTemplate.$dirty && newPackageForm.newTemplate.$invalid}}" required />
             <p ng-show="newPackageForm.newTemplate.$error.required && newPackageForm.newTemplate.$dirty">Please enter a name</p>
         </div>
 
         <div class="koben-iconic__params_input_group">
             <label for="newCssFile">Css file</label><br />
-            <input name="newCssFile" type="text" ng-model="newItem.cssfile" ng-text-change="data.analysing = 'init'" val-highlight="{{newPackageForm.newCssFile.$invalid}}" required />
+            <input name="newCssFile" type="text" ng-model="newItem.cssfile" ng-text-change="data.analysing = 'init'" val-highlight="{{newPackageForm.newCssFile.$invalid && newPackageForm.newCssFile.$dirty}}" required />
             <p ng-show="newPackageForm.newCssFile.$error.required && newPackageForm.newCssFile.$dirty">Please select a css file</p>
         </div>
         <fieldset>
             <legend>Icons</legend>
             <div class="koben-iconic__params_input_group">
                 <label for="newSelector">Selector</label><br />
-                <input name="newSelector" type="text" ng-model="newItem.selector" val-highlight="{{newPackageForm.newSelector.$invalid}}" required>
+                <input name="newSelector" type="text" ng-model="newItem.selector" val-highlight="{{newPackageForm.newSelector.$invalid && newPackageForm.newSelector.$dirty}}" required>
                 <p ng-show="newPackageForm.newSelector.$error.required && newPackageForm.newSelector.$dirty">Please enter a selector</p>
             </div>
             <div class="koben-iconic__params_input_group">
                 <label for="newSourceFile">Source file</label><br />
-                <input name="newSourceFile" type="text" ng-model="newItem.sourcefile" ng-text-change="data.analysing = 'init'" val-highlight="{{newItemFormErrors.cssfile.$invalid}}" />
+                <input name="newSourceFile" type="text" ng-model="newItem.sourcefile" ng-text-change="data.analysing = 'init'" val-highlight="{{newItemFormErrors.cssfile.$invalid && newItemFormErrors.cssfile.$dirty}}" />
             </div>
         </fieldset>
         <umb-button action="addNewItem(newPackageForm.$valid)"
@@ -132,6 +132,6 @@
                     state="data.analysing"
                     disabled="newPackageForm.$invalid">s
         </umb-button>
-        <button class="btn umb-button__button btn-warning" ng-click="hideItemForm()" prevent-default>Cancel</button>
+        <button class="btn umb-button__button btn-warning" ng-click="data.showNewItemForm = false" prevent-default>Cancel</button>
     </div>
 </section>

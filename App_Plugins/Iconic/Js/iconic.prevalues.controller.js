@@ -8,7 +8,8 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         analysing: "init",
         configType: "custom",
         selectedItem: null,
-        selectedPreConfig: null
+        selectedPreConfig: null,
+        showNewItemForm: false
     }
     
     if (!angular.isArray($scope.model.value)) $scope.model.value = [];
@@ -24,7 +25,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
 
                 //restart new item form model
                 $scope.newItem = new Package();
-                $scope.showNewItemForm = false;
+                $scope.data.showNewItemForm = false;
                 $scope.data.analysing = "success";
             }, function () {
                 $scope.data.analysing = "error";
@@ -63,9 +64,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         Object.assign($scope.newItem, config);
     }
 
-    $scope.hideItemForm = function () {
-        $scope.showNewItemForm = false;
-    }
+  
 
 
     function extractStyles(item, successCallback, errorCallback) {
