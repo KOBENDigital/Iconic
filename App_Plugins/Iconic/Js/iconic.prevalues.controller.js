@@ -1,21 +1,23 @@
 ﻿
 angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
 
-    $scope.newItem = new Package();
+    $scope.newItem = new Package();    
 
-    $scope.currentItem;
-    $scope.analysing = "init";
-    $scope.configType = "custom";
-    $scope.selectedPreConfig = {};
-
-
+    $scope.data = {
+        editPackage: false,
+        analysing: "init",
+        configType: "custom",
+        selectedItem: null,
+        selectedPreConfig: null
+    }
+    
     if (!angular.isArray($scope.model.value)) $scope.model.value = [];
 
 
     $scope.addNewItem = function (formValid) {
 
         if (formValid) {
-            $scope.analysing = "busy";
+            $scope.data.analysing = "busy";
 
             extractStyles($scope.newItem, function () {
                 $scope.model.value.push(angular.copy($scope.newItem));
@@ -23,9 +25,9 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
                 //restart new item form model
                 $scope.newItem = new Package();
                 $scope.showNewItemForm = false;
-                $scope.analysing = "success";
+                $scope.data.analysing = "success";
             }, function () {
-                $scope.analysing = "error";
+                $scope.data.analysing = "error";
             });
 
         }
@@ -35,24 +37,20 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
     $scope.submitEditPackage = function (item, formIsValid) {
         if (formIsValid) {
             extractStyles(item, function () {
-                $scope.$apply = function () {
-                    $scope.analysing = "success";
-                    $scope.editPackage = false;
-                }
+                $scope.data.analysing = "success";
+                $scope.data.editPackage = false;
             }, function () {
-                $scope.$apply = function () {
-                    $scope.analysing = "error";
-                }
+                $scope.data.analysing = "error";
             });
         }
     }
 
 
     $scope.selectItem = function (item) {
-        if ($scope.currentItem === item)
-            $scope.currentItem = null;
+        if ($scope.data.selectedItem === item)
+            $scope.data.selectedItem = null;
         else
-            $scope.currentItem = item;
+            $scope.data.selectedItem = item;
     }
 
     $scope.removeItem = function (index) {

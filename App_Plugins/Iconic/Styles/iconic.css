@@ -18,10 +18,10 @@
     margin-top: 15px;
     padding: 15px;
     background-color: #fbfbfb; }
-    .koben-iconic__params_add-new-form input[type="text"] {
-      width: 100%; }
   .koben-iconic__params_input_group {
     margin-bottom: 15px; }
+    .koben-iconic__params_input_group input[type="text"] {
+      width: 100%; }
 
 .group-horizontal {
   display: flex; }

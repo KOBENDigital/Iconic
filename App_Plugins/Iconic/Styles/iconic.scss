@@ -29,16 +29,16 @@
         margin-top: 15px;
         padding: 15px;
         background-color: #fbfbfb;
+    }
+
+
+    &_input_group {
+        margin-bottom: 15px;
 
         input[type="text"] {
             width: 100%;
         }
     }
-
-    &_input_group {
-        margin-bottom: 15px;
-    }
-   
 }
 
 .group-horizontal{
