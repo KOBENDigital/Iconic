@@ -18,7 +18,8 @@
                     <p><strong>Selector: </strong>{{item.selector}}</p>
                     <p><strong>Template: </strong>{{item.template}} </p>
                     <p><strong>Css file: </strong>{{item.cssfile}}</p>
-                    <p>Extracted styles: {{item.extractedStyles.length}}</p>                    
+                    <p>Extracted styles: {{item.extractedStyles.length}}</p>    
+                <p>Demo: <span ng-bind-html="displayIcon(model.value.iconStyle)"></span></p>
                     <umb-button action="data.editPackage = true"
                                 type="button"
                                 button-style="link"

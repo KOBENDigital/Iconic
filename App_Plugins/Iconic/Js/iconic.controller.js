@@ -10,24 +10,12 @@
         $scope.selectIcon = function (model) {
             if (model.pickerData.iconStyle && model.pickerData.packageId) {
                 $scope.pckg = loadPackage(config.packages, model.pickerData.packageId);
-                $scope.model.value = model.pickerData;
-                $scope.model.value.iconDisplay = parseIconTemplate($scope.pckg.template, $scope.model.value.iconStyle);
+                $scope.model.value = model.pickerData;                
                 $scope.modelIsValid = true;
             } else {
                 $scope.modelIsValid = false;
             }
             
-        }
-
-
-        $scope.displayIcon = function (icon) {
-            if ($scope.modelIsValid) {
-                return parseIconTemplate($scope.pckg.template, icon)
-            }
-        }
-
-        function parseIconTemplate(template, icon) {
-            return template.replace("{icon}", icon);
         }
 
         $scope.removeIcon = function () {
@@ -43,7 +31,7 @@
             close: function () {
                 $scope.overlay.show = false;                
             },
-            pickerData: new Icon($scope.model.value.iconStyle,  $scope.model.value.packageId),
+            pickerData: $scope.model.value,
             pickerConfig: config
         }
 

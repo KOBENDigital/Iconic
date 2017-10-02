@@ -232,6 +232,7 @@
   <ItemGroup>
     <Content Include="App_Plugins\Iconic\Js\iconic.controller.js" />
     <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.js" />
+    <Content Include="App_Plugins\Iconic\Js\iconic.directives.js" />
     <Content Include="App_Plugins\Iconic\Js\iconic.models.js" />
     <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.js" />
     <Content Include="App_Plugins\Iconic\Styles\iconic.css" />

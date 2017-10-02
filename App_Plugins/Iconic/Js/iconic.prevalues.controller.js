@@ -112,7 +112,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         template: '<i class="fa {icon}"></i>',
     },
     {
-        name: 'Foundation Icons',
+        name: 'Foundation Icons',        
         selector: '\\.(fi-[\\w-]+):before{',
         template: '<i class="{icon}"></i>',
     },
