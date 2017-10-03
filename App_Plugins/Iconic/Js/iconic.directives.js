@@ -1,21 +1,33 @@
 ﻿angular.module("umbraco").directive('iconicIcon', function () {
 
+    var controller = function controller($scope) {
+
+        $scope.$watch('icon', function () {
+            $scope.template = $scope.package.template.replace("{icon}", $scope.icon);
+        })
+
+
+    };
+
+    var link = function ($scope, el, att) {
+        $scope.$watch('icon', function () {
+            el.html($scope.template);
+        });
+    }
+
+
     return {
         restrict: 'E',
         scope: {
-            icon: '=',
-            package: '='
+            icon: '=icon',
+            package: '=package'
         },
-        template: displayIcon
+        controller: controller,
+        link: link
     }
 
-    function displayIcon(el, attr) {
-        console.debug(attr.icon);
-        if (package && icon) {
-            return package.template.replace("{icon}", icon.iconStyle);
-        }
 
-        return "";
-    }
+
+
 
 });

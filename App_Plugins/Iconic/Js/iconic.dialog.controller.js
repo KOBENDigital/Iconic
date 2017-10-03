@@ -19,9 +19,6 @@
 
         }
 
-        $scope.displayIcon = function (icon) {
-            return $scope.pckgselected.template.replace("{icon}", icon);
-        }
 
 
         $scope.selectIcon = function (icon) {

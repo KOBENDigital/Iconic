@@ -4,7 +4,8 @@
          ng-class="{'-placeholder': model.value===null ||model.value===''}"
          title="{{model.value.style}}">
 
-        <iconic-icon ng-if="modelIsValid" package="pckg" icon="model.value"></iconic-icon>        
+        <iconic-icon ng-if="modelIsValid" package="pckg" icon="model.value.iconStyle">            
+        </iconic-icon>        
         <umb-load-indicator ng-if="loading"></umb-load-indicator>
 
     </div>
