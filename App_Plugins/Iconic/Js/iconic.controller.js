@@ -1,15 +1,14 @@
 ﻿angular.module("umbraco")
     .controller("Koben.Iconic.Controller", ['$scope', 'dialogService', 'assetsService', function ($scope, dialogService, assetsService) {
         var config = $scope.model.config;
-
-        //it will store the package selected if any
+        
         $scope.pckg;
         $scope.modelIsValid = false;
         $scope.icon;
                     
         $scope.selectIcon = function (model) {
             if (model.pickerData.iconStyle && model.pickerData.packageId) {
-                $scope.pckg = loadPackage(config.packages, model.pickerData.packageId);
+                $scope.pckg = loadPackage(config.packages, model.pickerData.packageId);                
                 $scope.model.value = model.pickerData;                
                 $scope.modelIsValid = true;
             } else {
@@ -18,6 +17,7 @@
             
         }
 
+     
         $scope.removeIcon = function () {
             $scope.model.value = {};            
             $scope.modelIsValid = false;
