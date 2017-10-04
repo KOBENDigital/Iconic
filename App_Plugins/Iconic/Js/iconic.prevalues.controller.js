@@ -65,12 +65,20 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
     }
 
   
-
+    function loadPreconfigs() {
+        $http.get("/App_Plugins/Iconic/preconfigs.json").success(function (data) {
+            $scope.preconfig = data.preconfigs;
+        }).error(function (response) {
+            console.error("Preconfigs file couldn't be loaded.");   
+            $scope.iconicError = "Error loading preconfigs file.";
+        });
+    }
 
     function extractStyles(item, successCallback, errorCallback) {
 
         if (!item.selector || item.selector.length <= 0) {
             errorCallback();
+            $scope.iconicError = "Error with selector, please review it.";
         }
 
         if (!item.sourcefile) item.sourcefile = item.cssfile;
@@ -89,38 +97,19 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
                 successCallback();
             } else {
                 console.error("Extracted styles are 0");
+                $scope.iconicError = "There is an error somewhere, the extracted rules are 0.";
                 errorCallback();
 
             }
 
         }).error(function (response) {
             console.error("File couldn't be loaded.");
+            $scope.iconicError = "Error loading the css file.";
             errorCallback();
         })
 
     }
 
-
-
-    $scope.preconfig = [{
-        name: 'Glyphicons',
-        selector: '\\.(glyphicon-[\\w-]+):before{',
-        template: '<i class="glyphicon {icon}"></i>',
-    }, {
-        name: 'Font Awesome',
-        selector: '\\.(fa-[\\w-]+):before{',
-        template: '<i class="fa {icon}"></i>',
-    },
-    {
-        name: 'Foundation Icons',        
-        selector: '\\.(fi-[\\w-]+):before{',
-        template: '<i class="{icon}"></i>',
-    },
-    {
-        name: 'Material Icons',
-        selector: '([\\w_]+)\\se',
-        template: '<i class="material-icons">{icon}</i>'
-    }];
-
+    loadPreconfigs();
 
 }]);

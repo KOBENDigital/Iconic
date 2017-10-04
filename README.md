@@ -30,13 +30,16 @@ At this point I would recommend you to save your datatype as the configuration c
 ### Iconic Configuration
 On the Packages Configuration property, click the Add button. This will display a new form that you will use to configure your new font package.
 1. Enter the name for your package
-2. Create your selector. This will use regex to extract your icons from the font package.
-3. Select your icons source file. More info below.
-3. Path to your font package css file. This file will be used only on the backoffice.
-    * You can use absolute paths: http:\\www.yoursite.com\sytles\fonts\my-font-package.css. This allows you to use external files,  like the ones from a CDN.
+2. Create your selector. This will use regex to extract your icons css from the font package.
+3. Source file path. This file will contains the specific configuration for each icon.
+   To extract the rules the previous regex rule will be used.
+4. Path to your font package css file.
+    * You can use absolute paths: http:\\www.yoursite.com\sytles\fonts\my-font-package.css. This allows you to use external files, like the ones from a CDN.
     * Or relative to the root: \styles\fonts\my-font-package.css
- 4. Template. This will be the template your icon will be based on. You can use the value {icon} as placeholder for your icon specific css rule. For instance =, for Font Awesome you should enter something like: <i class="fa {icon}"></i>
- 5. Click *Add Package* to add the configuration to your packages listing. Before adding the package, Iconic will extract the css rules from the file using the regex selector. Some checking is ran that will let you know if something went wrong with your configuration.
+    This file will be loaded in the head of your backoffice and will affect the whole view so be careful of what you load there. Check the Known Issues section for some more info.
+
+5. Template. This will be the template your icon will be based on. You can use the value {icon} as placeholder for your icon specific rule. For instance, for Font Awesome you should enter something like: <i class="fa {icon}"></i>
+6. Click *Add Package* to add the configuration to your packages listing. Before adding the package, Iconic will extract the css rules from the file using the regex selector. Some checking is ran that will let you know if something went wrong with your configuration.
 
 <img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPackage.png" width="600" alt="Add package" >
 
@@ -44,13 +47,15 @@ On the Packages Configuration property, click the Add button. This will display 
 #### Icons source file
 Some packages like Font Awesome use css rules to apply the specific icon:
 ```
-<i class="fa fa-glass"></i>
+<i class="fa fa-glass"></i> (Template: <i class="fa {icon}"></i>)
 ```
 
-Other packages like Material Icons use the glyph codes or even ligatures to display the icon instead a specific css selector. So this file can be the same css file or another files use to extrac the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
+Other packages like Material Icons use the glyph codes or even ligatures to display the icon instead a specific css selector. 
 ```
-<i class="material-icons">alarm</i>
+<i class="material-icons">alarm</i> (Template: <i class="material-icons">{icon}</i>)
 ```
+So this file can be the same css file or another files use to extrac the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
+
 
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
@@ -58,6 +63,8 @@ To make your life easier I have included some help to configure your packages in
 <img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/font-awesome-config.png" width="600" alt="Pre-configured package" >
 
 You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
+
+*Note*: the regex included in the preconfigs are valid for the minimised versions of them.
 
 ### Using the DataType
 Once you have configured your datatype, you can use it as a property editor.
@@ -80,6 +87,16 @@ Remember to wrap the icon in Html.Raw so Razor displays the returned html proper
 
 ### Glyphicons
 If you try to use Glyphicons as part of the Bootstrap package, you will realise that the whole css file will be loaded on your backoffice. This might brake some of the backoffice functionality, i.e. buttons or the grid editor. To avoid this you should export the Glyphicons classes into their own separate file. You can do this from [this link](https://getbootstrap.com/docs/3.3/customize/) and select only Glyphicons from the **Components** section.
+
+
+# Umbraco Versions
+Iconic has been tested with Umbraco 7.7.1 and 7.7.2.
+
+# Changelog
+- 1.2 - Added preconfig for Material Icons.
+      - Existing packages can be edited.
+      - Icon source file separate from css file.
+      - Forms using better Angular validation.
 
 
 ---
