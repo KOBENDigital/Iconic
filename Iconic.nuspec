@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Koben.Iconic</id>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <title>Iconic</title>
     <authors>Mario Lopez</authors>
     <owners>KØBEN digital</owners>
@@ -22,7 +22,9 @@
     <dependencies>
       <dependency id="UmbracoCms.Core" version="[7,]" />
     </dependencies>
-   
   </metadata>
+  <files>
+    <file src="App_Plugins\**\*.*" target="content\App_Plugins\"/>
+  </files>
  
 </package>
