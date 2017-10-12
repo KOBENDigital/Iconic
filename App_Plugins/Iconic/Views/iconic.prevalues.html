@@ -2,14 +2,14 @@
     <div ng-show="iconicError" class="alert alert-error">{{iconicError}}</div>
     <div ui-sortable="sortableOptions" ng-model="model.value">
         <div ng-repeat="item in model.value">
-            <div class="umb-node-preview">
-                <i class="umb-node-preview__icon icon-navigation handle"></i>
-                <div class="umb-node-preview__content" ng-click="selectItem(item)">
-                    <div class="umb-node-preview__name">{{item.name}}</div>
-                    <div class="umb-node-preview__description">Styles: {{item.extractedStyles.length}}</div>
+            <div class="koben-iconic-preview">
+                <i class="koben-iconic-preview__icon icon-navigation handle"></i>
+                <div class="koben-iconic-preview__content" ng-click="selectItem(item)">
+                    <div class="koben-iconic-preview__name">{{item.name}}</div>
+                    <div class="koben-iconic-preview__description">Styles: {{item.extractedStyles.length}}</div>
                 </div>
-                <div class="umb-node-preview__actions">
-                    <a href class="umb-node-preview__action umb-node-preview__action--red" ng-click="removeItem($index)" prevent-default>Remove</a>
+                <div class="koben-iconic-preview__actions">
+                    <a href class="koben-iconic-preview__action koben-iconic-preview__action--red" ng-click="removeItem($index)" prevent-default>Remove</a>
                 </div>
             </div>
             <div class="koben-iconic__params_panelbody control-group" ng-if="data.selectedItem == item">
@@ -20,13 +20,9 @@
                     <p><strong>Css file: </strong>{{item.cssfile}}</p>
                     <p><strong>Rules source file: </strong>{{item.sourcefile}}</p>
                     <hr />
-                    <p><strong>Extracted styles: </strong>{{item.extractedStyles.length}}</p>                                        
-                    <umb-button action="data.editPackage = true"
-                                type="button"
-                                button-style="link"
-                                icon="icon-edit"
-                                state="data.analysing"
-                                label="Edit package">
+                    <p><strong>Extracted styles: </strong>{{item.extractedStyles.length}}</p>
+
+                    <button class="btn btn-default" href ng-click="data.editPackage = true" prevent-default><i class="icon icon-edit"></i>Edit package</button>
                 </div>
                 <ng-form name="editPackageForm" ng-show="data.editPackage">
 
@@ -58,28 +54,28 @@
                         </div>
                         <div class="koben-iconic__params_input_group">
                             <label for="editSourceFile">Rules source file</label><br />
-                            <input name="editSourceFile" type="text" ng-model="item.sourcefile" ng-text-change="data.analysing = 'init'" val-highlight="{{itemFormErrors.cssfile.$invalid}}" required/>
+                            <input name="editSourceFile" type="text" ng-model="item.sourcefile" ng-text-change="data.analysing = 'init'" val-highlight="{{itemFormErrors.cssfile.$invalid}}" required />
                             <p ng-show="editPackageForm.editSourceFile.$error.required && editPackageForm.editSourceFile.$dirty">Please enter a rules source file</p>
                         </div>
                     </fieldset>
-                    <umb-button action="submitEditPackage(item, editPackageForm.$valid)"
-                                type="button"
-                                button-style="success"
-                                label="Save"
-                                state="data.analysing"
-                                disabled="editPackageForm.$invalid">
-                    </umb-button>
-                    <umb-button action="data.editPackage = false"
-                                type="button"
-                                button-style="link"
-                                label="Cancel">
 
-                    </umb-button>
+
+                    <button ng-click="submitEditPackage(item, editPackageForm.$valid)"
+                            class="btn btn-success"
+                            type="button"
+                            ng-disabled="editPackageForm.$invalid">
+                        {{data.analysing === true ?'Saving...':'Save'}}
+                    </button>
+
+                    <a ng-click="data.editPackage = false"
+                       class="btn btn-danger" href="">Cancel</a>
+
+
                 </ng-form>
             </div>
         </div>
     </div>
-    <a href class="umb-node-preview-add" ng-click="data.showNewItemForm = true" prevent-default>
+    <a href class="koben-iconic-preview-add" ng-click="data.showNewItemForm = true" prevent-default>
         <localize key="general_add">Add</localize>
     </a>
     <div class="koben-iconic__params_add-new-form control-group" ng-if="data.showNewItemForm" ng-form="newPackageForm">
@@ -129,14 +125,15 @@
                 <p ng-show="newPackageForm.newSourceFile.$error.required && newPackageForm.newSourceFile.$dirty">Please enter a selector</p>
             </div>
         </fieldset>
-        <umb-button action="addNewItem(newPackageForm.$valid)"
-                    type="button"
-                    button-style="success"
-                    label="Add package"
-                    state="data.analysing"
-                    disabled="newPackageForm.$invalid">
-            s
-        </umb-button>
-        <button class="btn umb-button__button btn-warning" ng-click="data.showNewItemForm = false" prevent-default>Cancel</button>
+
+        <button ng-click="addNewItem(newPackageForm.$valid)"
+                class="btn btn-success"
+                type="button"
+                ng-disabled="newPackageForm.$invalid">
+            {{data.analysing === true?'Adding...':'Add package'}}
+
+        </button>
+
+        <button href class="btn btn-warning" ng-click="data.showNewItemForm = false" prevent-default>Cancel</button>
     </div>
 </section>

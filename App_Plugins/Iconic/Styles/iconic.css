@@ -3,14 +3,70 @@
 
 .koben-iconic__params {
   width: 40%; }
-  .koben-iconic__params .umb-node-preview {
+  .koben-iconic__params .koben-iconic-preview {
+    padding: 7px 0;
+    display: flex;
     max-width: 100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #787878;
     margin-bottom: 0;
     margin-top: 10px;
     cursor: pointer; }
-  .koben-iconic__params .umb-node-preview-add {
-    max-width: 100%;
-    margin-top: 15px; }
+    .koben-iconic__params .koben-iconic-preview:last-of-type {
+      border-bottom: none;
+      margin-bottom: 7px; }
+    .koben-iconic__params .koben-iconic-preview--sortable {
+      cursor: move; }
+    .koben-iconic__params .koben-iconic-preview--unpublished__icon, .koben-iconic__params .koben-iconic-preview--unpublished__name, .koben-iconic__params .koben-iconic-preview--unpublished__description {
+      opacity: 0.6; }
+    .koben-iconic__params .koben-iconic-preview__icon {
+      display: flex;
+      width: 25px;
+      height: 25px;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      margin-right: 10px;
+      flex: 0 0 auto; }
+    .koben-iconic__params .koben-iconic-preview__content {
+      flex: 1 1 auto;
+      margin-right: 25px; }
+    .koben-iconic__params .koben-iconic-preview__name {
+      color: black;
+      margin-top: 3px; }
+    .koben-iconic__params .koben-iconic-preview__description {
+      font-size: 12px;
+      line-height: 1.5em;
+      color: #ccc; }
+    .koben-iconic__params .koben-iconic-preview__actions {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center; }
+    .koben-iconic__params .koben-iconic-preview__action {
+      margin-left: 5px;
+      margin-right: 5px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #ccc; }
+    .koben-iconic__params .koben-iconic-preview__action:hover {
+      color: turquoise;
+      text-decoration: none;
+      opacity: 1; }
+    .koben-iconic__params .koben-iconic-preview__action--red:hover {
+      color: red; }
+    .koben-iconic__params .koben-iconic-preview-add {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed #ccc;
+      color: turquoise;
+      font-weight: bold;
+      padding: 5px 15px;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-top: 15px; }
+    .koben-iconic__params .koben-iconic-preview-add:hover {
+      color: turquoise; }
   .koben-iconic__params_panelbody {
     background-color: #fbfbfb;
     padding: 15px 0 15px 15px; }

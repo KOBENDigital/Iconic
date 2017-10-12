@@ -7,17 +7,103 @@
 .koben-iconic__params {
     width: 40%;
 
-    .umb-node-preview {
+    .koben-iconic-preview {
+        padding: 7px 0;
+        display: flex;
         max-width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid #787878;
         margin-bottom: 0;
         margin-top: 10px;
         cursor: pointer;
+
+        &:last-of-type {
+            border-bottom: none;
+            margin-bottom: 7px;
+        }
+
+        &--sortable {
+            cursor: move;
+        }
+
+        &--unpublished {
+            &__icon,
+            &__name,
+            &__description {
+                opacity: 0.6;
+            }
+        }
+
+        &__icon {
+            display: flex;
+            width: 25px;
+            height: 25px;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin-right: 10px;
+            flex: 0 0 auto;
+        }
+
+        &__content {
+            flex: 1 1 auto;
+            margin-right: 25px;
+        }
+
+        &__name {
+            color: black;
+            margin-top: 3px;
+        }
+
+        &__description {
+            font-size: 12px;
+            line-height: 1.5em;
+            color: #ccc;
+        }
+
+        &__actions {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+        }
+
+        &__action {
+            margin-left: 5px;
+            margin-right: 5px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        &__action:hover {
+            color: turquoise;
+            text-decoration: none;
+            opacity: 1;
+        }
+
+        &__action--red:hover {
+            color: red;
+        }
+
+        &-add {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #ccc;
+            color: turquoise;
+            font-weight: bold;
+            padding: 5px 15px;
+            max-width: 100%;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+
+        &-add:hover {
+            color: turquoise;
+        }
     }
 
-    .umb-node-preview-add {
-        max-width: 100%;
-        margin-top: 15px;
-    }
+
 
     &_panelbody {
         background-color: #fbfbfb;
