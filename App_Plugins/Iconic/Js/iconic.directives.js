@@ -12,6 +12,7 @@
     var link = function ($scope, el, att) {
         $scope.$watch('icon', function () {
             el.html($scope.template);
+            el.attr('title', $scope.icon);
         });
     }
 

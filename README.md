@@ -7,8 +7,11 @@ With Iconic you will be able to create a property editor that can use virtually 
 ## Installation
 
 ### Nuget
+[![NuGet](https://buildstats.info/nuget/Koben.Iconic)](https://www.nuget.org/packages/Koben.Iconic/)
 
 ### Umbraco Package
+[![Umb](https://img.shields.io/badge/Package-download-green.svg)](https://our.umbraco.org/projects/backoffice-extensions/iconic/)
+
 
 ### Manually
 Download the code and copy it into you App_Plugin folder.
@@ -90,13 +93,17 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 
 
 # Umbraco Versions
-Iconic has been tested with Umbraco 7.7.1 and 7.7.2.
+Iconic has been tested with Umbraco 7.6 and 7.7.
 
 # Changelog
-- 1.2 - Added preconfig for Material Icons.
-      - Existing packages can be edited.
-      - Icon source file separate from css file.
-      - Forms using better Angular validation.
+- 1.2.1  
+    - Shows icon name on editor.
+    
+- 1.2
+    - Added preconfig for Material Icons.
+    - Existing packages can be edited.
+    - Icon source file separate from css file.
+    - Forms using better Angular validation.
 
 
 ---

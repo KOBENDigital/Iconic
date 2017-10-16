@@ -1,15 +1,19 @@
 ﻿<div class="koben-iconic__container" ng-controller="Koben.Iconic.Controller">
-
+    <div ng-if="modelIsValid" class="koben-iconic__remove">
+        <small><em>{{model.value.iconStyle}}</em></small>        
+    </div>
     <div class="umb-panel-header-icon " ng-click="overlay.show = true"
          ng-class="{'-placeholder': model.value===null ||model.value===''}"
          title="{{model.value.style}}">
 
-        <iconic-icon ng-if="modelIsValid" package="pckg" icon="model.value.iconStyle">            
-        </iconic-icon>        
+        <iconic-icon ng-if="modelIsValid" package="pckg" icon="model.value.iconStyle">
+        </iconic-icon>
         <umb-load-indicator ng-if="loading"></umb-load-indicator>
 
     </div>
-    <p ng-if="modelIsValid" class="koben-iconic__remove"><small><a href ng-click="removeIcon()" prevent-default>Remove</a></small></p>
+    <p ng-if="modelIsValid" class="koben-iconic__remove">        
+        <small><a href ng-click="removeIcon()" prevent-default>Remove</a></small>
+    </p>
     <umb-overlay ng-if="overlay.show"
                  model="overlay"
                  view="overlay.view"
