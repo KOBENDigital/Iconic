@@ -16,13 +16,16 @@
 
 
 
-    <div class="umb-control-group">
+    <div class="umb-control-group" ng-if="packages.length > 1">
         <select class="input-block-level" ng-model="pckgselected"
                 ng-change="loadPackage(pckgselected)"
                 ng-options="p as p.name for p in packages">
             <option value="">Select an option...</option>
         </select>
-
+    </div>
+    <div ng-if="packages.length === 1">
+        <h4>{{pckgselected.name}}</h4>
+        <hr />
     </div>
 
     <umb-load-indicator ng-if="loading"></umb-load-indicator>

@@ -3,18 +3,19 @@
     ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
 
         $scope.packages = $scope.model.pickerConfig.packages;
-        $scope.pckgselected = {};
-        
+        $scope.pckgselected;
+
 
         $scope.iconsSize = 16;
         $scope.styles = [];
         $scope.loading = false;
 
-        $scope.loadPackage = function () {
+        $scope.loadPackage = function (pckg) {
             $scope.loading = true;
 
-            assetsService.loadCss($scope.pckgselected.cssfile).then(function () {
+            assetsService.loadCss(pckg.cssfile).then(function () {
                 $scope.loading = false;
+                $scope.pckgselected = pckg;
             });
 
         }
@@ -22,7 +23,7 @@
 
 
         $scope.selectIcon = function (icon) {
-            $scope.model.pickerData = new Icon(icon, $scope.pckgselected.id, parseIconTemplate($scope.pckgselected.template, icon));            
+            $scope.model.pickerData = new Icon(icon, $scope.pckgselected.id, parseIconTemplate($scope.pckgselected.template, icon));
             $scope.submitForm($scope.model); //it passes the model back to the overlay caller
             $scope.closeOverLay();
         }
@@ -32,11 +33,21 @@
         }
 
         function initOverlay() {
+            var pckg;
+
             if ($scope.model.pickerData && $scope.model.pickerData.packageId) {
-                $scope.pckgselected = $scope.model.pickerConfig.packages.find((el) => el.id == $scope.model.pickerData.packageId);
-                $scope.loadPackage();
+                pckg = $scope.model.pickerConfig.packages.find((el) => el.id == $scope.model.pickerData.packageId);
             }
-        }   
+
+            //if there is only one package we select that one, regardless what the stored values says.
+            if ($scope.packages.length === 1) {
+                pckg = $scope.packages[0];
+            }
+
+            if (angular.isObject(pckg)) {
+                $scope.loadPackage(pckg);
+            }
+        }
 
         initOverlay();
 
