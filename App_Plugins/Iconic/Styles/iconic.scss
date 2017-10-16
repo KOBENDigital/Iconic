@@ -19,6 +19,7 @@
         margin-top: 15px;
     }
 
+
     &_panelbody {
         background-color: #fbfbfb;
         padding: 15px 0 15px 15px;
@@ -39,6 +40,12 @@
             width: 100%;
         }
     }
+}
+
+
+.umb-iconpicker-item.selected {
+    border: 1px dashed #808080;
+    background-color: lightyellow;
 }
 
 .group-horizontal{

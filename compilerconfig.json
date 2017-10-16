@@ -2,5 +2,9 @@
   {
     "outputFile": "App_Plugins/Iconic/Styles/iconic.css",
     "inputFile": "App_Plugins/Iconic/Styles/iconic.scss"
+  },
+  {
+    "outputFile": "App_Plugins/Styles/iconic.css",
+    "inputFile": "App_Plugins/Styles/iconic.scss"
   }
 ]

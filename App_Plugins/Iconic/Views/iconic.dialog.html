@@ -1,4 +1,4 @@
-﻿<div class="koben-iconic__dialog" ng-controller="Koben.Iconic.Dialog.Controller">    
+﻿<div class="koben-iconic__dialog" ng-controller="Koben.Iconic.Dialog.Controller">
 
     <div class="umb-control-group">
         <div class="form-search">
@@ -18,25 +18,25 @@
 
     <div class="umb-control-group">
         <select class="input-block-level" ng-model="pckgselected"
-                                        ng-change="loadPackage(pckgselected)"
-                                        ng-options="p as p.name for p in packages">
+                ng-change="loadPackage(pckgselected)"
+                ng-options="p as p.name for p in packages">
             <option value="">Select an option...</option>
-        </select>  
-        
+        </select>
+
     </div>
 
-    <umb-load-indicator ng-if="loading"></umb-load-indicator> 
+    <umb-load-indicator ng-if="loading"></umb-load-indicator>
 
     <div class="umb-control-group" ng-show="!loading && filtered.length > 0">
         <ul class="umb-iconpicker" ng-show="pckgselected.extractedStyles">
-            <li class="umb-iconpicker-item" ng-repeat="icon in filtered = (pckgselected.extractedStyles | filter: searchTerm) track by $index">
-                <a href="#" title="{{icon}}" ng-click="selectIcon(icon)" prevent-default>  
+            <li ng-class="{selected: icon == model.pickerData.iconStyle}" class="umb-iconpicker-item" ng-repeat="icon in filtered = (pckgselected.extractedStyles | filter: searchTerm) track by $index">
+                <a  href="#" title="{{icon}}" ng-click="selectIcon(icon)" prevent-default>
                     <iconic-icon package="pckgselected" icon="icon"></iconic-icon>
                 </a>
             </li>
         </ul>
     </div>
-    
+
     <umb-empty-state ng-if="filtered.length === 0 && !loading"
                      position="center">
         <localize key="defaultdialogs_noIconsFound">No icons were found.</localize>

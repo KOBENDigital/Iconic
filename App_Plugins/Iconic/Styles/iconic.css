@@ -23,6 +23,10 @@
     .koben-iconic__params_input_group input[type="text"] {
       width: 100%; }
 
+.umb-iconpicker-item.selected {
+  border: 1px dashed #808080;
+  background-color: lightyellow; }
+
 .group-horizontal {
   display: flex; }
   .group-horizontal * {
