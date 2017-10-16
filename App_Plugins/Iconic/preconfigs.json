@@ -1,0 +1,24 @@
+{
+  "preconfigs": [
+    {
+      "name": "Glyphicons",
+      "selector": "\\.(glyphicon-[\\w-]+):before{",
+      "template": "<i class=\"glyphicon {icon}\"></i>"
+    },
+    {
+      "name": "Font Awesome",
+      "selector": "\\.(fa-[\\w-]+):before{",
+      "template": "<i class=\"fa {icon}\"></i>"
+    },
+    {
+      "name": "Foundation Icons",
+      "selector": "\\.(fi-[\\w-]+):before{",
+      "template": "<i class=\"{icon}\"></i>"
+    },
+    {
+      "name": "Material Icons",
+      "selector": "([\\w_]+)\\se",
+      "template": "<i class=\"material-icons\">{icon}</i>"
+    }
+  ]
+}
