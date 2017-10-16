@@ -97,7 +97,9 @@ Iconic has been tested with Umbraco 7.6 and 7.7.
 
 # Changelog
 - 1.2.1  
-    - Shows icon name on editor.
+    - #3. Shows icon name on editor.
+    - #4. When re-opening the Icon picker, the selected Icon should be highlighted
+    - #5. If only one library is selected, the dropdown should default to this / default to first library
     
 - 1.2
     - Added preconfig for Material Icons.

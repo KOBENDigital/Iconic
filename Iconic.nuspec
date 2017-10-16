@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Koben.Iconic</id>
-    <version>1.2.0</version>
+    <version>1.2.2</version>
     <title>Iconic</title>
     <authors>Mario Lopez</authors>
     <owners>KØBEN digital</owners>
@@ -16,11 +16,11 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Support for separate icons name file. This adds support for Material Icons. Added Material Icons preconfiguration. ]]>
+      <![CDATA[ Adds a couple of features. ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>
-      <dependency id="UmbracoCms.Core" version="[7,]" />
+      <dependency id="UmbracoCms.Core" version="[7.6,]" />
     </dependencies>
   </metadata>
   <files>
