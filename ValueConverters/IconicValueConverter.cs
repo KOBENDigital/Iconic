@@ -22,7 +22,7 @@ namespace Koben.Iconic.ValueConverters
         public override object ConvertSourceToObject(PublishedPropertyType propertyType, object source, bool preview)
         {
             if (source == null) return string.Empty;
-            var obj = JObject.Parse((string)source);
+            var obj = JObject.Parse(source.ToString());
             return new HtmlString(obj["iconDisplay"].ToString());
         }
     }
