@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Koben.Iconic</id>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <title>Iconic</title>
     <authors>Mario Lopez</authors>
     <owners>KØBEN digital</owners>
@@ -16,7 +16,7 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Adds a couple of features. ]]>
+      <![CDATA[ Fixes compatibility with Nested Content. ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>
