@@ -23,6 +23,7 @@ namespace Koben.Iconic.ValueConverters
         {
             if (source == null) return string.Empty;
             var obj = JObject.Parse(source.ToString());
+            if (obj.Count == 0) return string.Empty; 
             return new HtmlString(obj["iconDisplay"].ToString());
         }
     }
