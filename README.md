@@ -35,7 +35,7 @@ On the Packages Configuration property, click the Add button. This will display 
 1. Enter the name for your package
 2. Create your selector. This will use regex to extract your icons css from the font package.
 3. Source file path. This file will contains the specific configuration for each icon.
-   To extract the rules the previous regex rule will be used.
+   To extract the rules the previous regex rule will be used. This file will normally be a CSS file where the rules are contained. You can use absolute or relative paths. See below.
 4. Path to your font package css file.
     * You can use absolute paths: http:\\www.yoursite.com\sytles\fonts\my-font-package.css. This allows you to use external files, like the ones from a CDN.
     * Or relative to the root: \styles\fonts\my-font-package.css
