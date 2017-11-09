@@ -27,6 +27,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
                 $scope.newItem = new Package();
                 $scope.data.showNewItemForm = false;
                 $scope.data.analysing = "success";
+                $scope.data.selectedPreConfig = null;
             }, function () {
                 $scope.data.analysing = "error";
             });
@@ -39,7 +40,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         if (formIsValid) {
             extractStyles(item, function () {
                 $scope.data.analysing = "success";
-                $scope.data.editPackage = false;
+                $scope.data.editPackage = false;                
             }, function () {
                 $scope.data.analysing = "error";
             });
@@ -75,6 +76,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
     }
 
     function extractStyles(item, successCallback, errorCallback) {
+        $scope.iconicError = null;
 
         if (!item.selector || item.selector.length <= 0) {
             errorCallback();
@@ -97,7 +99,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
                 successCallback();
             } else {
                 console.error("Extracted styles are 0");
-                $scope.iconicError = "There is an error somewhere, the extracted rules are 0.";
+                $scope.iconicError = "There is an error somewhere, the extracted rules are 0. Check the regex.";
                 errorCallback();
 
             }
