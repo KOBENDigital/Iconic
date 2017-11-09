@@ -19,6 +19,11 @@
       "name": "Material Icons",
       "selector": "([\\w_]+)\\se",
       "template": "<i class=\"material-icons\">{icon}</i>"
+    },
+    {
+      "name": "Simple Line Icons",
+      "selector": "\\.(icon-[\\w-]+):before {",
+      "template": "<i class=\"{icon}\"></i>"
     }
   ]
 }
