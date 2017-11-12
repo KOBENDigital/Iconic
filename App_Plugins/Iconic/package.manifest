@@ -23,6 +23,7 @@
   ],
 
   "javascript": [
+    "~/App_Plugins/Iconic/Js/findPolyfill.js",
     "~/App_Plugins/Iconic/Js/iconic.models.js",
     "~/App_Plugins/Iconic/Js/iconic.controller.js",
     "~/App_Plugins/Iconic/Js/iconic.dialog.controller.js",

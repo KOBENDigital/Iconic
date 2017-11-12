@@ -1,54 +1,52 @@
-﻿angular.module("umbraco")
-    .controller("Koben.Iconic.Dialog.Controller",
-    ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
+﻿"use strict";
 
-        $scope.packages = $scope.model.pickerConfig.packages;
-        $scope.pckgselected;
+angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
 
+    $scope.packages = $scope.model.pickerConfig.packages;
+    $scope.pckgselected;
 
-        $scope.iconsSize = 16;
-        $scope.styles = [];
-        $scope.loading = false;
+    $scope.iconsSize = 16;
+    $scope.styles = [];
+    $scope.loading = false;
 
-        $scope.loadPackage = function (pckg) {
-            $scope.loading = true;
+    $scope.loadPackage = function (pckg) {
+        $scope.loading = true;
 
-            assetsService.loadCss(pckg.cssfile).then(function () {
-                $scope.loading = false;
-                $scope.pckgselected = pckg;
+        assetsService.loadCss(pckg.cssfile).then(function () {
+            $scope.loading = false;
+            $scope.pckgselected = pckg;
+        });
+    };
+
+    $scope.selectIcon = function (icon) {
+        $scope.model.pickerData = new Icon(icon, $scope.pckgselected.id, parseIconTemplate($scope.pckgselected.template, icon));
+        $scope.submitForm($scope.model); //it passes the model back to the overlay caller
+        $scope.closeOverLay();
+    };
+
+    function parseIconTemplate(template, icon) {
+        return template.replace("{icon}", icon);
+    }
+
+    function initOverlay() {
+        var pckg;
+
+        if ($scope.model.pickerData && $scope.model.pickerData.packageId) {
+            pckg = $scope.model.pickerConfig.packages.find(function (el) {
+                return el.id == $scope.model.pickerData.packageId;
             });
-
         }
 
-
-
-        $scope.selectIcon = function (icon) {
-            $scope.model.pickerData = new Icon(icon, $scope.pckgselected.id, parseIconTemplate($scope.pckgselected.template, icon));
-            $scope.submitForm($scope.model); //it passes the model back to the overlay caller
-            $scope.closeOverLay();
+        //if there is only one package we select that one, regardless what the stored values says.
+        if ($scope.packages.length === 1) {
+            pckg = $scope.packages[0];
         }
 
-        function parseIconTemplate(template, icon) {
-            return template.replace("{icon}", icon);
+        if (angular.isObject(pckg)) {
+            $scope.loadPackage(pckg);
         }
+    }
 
-        function initOverlay() {
-            var pckg;
+    initOverlay();
+}]);
 
-            if ($scope.model.pickerData && $scope.model.pickerData.packageId) {
-                pckg = $scope.model.pickerConfig.packages.find((el) => el.id == $scope.model.pickerData.packageId);
-            }
-
-            //if there is only one package we select that one, regardless what the stored values says.
-            if ($scope.packages.length === 1) {
-                pckg = $scope.packages[0];
-            }
-
-            if (angular.isObject(pckg)) {
-                $scope.loadPackage(pckg);
-            }
-        }
-
-        initOverlay();
-
-    }]);

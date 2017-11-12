@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language alias="en_us" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <creator>
+    <name>Mario Lopez</name>
+    <link>https://github.com/KOBENDigital/Iconic</link>
+  </creator>
+  <area alias="config">
+    <key alias="add_new_package">Add new package</key>    
+    <key alias="select_preconf">Select a pre-configuration..</key>
+    <key alias="name">Name</key>
+    <key alias="selector">Selector</key>
+    <key alias="template">Template</key>
+    <key alias="css_file">Css file</key>
+    <key alias="rules_file">Rules source file</key>
+    <key alias="extracted_styles">Extracted styles</key>
+  </area>
+  <area alias="errors">
+    <key alias="error_analysing">Audit Trail</key>
+    <key alias="error_loading_preconfigs">Error loading preconfigs file.</key>
+    <key alias="error_loading_css">Error loading preconfigs file.</key>
+    <key alias="error_no_rules">There is an error somewhere, the extracted rules are 0. Check the regex.</key>
+    <key alias="error_selector">Error with selector, please review it.</key>
+  </area>  
+</language>
