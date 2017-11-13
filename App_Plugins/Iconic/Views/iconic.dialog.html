@@ -20,7 +20,7 @@
         <select class="input-block-level" ng-model="pckgselected"
                 ng-change="loadPackage(pckgselected)"
                 ng-options="p as p.name for p in packages">
-            <option value="">Select an option...</option>
+            <option value=""><localize key="iconicDialog_selectOption">Select an option...</localize></option>
         </select>
     </div>
     <div ng-if="packages.length === 1">
@@ -42,9 +42,6 @@
 
     <umb-empty-state ng-if="filtered.length === 0 && !loading"
                      position="center">
-        <localize key="defaultdialogs_noIconsFound">No icons were found.</localize>
+        <localize key="iconicDialog_noIconsFound">No icons were found.</localize>
     </umb-empty-state>
-
-
-
 </div>

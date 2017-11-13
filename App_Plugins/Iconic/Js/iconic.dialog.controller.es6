@@ -11,8 +11,12 @@
         $scope.loading = false;
 
         $scope.loadPackage = function (pckg) {
-            $scope.loading = true;
+            
+			if(pckg == null) return;
+			
+			$scope.loading = true;
 
+		
             assetsService.loadCss(pckg.cssfile).then(function () {
                 $scope.loading = false;
                 $scope.pckgselected = pckg;

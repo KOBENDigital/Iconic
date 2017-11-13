@@ -24,7 +24,7 @@ angular.module("umbraco").controller("Koben.Iconic.Controller", ['$scope', 'dial
 
     $scope.overlay = {
         view: "/app_plugins/iconic/views/iconic.dialog.html",
-        title: "Select and icon",
+        title: "Select an icon",
         hideSubmitButton: true,
         submit: $scope.selectIcon,
         close: function close() {

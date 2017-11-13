@@ -10,6 +10,9 @@ angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope'
     $scope.loading = false;
 
     $scope.loadPackage = function (pckg) {
+
+        if (pckg == null) return;
+
         $scope.loading = true;
 
         assetsService.loadCss(pckg.cssfile).then(function () {
