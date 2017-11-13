@@ -61,16 +61,16 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         $http.get("/App_Plugins/Iconic/preconfigs.json").success(function (data) {
             $scope.preconfig = data.preconfigs;
         }).error(function (response) {
-            $scope.iconicError = "iconicErrors_loading";
+            $scope.data.iconicError = "iconicErrors_loading";
         });
     }
 
     function extractStyles(item, successCallback, errorCallback) {
-        $scope.iconicError = null;
+        $scope.data.iconicError = null;
 
         if (!item.selector || item.selector.length <= 0) {
             errorCallback();
-            $scope.iconicError = "iconicErrors_selector";
+            $scope.data.iconicError = "iconicErrors_selector";
         }
 
         if (!item.sourcefile) item.sourcefile = item.cssfile;
@@ -88,11 +88,11 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
             if (item.extractedStyles.length > 0) {
                 successCallback();
             } else {
-                $scope.iconicError = "iconicErrors_no_rules";
+                $scope.data.iconicError = "iconicErrors_no_rules";
                 errorCallback();
             }
         }).error(function (response) {
-            $scope.iconicError = "iconicErrors_loadingCss";
+            $scope.data.iconicError = "iconicErrors_loadingCss";
             errorCallback();
         });
     }

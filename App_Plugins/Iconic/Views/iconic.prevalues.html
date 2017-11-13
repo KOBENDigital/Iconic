@@ -1,5 +1,6 @@
 ﻿<section class="koben-iconic__params umb-editor " ng-controller="Koben.Iconic.Prevalues.Packages">
-    <div ng-show="iconicError" class="alert alert-error">{{iconicError}}</div>
+    <p>Error: {{data.iconicError}}</p>
+    <div ng-show="iconicError" class="alert alert-error"><localize key="{{data.iconicError}}">{{data.iconicError}}</localize></div>
     <div ui-sortable="sortableOptions" ng-model="model.value">
         <div ng-repeat="item in model.value">
             <div class="umb-node-preview">
@@ -30,7 +31,7 @@
                 </div>
                 <ng-form name="editPackageForm" ng-show="data.editPackage">
 
-                    <div ng-show="data.analysing==='error'">
+                    <div ng-show="data.analysing==='error'"  class="alert alert-error">
                         <localize key="iconicErrors_analysing">There was an error extracting icon rules. Please check the files paths and Selector regex.</localize>            
                     </div>
                     <div class="koben-iconic__params_input_group">
@@ -86,7 +87,7 @@
         <div>
             <h3><localize key="iconicConfig_addNewPackage">Add new package2</localize></h3>
         </div>
-        <div ng-show="data.analysing==='error'">
+        <div ng-show="data.analysing==='error'" class="alert alert-error">
            <localize key="iconicErrors_analysing">There was an error extracting icon rules. Please check the files paths and Selector regex.</localize>            
         </div>
         <div class="koben-iconic__params_input_group group-horizontal">
