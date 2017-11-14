@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language alias="en_us" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <creator>
+    <name>Mario Lopez</name>
+    <link>https://github.com/KOBENDigital/Iconic</link>
+  </creator>
+  <area alias="iconicDialog">
+    <key alias="noIconsFound">No icons were found.</key>
+    <key alias="selectOption">Select an option...</key>
+  </area>
+  <area alias="iconicConfig">
+    <key alias="addNewPackage">Add new package2</key>    
+    <key alias="selectPreconf">Select a pre-configuration..</key>    
+    <key alias="name">Name</key>
+    <key alias="selector">Selector</key>
+    <key alias="template">Template</key>
+    <key alias="cssFile">Css file</key>
+    <key alias="rulesFile">Rules source file</key>
+    <key alias="extractedStyles">Extracted styles</key>
+    <key alias="remove">Remove</key>
+    <key alias="styles">Styles</key>
+    <key alias="custom">Custom</key>
+    <key alias="preconf">Pre-Configured</key>
+    <key alias="icons">Icons</key>
+    <key alias="editPackage">Edit Package</key>
+  </area>
+  <area alias="iconicErrors">
+    <key alias="analysing">There was an error extracting icon rules. Please check the files paths and Selector regex.</key>
+    <key alias="loading_preconfigs">Error loading preconfigs file.</key>
+    <key alias="loadingCss">Error loading CSS file.</key>
+    <key alias="no_rules">There is an error somewhere, the extracted rules are 0. Check the regex.</key>
+    <key alias="selector">Error with selector, please review it.</key>
+  </area>
+  <area alias="iconicValidation">
+    <key alias="name">Please enter a name</key>
+    <key alias="css">Please select a css file</key>
+    <key alias="selector">Please enter a selector</key>
+    <key alias="rules">Please enter a rules source file</key>
+    <key alias="template">Please enter a template</key>
+  </area>
+</language>

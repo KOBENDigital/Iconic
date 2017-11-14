@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +14,8 @@
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -96,6 +100,9 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.2.1\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
@@ -229,11 +236,42 @@
   <ItemGroup>
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.controller.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.js" />
+    <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
+    <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
+    <Content Include="App_Plugins\Iconic\Js\iconic.controller.js">
+      <DependentUpon>iconic.controller.es6</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\Js\iconic.controller.min.js">
+      <DependentUpon>iconic.controller.js</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.js">
+      <DependentUpon>iconic.dialog.controller.es6</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.min.js">
+      <DependentUpon>iconic.dialog.controller.js</DependentUpon>
+    </Content>
     <Content Include="App_Plugins\Iconic\Js\iconic.directives.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.models.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.js" />
+    <None Include="App_Plugins\Iconic\Js\iconic.models.es6" />
+    <Content Include="App_Plugins\Iconic\Js\iconic.models.js">
+      <DependentUpon>iconic.models.es6</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\Js\iconic.models.min.js">
+      <DependentUpon>iconic.models.js</DependentUpon>
+    </Content>
+    <None Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.es6" />
+    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.js">
+      <DependentUpon>iconic.prevalues.controller.es6</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.min.js">
+      <DependentUpon>iconic.prevalues.controller.js</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\Js\findPolyfill.js" />
+    <Content Include="App_Plugins\Iconic\lang\es-ES.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Plugins\Iconic\lang\en-US.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Plugins\Iconic\Styles\iconic.css" />
     <Content Include="App_Plugins\Iconic\Styles\iconic.min.css" />
     <Content Include="App_Plugins\Iconic\Views\iconic.dialog.html" />
@@ -246,4 +284,13 @@
   <PropertyGroup>
     <PostBuildEvent>xcopy /y/s "$(ProjectDir)\App_Plugins" "$(SolutionDir)\Iconic.UI\App_Plugins"</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
 </Project>
