@@ -1,5 +1,4 @@
-﻿<section class="koben-iconic__params umb-editor " ng-controller="Koben.Iconic.Prevalues.Packages">
-    <p>Error: {{data.iconicError}}</p>
+﻿<section class="koben-iconic__params umb-editor " ng-controller="Koben.Iconic.Prevalues.Packages">    
     <div ng-show="iconicError" class="alert alert-error"><localize key="{{data.iconicError}}">{{data.iconicError}}</localize></div>
     <div ui-sortable="sortableOptions" ng-model="model.value">
         <div ng-repeat="item in model.value">
