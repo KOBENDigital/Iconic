@@ -44,7 +44,7 @@ On the Packages Configuration property, click the Add button. This will display 
 5. Template. This will be the template your icon will be based on. You can use the value {icon} as placeholder for your icon specific rule. For instance, for Font Awesome you should enter something like: <i class="fa {icon}"></i>
 6. Click *Add Package* to add the configuration to your packages listing. Before adding the package, Iconic will extract the css rules from the file using the regex selector. Some checking is ran that will let you know if something went wrong with your configuration.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPackage.png" width="600" alt="Add package" >
+<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPackage2.png" width="600" alt="Add package" >
 
 
 #### Icons source file
