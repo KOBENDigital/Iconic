@@ -67,7 +67,14 @@ To make your life easier I have included some help to configure your packages in
 
 You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
 
-*Note*: the regex included in the preconfigs are valid for the minimised versions of them.
+*Note*: the regex included in the preconfigs are valid for the **minimised versions** of them.
+
+#### Reviewing your configuration
+Once you have added your configuration, this will be added to the configurations list. You add add as many as you want. To review the details of your configured package just click on them:
+
+<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/configDetails.png" width="600" alt="See configuration details" >
+
+You will get a read-only list of your values. To edit them just click on the Edit Package option.
 
 ### Using the DataType
 Once you have configured your datatype, you can use it as a property editor.
