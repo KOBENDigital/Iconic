@@ -63,7 +63,7 @@ So this file can be the same css file or another files use to extrac the icons p
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/font-awesome-config.png" width="600" alt="Pre-configured package" >
+<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPreConfig.png" width="600" alt="Pre-configured package" >
 
 You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
 
