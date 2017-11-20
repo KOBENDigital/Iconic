@@ -26,10 +26,10 @@
                                 button-style="link"
                                 icon="icon-edit"
                                 state="data.analysing"
-                                label-key="editPackage">
+                                label-key="iconicConfig_editPackage">
                 </div>
                 <ng-form name="editPackageForm" ng-show="data.editPackage">
-                    <div ng-show="iconicError" class="alert alert-error"><localize key="{{data.iconicError}}">{{data.iconicError}}</localize></div>
+                    <div ng-show="data.iconicError" class="alert alert-error">{{data.iconicError}}</div>
                     <div class="koben-iconic__params_input_group">
                         <label for="editName"><localize key="iconicConfig_name">Name</localize></label><br />
                         <input name="editName" type="text" ng-model="item.name" val-highlight="{{editPackageForm.editName.$error}}" required>
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="koben-iconic__params_input_group">
-                        <label for="editCssFile"><localize key="iconicConfig_css_file">Css file</localize></label><br />
+                        <label for="editCssFile"><localize key="iconicConfig_cssFile">Css file</localize></label><br />
                         <input name="editCssFile" type="text" ng-model="item.cssfile" ng-text-change="data.analysing = 'init'" val-highlight="{{editPackageForm.editCssFile.$invalid}}" required />
                         <p ng-show="editPackageForm.editCssFile.$error.required && editPackageForm.editCssFile.$dirty"><localize key="iconicValidation_css">Please select a css file</localize></p>
                     </div>
@@ -62,14 +62,14 @@
                     <umb-button action="submitEditPackage(item, editPackageForm.$valid)"
                                 type="button"
                                 button-style="success"
-                                label="Save"
+                                label-key="iconicConfig_save"
                                 state="data.analysing"
                                 disabled="editPackageForm.$invalid">
                     </umb-button>
                     <umb-button action="data.editPackage = false"
                                 type="button"
                                 button-style="link"
-                                label="Cancel">
+                                label-key="iconicConfig_cancel">
 
                     </umb-button>
                 </ng-form>
@@ -83,7 +83,7 @@
         <div>
             <h3><localize key="iconicConfig_addNewPackage">Add new package</localize></h3>
         </div>
-        <div ng-show="iconicError" class="alert alert-error"><localize key="{{data.iconicError}}">{{data.iconicError}}</localize></div>
+        <div ng-show="data.iconicError" class="alert alert-error">{{data.iconicError}}</div>
         <div class="koben-iconic__params_input_group group-horizontal">
             <label><input type="radio" ng-model="data.configType" value="custom" /> <localize key="iconicConfig_custom">Custom</localize></label>
             <label><input type="radio" ng-model="data.configType" value="preconfigured" /> <localize key="iconicConfig_preconf">Pre-Configured</localize></label>

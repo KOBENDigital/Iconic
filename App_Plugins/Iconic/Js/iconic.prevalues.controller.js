@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
+angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', 'localizationService', function ($scope, $http, assetsService, localizationService) {
 
     $scope.newItem = new Package();
 
@@ -58,11 +58,17 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         Object.assign($scope.newItem, config);
     };
 
+    function displayError(alias) {
+        localizationService.localize(alias).then(function (value) {
+            $scope.data.iconicError = value;
+        });
+    }
+
     function loadPreconfigs() {
         $http.get("/App_Plugins/Iconic/preconfigs.json").success(function (data) {
             $scope.preconfig = data.preconfigs;
         }).error(function (response) {
-            $scope.data.iconicError = "iconicErrors_loading";
+            displayError("iconicErrors_loading");
         });
     }
 
@@ -71,7 +77,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
 
         if (!item.selector || item.selector.length <= 0) {
             errorCallback();
-            $scope.data.iconicError = "iconicErrors_selector";
+            displayError("iconicErrors_selector");
         }
 
         if (!item.sourcefile) item.sourcefile = item.cssfile;
@@ -89,11 +95,11 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
             if (item.extractedStyles.length > 0) {
                 successCallback();
             } else {
-                $scope.data.iconicError = "iconicErrors_no_rules";
+                displayError("iconicErrors_no_rules");
                 errorCallback();
             }
         }).error(function (response) {
-            $scope.data.iconicError = "iconicErrors_loadingCss";
+            displayError("iconicErrors_loadingCss");
             errorCallback();
         });
     }
