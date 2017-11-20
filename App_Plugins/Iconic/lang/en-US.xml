@@ -9,7 +9,8 @@
     <key alias="selectOption">Select an option...</key>
   </area>
   <area alias="iconicConfig">
-    <key alias="addNewPackage">Add new package2</key>    
+    <key alias="addNewPackage">Add new package</key>    
+    <key alias="addPackage">Add package</key>    
     <key alias="selectPreconf">Select a pre-configuration..</key>    
     <key alias="name">Name</key>
     <key alias="selector">Selector</key>
@@ -23,6 +24,8 @@
     <key alias="preconf">Pre-Configured</key>
     <key alias="icons">Icons</key>
     <key alias="editPackage">Edit Package</key>
+    <key alias="save">Save</key>
+    <key alias="cancel">Cancel</key>
   </area>
   <area alias="iconicErrors">
     <key alias="analysing">There was an error extracting icon rules. Please check the files paths and Selector regex.</key>

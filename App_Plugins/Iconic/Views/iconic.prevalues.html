@@ -1,5 +1,5 @@
 ﻿<section class="koben-iconic__params umb-editor " ng-controller="Koben.Iconic.Prevalues.Packages">    
-    <div ng-show="iconicError" class="alert alert-error"><localize key="{{data.iconicError}}">{{data.iconicError}}</localize></div>
+    
     <div ui-sortable="sortableOptions" ng-model="model.value">
         <div ng-repeat="item in model.value">
             <div class="umb-node-preview">
@@ -29,10 +29,7 @@
                                 label-key="editPackage">
                 </div>
                 <ng-form name="editPackageForm" ng-show="data.editPackage">
-
-                    <div ng-show="data.analysing==='error'"  class="alert alert-error">
-                        <localize key="iconicErrors_analysing">There was an error extracting icon rules. Please check the files paths and Selector regex.</localize>            
-                    </div>
+                    <div ng-show="iconicError" class="alert alert-error"><localize key="{{data.iconicError}}">{{data.iconicError}}</localize></div>
                     <div class="koben-iconic__params_input_group">
                         <label for="editName"><localize key="iconicConfig_name">Name</localize></label><br />
                         <input name="editName" type="text" ng-model="item.name" val-highlight="{{editPackageForm.editName.$error}}" required>
@@ -84,11 +81,9 @@
     </a>
     <div class="koben-iconic__params_add-new-form control-group" ng-if="data.showNewItemForm" ng-form="newPackageForm">
         <div>
-            <h3><localize key="iconicConfig_addNewPackage">Add new package2</localize></h3>
+            <h3><localize key="iconicConfig_addNewPackage">Add new package</localize></h3>
         </div>
-        <div ng-show="data.analysing==='error'" class="alert alert-error">
-           <localize key="iconicErrors_analysing">There was an error extracting icon rules. Please check the files paths and Selector regex.</localize>            
-        </div>
+        <div ng-show="iconicError" class="alert alert-error"><localize key="{{data.iconicError}}">{{data.iconicError}}</localize></div>
         <div class="koben-iconic__params_input_group group-horizontal">
             <label><input type="radio" ng-model="data.configType" value="custom" /> <localize key="iconicConfig_custom">Custom</localize></label>
             <label><input type="radio" ng-model="data.configType" value="preconfigured" /> <localize key="iconicConfig_preconf">Pre-Configured</localize></label>

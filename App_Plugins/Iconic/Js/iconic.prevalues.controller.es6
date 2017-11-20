@@ -1,7 +1,7 @@
 ﻿
 angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
 
-    $scope.newItem = new Package();    
+    $scope.newItem = new Package();
 
     $scope.data = {
         editPackage: false,
@@ -9,9 +9,10 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         configType: "custom",
         selectedItem: null,
         selectedPreConfig: null,
-        showNewItemForm: false
+        showNewItemForm: false,
+        iconicError: null
     }
-    
+
     if (!angular.isArray($scope.model.value)) $scope.model.value = [];
 
 
@@ -40,7 +41,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         if (formIsValid) {
             extractStyles(item, function () {
                 $scope.data.analysing = "success";
-                $scope.data.editPackage = false;                
+                $scope.data.editPackage = false;
             }, function () {
                 $scope.data.analysing = "error";
             });
@@ -65,11 +66,11 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         Object.assign($scope.newItem, config);
     }
 
-  
+
     function loadPreconfigs() {
         $http.get("/App_Plugins/Iconic/preconfigs.json").success(function (data) {
             $scope.preconfig = data.preconfigs;
-        }).error(function (response) {            
+        }).error(function (response) {
             $scope.data.iconicError = "iconicErrors_loading";
         });
     }
@@ -96,7 +97,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
 
             if (item.extractedStyles.length > 0) {
                 successCallback();
-            } else {                
+            } else {
                 $scope.data.iconicError = "iconicErrors_no_rules";
                 errorCallback();
 

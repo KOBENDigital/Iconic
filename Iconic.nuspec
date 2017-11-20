@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Koben.Iconic</id>
-    <version>1.3.0</version>
+    <version>1.3.1</version>
     <title>Iconic</title>
     <authors>Mario Lopez</authors>
     <owners>KØBEN digital</owners>
@@ -16,7 +16,7 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Support for globalization. Support for IE11. Other fixes. ]]>
+      <![CDATA[ Fixed some missing translations ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>
@@ -25,6 +25,5 @@
   </metadata>
   <files>
     <file src="App_Plugins\**\*.*" target="content\App_Plugins\"/>
-  </files>
- 
+  </files> 
 </package>

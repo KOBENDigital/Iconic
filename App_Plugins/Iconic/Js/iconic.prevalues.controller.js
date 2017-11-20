@@ -10,7 +10,8 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
         configType: "custom",
         selectedItem: null,
         selectedPreConfig: null,
-        showNewItemForm: false
+        showNewItemForm: false,
+        iconicError: null
     };
 
     if (!angular.isArray($scope.model.value)) $scope.model.value = [];

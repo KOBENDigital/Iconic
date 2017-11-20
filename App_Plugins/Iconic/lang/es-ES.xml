@@ -10,6 +10,7 @@
   </area>
   <area alias="iconicConfig">
     <key alias="addNewPackage">Añadir nuevo paquete</key>
+    <key alias="addPackage">Añadir paquete</key>
     <key alias="selectPreconf">Seleccionar pre-configuración..</key>
     <key alias="name">Nombre</key>
     <key alias="selector">Seleccionador</key>
@@ -23,6 +24,8 @@
     <key alias="preconf">Pre-Configurado</key>
     <key alias="icons">Iconos</key>
     <key alias="editPackage">Editar Paquete</key>
+    <key alias="save">Guardar</key>
+    <key alias="cancel">Cancelar</key>
   </area>
   <area alias="iconicErrors">
     <key alias="analysing">Hubo un error extrayendo las reglas de los iconos. Revisa que las rutas a los archivos y el Regex son correctos.</key>    
