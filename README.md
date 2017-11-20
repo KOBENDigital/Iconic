@@ -44,7 +44,7 @@ On the Packages Configuration property, click the Add button. This will display 
 5. Template. This will be the template your icon will be based on. You can use the value {icon} as placeholder for your icon specific rule. For instance, for Font Awesome you should enter something like: <i class="fa {icon}"></i>
 6. Click *Add Package* to add the configuration to your packages listing. Before adding the package, Iconic will extract the css rules from the file using the regex selector. Some checking is ran that will let you know if something went wrong with your configuration.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPackage.png" width="600" alt="Add package" >
+<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPackage2.png" width="600" alt="Add package" >
 
 
 #### Icons source file
@@ -63,11 +63,18 @@ So this file can be the same css file or another files use to extrac the icons p
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/font-awesome-config.png" width="600" alt="Pre-configured package" >
+<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPreConfig.png" width="600" alt="Pre-configured package" >
 
 You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
 
-*Note*: the regex included in the preconfigs are valid for the minimised versions of them.
+*Note*: the regex included in the preconfigs are valid for the **minimised versions** of them.
+
+#### Reviewing your configuration
+Once you have added your configuration, this will be added to the configurations list. You add add as many as you want. To review the details of your configured package just click on them:
+
+<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/configDetails.png" width="600" alt="See configuration details" >
+
+You will get a read-only list of your values. To edit them just click on the Edit Package option.
 
 ### Using the DataType
 Once you have configured your datatype, you can use it as a property editor.
