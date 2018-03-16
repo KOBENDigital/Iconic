@@ -27,14 +27,12 @@
 
 
         $scope.selectIcon = function (icon) {
-            $scope.model.pickerData = new Icon(icon, $scope.pckgselected.id, parseIconTemplate($scope.pckgselected.template, icon));
+            $scope.model.pickerData = new Icon(icon, $scope.pckgselected.id);
             $scope.submitForm($scope.model); //it passes the model back to the overlay caller
             $scope.closeOverLay();
         }
 
-        function parseIconTemplate(template, icon) {
-            return template.replace("{icon}", icon);
-        }
+        
 
         function initOverlay() {
             var pckg;

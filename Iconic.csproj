@@ -217,6 +217,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\SelectedIcon.cs" />
+    <Compile Include="Models\ConfiguredPackagesCollection.cs" />
+    <Compile Include="Models\Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueConverters\IconicValueConverter.cs" />
   </ItemGroup>

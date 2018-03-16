@@ -32,7 +32,7 @@
 
     <div class="umb-control-group" ng-show="!loading && filtered.length > 0">
         <ul class="umb-iconpicker" ng-show="pckgselected.extractedStyles">
-            <li ng-class="{selected: icon == model.pickerData.iconStyle}" class="umb-iconpicker-item" ng-repeat="icon in filtered = (pckgselected.extractedStyles | filter: searchTerm) track by $index">
+            <li ng-class="{selected: icon == model.pickerData.icon}" class="umb-iconpicker-item" ng-repeat="icon in filtered = (pckgselected.extractedStyles | filter: searchTerm) track by $index">
                 <a  href="#" title="{{icon}}" ng-click="selectIcon(icon)" prevent-default>
                     <iconic-icon package="pckgselected" icon="icon"></iconic-icon>
                 </a>

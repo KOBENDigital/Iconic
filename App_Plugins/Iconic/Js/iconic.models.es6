@@ -1,7 +1,6 @@
 ﻿class Icon {
-    constructor(iconStyle, packageId, iconDisplay) {
-        this.iconDisplay = iconDisplay || "";
-        this.iconStyle = iconStyle || "";
+    constructor(icon, packageId) {
+        this.icon = icon || "";
         this.packageId = packageId || "";
     }
 }

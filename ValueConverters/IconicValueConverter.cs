@@ -1,9 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using Iconic.Configuration;
+using Iconic.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Umbraco.Core;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.PropertyEditors;
 
@@ -22,9 +25,17 @@ namespace Koben.Iconic.ValueConverters
         public override object ConvertSourceToObject(PublishedPropertyType propertyType, object source, bool preview)
         {
             if (source == null) return string.Empty;
-            var obj = JObject.Parse(source.ToString());
-            if (obj.Count == 0) return string.Empty; 
-            return new HtmlString(obj["iconDisplay"].ToString());
+
+            var icon = JsonConvert.DeserializeObject<SelectedIcon>((string)source);
+            var packages = new ConfiguredPackagesCollection(propertyType);
+
+            var pckg = packages[icon.PackageId];
+
+            if (icon == null || pckg == null) return string.Empty;
+
+            var display = pckg.Template.Replace("{icon}", icon.Icon);
+
+            return new HtmlString(display);
         }
     }
 }

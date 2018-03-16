@@ -8,7 +8,7 @@
         $scope.icon;
                     
         $scope.selectIcon = function (model) {
-            if (model.pickerData.iconStyle && model.pickerData.packageId) {
+            if (model.pickerData.icon && model.pickerData.packageId) {
                 $scope.pckg = loadPackage(config.packages, model.pickerData.packageId);                
                 $scope.model.value = model.pickerData;                
                 $scope.modelIsValid = true;
@@ -45,7 +45,7 @@
             $scope.loading = true;
             if (!angular.isObject($scope.model.value)) $scope.model.value = {};
 
-            if ($scope.model.value && $scope.model.value.packageId && $scope.model.value.iconStyle) {
+            if ($scope.model.value && $scope.model.value.packageId && $scope.model.value.icon) {
                 
                 $scope.pckg = loadPackage(config.packages, $scope.model.value.packageId);
                 if ($scope.pckg) {

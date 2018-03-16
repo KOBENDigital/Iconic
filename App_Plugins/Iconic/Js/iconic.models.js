@@ -4,11 +4,10 @@ var _createClass = (function () { function defineProperties(target, props) { for
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Icon = function Icon(iconStyle, packageId, iconDisplay) {
+var Icon = function Icon(icon, packageId) {
     _classCallCheck(this, Icon);
 
-    this.iconDisplay = iconDisplay || "";
-    this.iconStyle = iconStyle || "";
+    this.icon = icon || "";
     this.packageId = packageId || "";
 };
 
