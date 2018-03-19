@@ -105,9 +105,9 @@ Iconic has been tested with Umbraco 7.6 and 7.7.
 
 # Changelog
 - 1.4
-    - Added feature to override Template for backoffice
-    - Fixed some languages issues
-    - Fixed issue with template not updating after inserting icon on page.
+	- Added a feature to override Template to be able to use a different one in backoffice.
+	- Fixed some missing languages labels.
+	- Template of icons already in use is updated if it's modified on the package settings.
 
 - 1.3
 	- Support globalization. en and es included.
