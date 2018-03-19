@@ -3,6 +3,8 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
 
     $scope.newItem = new Package();
 
+	$scope.overrideBgTemplate = false;
+
     $scope.data = {
         editPackage: false,
         analysing: "init",
@@ -16,7 +18,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
     if (!angular.isArray($scope.model.value)) $scope.model.value = [];
 
 
-    $scope.addNewItem = function (formValid) {
+    $scope.addNewItem = function (formValid) {		
 
         if (formValid) {
             $scope.data.analysing = "busy";
@@ -37,7 +39,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
 
     }
 
-    $scope.submitEditPackage = function (item, formIsValid) {
+    $scope.submitEditPackage = function (item, formIsValid) {		
         if (formIsValid) {
             extractStyles(item, function () {
                 $scope.data.analysing = "success";
@@ -47,6 +49,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
             });
         }
     }
+
 
 
     $scope.selectItem = function (item) {

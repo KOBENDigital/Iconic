@@ -4,6 +4,8 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
 
     $scope.newItem = new Package();
 
+    $scope.overrideBgTemplate = false;
+
     $scope.data = {
         editPackage: false,
         analysing: "init",

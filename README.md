@@ -41,14 +41,15 @@ On the Packages Configuration property, click the Add button. This will display 
     * Or relative to the root: \styles\fonts\my-font-package.css
     This file will be loaded in the head of your backoffice and will affect the whole view so be careful of what you load there. Check the Known Issues section for some more info.
 
-5. Template. This will be the template your icon will be based on. You can use the value {icon} as placeholder for your icon specific rule. For instance, for Font Awesome you should enter something like: <i class="fa {icon}"></i>
+5. Template. This will be the template your icon will be based on. You can use the value ```{icon}``` as placeholder for your icon specific rule. For instance, for Font Awesome you should enter something like: `<i class="fa {icon}"></i>`
+6. Override Backoffice template. Optional. You can override the Template value to use differente templates for frontend and backoffice.
 6. Click *Add Package* to add the configuration to your packages listing. Before adding the package, Iconic will extract the css rules from the file using the regex selector. Some checking is ran that will let you know if something went wrong with your configuration.
-
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPackage2.png" width="600" alt="Add package" >
 
 
 #### Icons source file
-Some packages like Font Awesome use css rules to apply the specific icon:
+This file will be used to extract the specific configuration for each different icon.
+
+For example, some packages like Font Awesome use css rules to apply the specific icon:
 ```
 <i class="fa fa-glass"></i> (Template: <i class="fa {icon}"></i>)
 ```
@@ -57,7 +58,7 @@ Other packages like Material Icons use the glyph codes or even ligatures to disp
 ```
 <i class="material-icons">alarm</i> (Template: <i class="material-icons">{icon}</i>)
 ```
-So this file can be the same css file or another files use to extrac the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
+So this file can be the same css file or another files use to extract the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
 
 
 #### Pre configured packages

@@ -19,7 +19,8 @@ var Package = (function () {
         this.name = "";
         this.selector = "";
         this.template = '<i class="{icon}"></i>';
-        this.backofficeTemplate = '<i class="{icon}"></i>';
+        this.overrideTemplate = false;
+        this.backofficeTemplate = "";
         this.cssfile = "";
         this.sourcefile = "";
         this.extractedStyles = [];
