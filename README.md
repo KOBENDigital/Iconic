@@ -104,6 +104,11 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 Iconic has been tested with Umbraco 7.6 and 7.7.
 
 # Changelog
+-1.4
+    - Added feature to override Template for backoffice
+    - Fixed some languages issues
+    - Fixed issue with template not updating after inserting icon on page.
+
 - 1.3
 	- Support globalization. en and es included.
 	- Supports IE11
