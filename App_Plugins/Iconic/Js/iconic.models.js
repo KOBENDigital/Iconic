@@ -19,6 +19,7 @@ var Package = (function () {
         this.name = "";
         this.selector = "";
         this.template = '<i class="{icon}"></i>';
+        this.backofficeTemplate = '<i class="{icon}"></i>';
         this.cssfile = "";
         this.sourcefile = "";
         this.extractedStyles = [];

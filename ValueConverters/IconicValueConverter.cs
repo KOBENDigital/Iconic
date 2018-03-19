@@ -33,7 +33,7 @@ namespace Koben.Iconic.ValueConverters
 
             if (icon == null || pckg == null) return string.Empty;
 
-            var display = pckg.Template.Replace("{icon}", icon.Icon);
+            var display = pckg.FrontendTemplate.Replace("{icon}", icon.Icon);
 
             return new HtmlString(display);
         }

@@ -14,7 +14,8 @@
     <key alias="selectPreconf">Select a pre-configuration..</key>    
     <key alias="name">Name</key>
     <key alias="selector">Selector</key>
-    <key alias="template">Template</key>
+    <key alias="template">Frontend Template</key>
+    <key alias="backofficeTemplate">Backoffice Template</key>
     <key alias="cssFile">Css file</key>
     <key alias="rulesFile">Rules source file</key>
     <key alias="extractedStyles">Extracted styles</key>

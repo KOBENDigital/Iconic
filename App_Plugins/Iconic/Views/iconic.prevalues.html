@@ -16,11 +16,12 @@
                 <div ng-show="!data.editPackage">
                     <p><strong><localize key="iconicConfig_name">Name</localize>: </strong>{{item.name}}</p>
                     <p><strong><localize key="iconicConfig_selector">Selector</localize>: </strong>{{item.selector}}</p>
-                    <p><strong><localize key="iconicConfig_template">Template</localize>: </strong>{{item.template}} </p>
+                    <p><strong><localize key="iconicConfig_template">Frontend Template</localize>: </strong>{{item.template}} </p>
+                    <p><strong><localize key="iconicConfig_backofficeTemplate">BackofficeTemplate</localize>: </strong>{{item.backofficeTemplate}} </p>
                     <p><strong><localize key="iconicConfig_cssFile">Css file</localize>: </strong>{{item.cssfile}}</p>
                     <p><strong><localize key="iconicConfig_rulesFile">Rules source file</localize> </strong>{{item.sourcefile}}</p>
                     <hr />
-                    <p><strong><localize key="iconicConfig_extractedStyles">Extracted styles</localize> </strong>{{item.extractedStyles.length}}</p>                                        
+                    <p><strong><localize key="iconicConfig_extractedStyles">Extracted styles</localize> </strong>{{item.extractedStyles.length}}</p>
                     <umb-button action="data.editPackage = true"
                                 type="button"
                                 button-style="link"
@@ -40,7 +41,11 @@
                         <input name="editTemplate" type="text" ng-model="item.template" val-highlight="{{editPackageForm.editTemplate.$invalid}}" required />
                         <p ng-show="editPackageForm.editTemplate.$error.required && editPackageForm.editTemplate.$dirty"><localize key="iconicValidation_name">Please enter a template</localize></p>
                     </div>
-
+                    <div class="koben-iconic__params_input_group">
+                        <label for="editBackofficeTemplate"><localize key="iconicConfig_backofficeTemplate">Backoffice Template</localize></label><br />
+                        <input name="editBackofficeTemplate" type="text" ng-model="item.backofficeTemplate" val-highlight="{{editPackageForm.editBackofficeTemplate.$invalid}}" required />
+                        <p ng-show="editPackageForm.editBackofficeTemplate.$error.required && editPackageForm.editBackofficeTemplate.$dirty"><localize key="iconicValidation_name">Please enter a template for backoffice</localize></p>
+                    </div>
                     <div class="koben-iconic__params_input_group">
                         <label for="editCssFile"><localize key="iconicConfig_cssFile">Css file</localize></label><br />
                         <input name="editCssFile" type="text" ng-model="item.cssfile" ng-text-change="data.analysing = 'init'" val-highlight="{{editPackageForm.editCssFile.$invalid}}" required />
@@ -55,7 +60,7 @@
                         </div>
                         <div class="koben-iconic__params_input_group">
                             <label for="editSourceFile"><localize key="iconicConfig_rulesFile">Rules source file</localize></label><br />
-                            <input name="editSourceFile" type="text" ng-model="item.sourcefile" ng-text-change="data.analysing = 'init'" val-highlight="{{itemFormErrors.cssfile.$invalid}}" required/>
+                            <input name="editSourceFile" type="text" ng-model="item.sourcefile" ng-text-change="data.analysing = 'init'" val-highlight="{{itemFormErrors.cssfile.$invalid}}" required />
                             <p ng-show="editPackageForm.editSourceFile.$error.required && editPackageForm.editSourceFile.$dirty"><localize key="iconicValidation_rules">Please enter a rules source file</localize></p>
                         </div>
                     </fieldset>
@@ -105,7 +110,11 @@
             <input name="newTemplate" type="text" ng-model="newItem.template" val-highlight="{{newPackageForm.newTemplate.$dirty && newPackageForm.newTemplate.$invalid}}" required />
             <p ng-show="newPackageForm.newTemplate.$error.required && newPackageForm.newTemplate.$dirty"><localize key="iconicValidation_template">Please enter a template</localize></p>
         </div>
-
+        <div class="koben-iconic__params_input_group">
+            <label for="newBackofficeTemplate"><localize key="iconicConfig_backofficeTemplate">Backoffice Template</localize></label><br />
+            <input name="newBackofficeTemplate" type="text" ng-model="newItem.backofficeTemplate" val-highlight="{{newPackageForm.newBackofficeTemplate.$dirty && newPackageForm.newBackofficeTemplate.$invalid}}" required />
+            <p ng-show="newPackageForm.newBackofficeTemplate.$error.required && newPackageForm.newBackofficeTemplate.$dirty"><localize key="iconicValidation_backofficeTemplate">Please enter a template for backoffice</localize></p>
+        </div>
         <div class="koben-iconic__params_input_group">
             <label for="newCssFile"><localize key="iconicConfig_cssFile">Css file</localize></label><br />
             <input name="newCssFile" type="text" ng-model="newItem.cssfile" ng-text-change="data.analysing = 'init'" val-highlight="{{newPackageForm.newCssFile.$invalid && newPackageForm.newCssFile.$dirty}}" required />
@@ -130,7 +139,6 @@
                     label="Add package"
                     state="data.analysing"
                     disabled="newPackageForm.$invalid">
-            s
         </umb-button>
         <button class="btn umb-button__button btn-warning" ng-click="data.showNewItemForm = false" prevent-default>Cancel</button>
     </div>

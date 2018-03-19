@@ -14,7 +14,8 @@
     <key alias="selectPreconf">Seleccionar pre-configuración..</key>
     <key alias="name">Nombre</key>
     <key alias="selector">Seleccionador</key>
-    <key alias="template">Plantilla</key>
+    <key alias="template">Plantilla para frontend</key>
+    <key alias="backofficeTemplate">Plantilla para backoffice</key>
     <key alias="cssFile">Archivo Css</key>
     <key alias="rulesFile">Archivo fuente de reglas</key>
     <key alias="extractedStyles">Estilos extraidos</key>

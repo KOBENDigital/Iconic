@@ -8,7 +8,7 @@
     {
       "name": "Font Awesome",
       "selector": "\\.(fa-[\\w-]+):before{",
-      "template": "<i class=\"fa {icon}\"></i>"
+      "template": "<i class=\"fa {icon}\"></i>"        
     },
     {
       "name": "Foundation Icons",

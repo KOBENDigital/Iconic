@@ -3,7 +3,11 @@
     var controller = function controller($scope) {
 
         $scope.$watch('icon', function () {
-            $scope.template = $scope.package.template.replace("{icon}", $scope.icon);
+            if ($scope.package.backofficeTemplate) {
+                $scope.template = $scope.package.backofficeTemplate.replace("{icon}", $scope.icon);
+            } else {
+                $scope.template = $scope.package.template.replace("{icon}", $scope.icon);
+            }
         })
 
 
