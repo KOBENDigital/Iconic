@@ -97,17 +97,17 @@ Remember to wrap the icon in Html.Raw so Razor displays the returned html proper
 ## Known issues
 
 ### Glyphicons
-If you try to use Glyphicons as part of the Bootstrap package, you will realise that the whole css file will be loaded on your backoffice. This might brake some of the backoffice functionality, i.e. buttons or the grid editor. To avoid this you should export the Glyphicons classes into their own separate file. You can do this from [this link](https://getbootstrap.com/docs/3.3/customize/) and select only Glyphicons from the **Components** section.
+If you try to use Glyphicons as part of the Bootstrap package, you will realise that the whole css file will be loaded on your backoffice. This might break some of the backoffice functionality, i.e. buttons or the grid editor. To avoid this you should export the Glyphicons classes into their own separate file. You can do this from [this link](https://getbootstrap.com/docs/3.3/customize/) and select only Glyphicons from the **Components** section.
 
 
 # Umbraco Versions
 Iconic has been tested with Umbraco 7.6 and 7.7.
 
 # Changelog
--1.4
-    - Added feature to override Template for backoffice
-    - Fixed some languages issues
-    - Fixed issue with template not updating after inserting icon on page.
+- 1.4
+	- Added a feature to override Template to be able to use a different one in backoffice.
+	- Fixed some missing languages labels.
+	- Template of icons already in use is updated if it's modified on the package settings.
 
 - 1.3
 	- Support globalization. en and es included.
