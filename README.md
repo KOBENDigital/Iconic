@@ -45,6 +45,11 @@ On the Packages Configuration property, click the Add button. This will display 
 6. Override Backoffice template. Optional. You can override the Template value to use differente templates for frontend and backoffice.
 6. Click *Add Package* to add the configuration to your packages listing. Before adding the package, Iconic will extract the css rules from the file using the regex selector. Some checking is ran that will let you know if something went wrong with your configuration.
 
+#### Template Placeholders
+You can use the following placeholders to customize the way your icon is rendered in the frontend:
+- *\{icon\}* : Here is where the specific icon rule will be included. For instance, for a Font Awesome icon you would do ```<i class="fa {icon}"></i>```
+- *\{classes\}*: You can add extra classes to your icon from your views. See [Displaying the Icon](#displaying)
+- *\{attributes}*: You can use this placehoder to add extra attributes to your icon from your views. This can be useful to add data attributes for instance amongst other things. See [Displaying the Icon](#displaying)
 
 #### Icons source file
 This file will be used to extract the specific configuration for each different icon.
@@ -85,7 +90,7 @@ Once you have configured your datatype, you can use it as a property editor.
 To add or modify your icon just click on the placeholder, this will open a dialog where you can select form your configured packages. Once a package is selected, all the icons will be displayed below.
 <img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/using-iconic.png" width="600" alt="Using Iconic" >
 
-### Displaying the icon
+### <a name="displaying"></a> Displaying the icon
 Iconic comes with a value converter that will return a HtmlString containing the icon html. So you just have to use the model of your template like so:
 
 ```
@@ -93,6 +98,14 @@ Iconic comes with a value converter that will return a HtmlString containing the
 ```
 
 Remember to wrap the icon in Html.Raw so Razor displays the returned html properly.
+
+
+There is a second way of rendering your icon that allow you to add extra classes and attributes from your views. Remember that you need to add the placeholders on the right place of your template when you confgiure Iconic.
+```IHtmlString RenderIcon(this HtmlHelper helper, IHtmlString icon, object htmlAttributes, params string[] extraClasses)```
+
+Example:
+```@Html.RenderIcon(Model.Content.MyIcon, "data-x='mydata'", "myclass")```
+
 
 ## Known issues
 

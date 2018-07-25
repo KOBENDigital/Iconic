@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -19,16 +20,14 @@ namespace Iconic.Helpers
         /// <param name="extraClasses">Replaces an {classes} placeholder in the icon template.</param>
         /// <returns></returns>
         public static IHtmlString RenderIcon(this HtmlHelper helper, IHtmlString icon, object htmlAttributes, params string[] extraClasses)
-        {
-
-            if (htmlAttributes == null) return icon;
+        {            
 
             var htmlAttributesDict = HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes);
             StringBuilder attributesString = new StringBuilder();
 
             foreach (var item in htmlAttributesDict)
             {
-                attributesString.Append($"{item.Key}=\"{item.Value}\"");
+                attributesString.Append($"{ConvertToJs(item.Key)}=\"{item.Value}\"");
 
             }
 
@@ -39,6 +38,11 @@ namespace Iconic.Helpers
             return new HtmlString(modifiedTemplate);
         }
 
+        private static string ConvertToJs(string s)
+        {
+            string pattern = "([A-Z])";
+            return Regex.Replace(s, pattern, "-$1").ToLower();
+        }
         
     }
 }

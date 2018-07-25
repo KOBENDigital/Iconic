@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Koben.Iconic</id>
-    <version>1.4</version>
+    <version>1.5</version>
     <title>Iconic</title>
     <authors>Mario Lopez</authors>
     <owners>KØBEN digital</owners>
@@ -16,7 +16,7 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Fixed some missing translations ]]>
+      <![CDATA[ Added support for extra classes and attributes in template ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>
