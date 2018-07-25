@@ -104,7 +104,13 @@ There is a second way of rendering your icon that allow you to add extra classes
 ```IHtmlString RenderIcon(this HtmlHelper helper, IHtmlString icon, object htmlAttributes, params string[] extraClasses)```
 
 Example:
-```@Html.RenderIcon(Model.Content.MyIcon, "data-x='mydata'", "myclass")```
+```@Html.RenderIcon(Model.Content.MyIcon, "dataX='mydata'", "myclass")```
+
+If you had a template like `<i class="fa {icon} {classes} fa-5x" {attributes}></i>` This will render to:
+
+ ```<i class="fa fa-power-off myclass fa-5x" data-x="mydata"></i>```
+
+Note that to render `data-x` you have to enter `dataX` as your attribute name.
 
 
 ## Known issues
@@ -117,6 +123,8 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 Iconic has been tested with Umbraco 7.6 and 7.7.
 
 # Changelog
+- 1.5
+    - Added support for extra attributes and classes
 - 1.4
 	- Added a feature to override Template to be able to use a different one in backoffice.
 	- Fixed some missing languages labels.
@@ -146,4 +154,4 @@ Iconic has been tested with Umbraco 7.6 and 7.7.
 
 ---
 
-Handmade by Mario Lopez - 2017 @KobenDigital
+Handmade by Mario Lopez - 2018 @KobenDigital
