@@ -67,8 +67,10 @@ So this file can be the same css file or another files use to extract the icons 
 
 ##### Material Icons
 If you're having issues configuring Material Icons, try this configuration:
-Css File: https://fonts.googleapis.com/icon?family=Material+Icons
-Rules file: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
+
+**Css File**: https://fonts.googleapis.com/icon?family=Material+Icons
+
+**Rules file**: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
 
 
 #### Pre configured packages
