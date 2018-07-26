@@ -109,15 +109,17 @@ Iconic comes with a value converter that will return a HtmlString containing the
 Remember to wrap the icon in Html.Raw so Razor displays the returned html properly.
 
 
-There is a second way of rendering your icon that allow you to add extra classes and attributes from your views. Remember that you need to add the placeholders on the right place of your template when you confgiure Iconic.
+There is a second way of rendering your icon that allow you to add extra classes and attributes from your views. Remember that you need to add the placeholders on the right place of your template when you confgiure Iconic.<br>
 ```IHtmlString RenderIcon(this HtmlHelper helper, IHtmlString icon, object htmlAttributes, params string[] extraClasses)```
 
+**For this extension to work you'll have to include `@using Iconic.Helpers` on your view.**
+
 Example:
-```@Html.RenderIcon(Model.Content.MyIcon, "dataX='mydata'", "myclass")```
+    @Html.RenderIcon(Model.Content.MyIcon, "dataX='mydata'", "myclass")
 
 If you had a template like `<i class="fa {icon} {classes} fa-5x" {attributes}></i>` This will render to:
 
- ```<i class="fa fa-power-off myclass fa-5x" data-x="mydata"></i>```
+     <i class="fa fa-power-off myclass fa-5x" data-x="mydata"></i>
 
 Note that to render `data-x` you have to enter `dataX` as your attribute name.
 
