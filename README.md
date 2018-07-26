@@ -65,6 +65,11 @@ Other packages like Material Icons use the glyph codes or even ligatures to disp
 ```
 So this file can be the same css file or another files use to extract the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
 
+##### Material Icons
+If you're having issues configuring Material Icons, try this configuration:
+Css File: https://fonts.googleapis.com/icon?family=Material+Icons
+Rules file: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
+
 
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
