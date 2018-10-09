@@ -239,7 +239,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
-    <Content Include=".gitignore" />
     <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
     <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
     <Content Include="App_Plugins\Iconic\Js\iconic.controller.js">
