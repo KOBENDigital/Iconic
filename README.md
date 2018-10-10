@@ -74,6 +74,9 @@ If you're having issues configuring Material Icons, try this configuration:
 
 **Rules file**: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
 
+##### Font Awesome 5
+The version 5 is a bit tricky to configure it. There is a <a href -"https://www.edg3.co.uk/blog/how-to-add-font-awesome-v5-icons-using-iconic-in-umbraco/">great post</a> about it, thanks to Christopher Robinson.
+
 
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
