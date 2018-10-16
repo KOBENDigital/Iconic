@@ -84,6 +84,9 @@
     <Reference Include="interfaces, Version=1.0.6684.15718, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\interfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Koben.Iconic, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Koben.Iconic.1.6.0\lib\net46\Koben.Iconic.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -318,6 +321,7 @@
     <Content Include="config\BackOfficeTours\getting-started.json" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include=".gitignore" />
     <Content Include="App_Plugins\Iconic\Styles\iconic.scss" />
     <Content Include="App_Plugins\Iconic\preconfigs.json" />
     <Content Include="App_Plugins\Iconic\package.manifest" />
@@ -372,12 +376,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Iconic\Iconic.csproj">
-      <Project>{9894967f-1d73-4fdd-b2ba-22e4a0ecae38}</Project>
-      <Name>Iconic</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
