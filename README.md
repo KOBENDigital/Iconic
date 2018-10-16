@@ -75,7 +75,7 @@ If you're having issues configuring Material Icons, try this configuration:
 **Rules file**: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
 
 ##### Font Awesome 5
-The version 5 is a bit tricky to configure. There is a <a href -"https://www.edg3.co.uk/blog/how-to-add-font-awesome-v5-icons-using-iconic-in-umbraco/">great post</a> about it, thanks to Christopher Robinson.
+The version 5 is a bit tricky to configure. There is a <a href="https://www.edg3.co.uk/blog/how-to-add-font-awesome-v5-icons-using-iconic-in-umbraco/">great post</a> about it, thanks to Christopher Robinson.
 
 
 #### Pre configured packages
@@ -137,6 +137,9 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 Iconic has been tested with Umbraco 7.6 and 7.7.
 
 # Changelog
+- 1.6
+    - Unable to cast object of type 'Newtonsoft.Json.Linq.JObject' to type 'System.String'. FIXED
+    - Added Pre-Configurations for Font Awesome 5.
 - 1.5
     - Added support for extra attributes and classes
 - 1.4
