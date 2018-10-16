@@ -16,7 +16,7 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Fixed issue casting object. ]]>
+      <![CDATA[ Fixed issue casting object. Added configurations for Font Awesome 5. ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>
