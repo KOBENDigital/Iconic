@@ -9,10 +9,12 @@ With Iconic you will be able to create a property editor that can use virtually 
 ### Nuget
 [![NuGet](https://buildstats.info/nuget/Koben.Iconic)](https://www.nuget.org/packages/Koben.Iconic/)
 
+You can run the following command from within Visual Studio:
+
     PM> Install-Package Koben.Iconic
 
 ### Umbraco Package
-NOT AVAILABLE
+https://our.umbraco.com/packages/backoffice-extensions/iconic/
 
 
 ### Manually
