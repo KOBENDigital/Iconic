@@ -84,9 +84,6 @@
     <Reference Include="interfaces, Version=1.0.6837.12326, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.12.3\lib\net45\interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="Koben.Iconic, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Koben.Iconic.1.6.0\lib\net46\Koben.Iconic.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.12.3\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -255,23 +252,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Plugins\Iconic\Js\findPolyfill.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.controller.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.controller.min.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.min.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.directives.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.models.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.models.min.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.js" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.min.js" />
-    <Content Include="App_Plugins\Iconic\lang\en-US.xml" />
-    <Content Include="App_Plugins\Iconic\lang\es-ES.xml" />
-    <Content Include="App_Plugins\Iconic\Styles\iconic.css" />
-    <Content Include="App_Plugins\Iconic\Styles\iconic.min.css" />
-    <Content Include="App_Plugins\Iconic\Views\iconic.dialog.html" />
-    <Content Include="App_Plugins\Iconic\Views\iconic.html" />
-    <Content Include="App_Plugins\Iconic\Views\iconic.prevalues.html" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\imageprocessor\security.config" />
     <Content Include="config\imageprocessor\processing.config" />
@@ -305,13 +285,6 @@
     <Content Include="config\umbracoSettings.config" />
     <Content Include="config\ClientDependency.config" />
     <Content Include=".gitignore" />
-    <Content Include="App_Plugins\Iconic\Styles\iconic.scss" />
-    <Content Include="App_Plugins\Iconic\preconfigs.json" />
-    <Content Include="App_Plugins\Iconic\package.manifest" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.es6" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.models.es6" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
     <Content Include="Global.asax" />
     <Content Include="Media\Web.config" />
     <Content Include="config\tinyMceConfig.config" />
@@ -351,6 +324,7 @@
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
+    <Content Include="Views\Partials\_ProductListing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -376,6 +350,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Iconic\Iconic.csproj">
+      <Project>{9894967f-1d73-4fdd-b2ba-22e4a0ecae38}</Project>
+      <Name>Iconic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

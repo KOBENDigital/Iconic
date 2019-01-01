@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f04360b42b3015c8")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "8270fb227e2fcfa8")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -1011,6 +1011,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IEnumerable<IPublishedContent> Features
 		{
 			get { return this.GetPropertyValue<IEnumerable<IPublishedContent>>("features"); }
+		}
+
+		///<summary>
+		/// Icon
+		///</summary>
+		[ImplementPropertyType("icon")]
+		public HtmlString Icon
+		{
+			get { return this.GetPropertyValue<HtmlString>("icon"); }
 		}
 
 		///<summary>
