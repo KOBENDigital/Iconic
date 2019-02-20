@@ -131,8 +131,15 @@ Note that to render `data-x` you have to enter `dataX` as your attribute name.
 
 ## Known issues
 
+### Stacked Content
+If you are using stacked content and Iconic, you must ensure that any stacked document types do not use "icon" as the alias for an Icon Picker property editor. 
+It's a known issue of Inner Content: <a href="https://github.com/umco/umbraco-inner-content#known-issues">https://github.com/umco/umbraco-inner-content#known-issues</a>
+
 ### Glyphicons
 If you try to use Glyphicons as part of the Bootstrap package, you will realise that the whole css file will be loaded on your backoffice. This might break some of the backoffice functionality, i.e. buttons or the grid editor. To avoid this you should export the Glyphicons classes into their own separate file. You can do this from [this link](https://getbootstrap.com/docs/3.3/customize/) and select only Glyphicons from the **Components** section.
+
+### Font Awesome Pro
+Currently if you are using font awesome pro and stacked content, icons will not render correctly in stacked content preview
 
 
 # Umbraco Versions
