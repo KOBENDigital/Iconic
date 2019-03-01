@@ -388,13 +388,8 @@
     <None Include="App_Plugins\Iconic\package.manifest" />
     <None Include="App_Plugins\Iconic\preconfigs.json" />
     <None Include="App_Plugins\Iconic\Styles\iconic.scss" />
-    <None Include="App_Plugins\ModelsBuilder\package.manifest" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults" />
-    <None Include="Config\imageprocessor\cache.config" />
-    <None Include="Config\imageprocessor\processing.config" />
-    <None Include="Config\imageprocessor\security.config" />
-    <None Include="Config\umbracoSettings.config" />
     <None Include="Iconic.nuspec">
       <SubType>Designer</SubType>
     </None>
@@ -402,9 +397,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
-    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
-    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.html" />
-    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
     <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
     <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
     <Content Include="App_Plugins\Iconic\Js\iconic.controller.js">
