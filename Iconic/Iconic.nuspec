@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Koben.Iconic</id>
-    <version>1.6</version>
+    <version>2.0</version>
     <title>Iconic</title>
     <authors>Mario Lopez</authors>
     <owners>KØBEN digital</owners>
@@ -16,11 +16,11 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Fixed issue casting object. Added configurations for Font Awesome 5. ]]>
+      <![CDATA[ First release that supports Umbraco V8. Not compatible with V7. Please use Iconic v1.6 for V7. ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>
-      <dependency id="UmbracoCms.Core" version="[7.6,]" />
+      <dependency id="UmbracoCms.Core" version="[8.0,]" />
     </dependencies>
   </metadata>
   <files>

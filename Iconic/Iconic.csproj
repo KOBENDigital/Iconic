@@ -446,9 +446,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y/s "$(ProjectDir)\App_Plugins" "$(SolutionDir)\Umbraco79\App_Plugins"
-xcopy /y/s "$(ProjectDir)\App_Plugins" "$(SolutionDir)\Umbraco713\App_Plugins"
-xcopy /y/s "$(ProjectDir)\App_Plugins" "$(SolutionDir)\Umb8Testing\App_Plugins"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y/s "$(ProjectDir)\App_Plugins" "$(SolutionDir)\..\TestingEnvs\Umb8Testing\App_Plugins"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
