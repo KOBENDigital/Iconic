@@ -1,51 +1,32 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Iconic.Models;
-using Newtonsoft.Json;
-using Umbraco.Core;
+using Newtonsoft.Json.Linq;
+using Umbraco.Core.Composing;
 using Umbraco.Core.Models.PublishedContent;
 
 namespace Iconic.Configuration
 {
-    internal class ConfiguredPackagesCollection : IEnumerable<Package>
+    internal class ConfiguredPackagesCollection : List<Package>
     {
-        protected IEnumerable<Package> _packages;
-        public PublishedPropertyType PropertyType { get; private set; }
-
-
-        public IEnumerable<Package> Packages
-        {
-            get
-            {
-                return _packages;
-            }
-        }
 
         public ConfiguredPackagesCollection(PublishedPropertyType propertyType)
         {
-            PropertyType = propertyType;
-            _packages = GetConfiguratedPackages();
+            this.AddRange(GetConfiguratedPackages(propertyType));
         }
 
-        public IEnumerable<Package> GetConfiguratedPackages()
+        private IEnumerable<Package> GetConfiguratedPackages(PublishedPropertyType propertyType)
         {
-            var _requestCache = ApplicationContext.Current.ApplicationCache.RequestCache;
-            var packages = (IEnumerable<Package>)_requestCache.GetCacheItem(PropertyType.PropertyTypeAlias, () =>
+            var _requestCache = Current.AppCaches.RequestCache;
+            var packages = (IEnumerable<Package>)_requestCache.Get(propertyType.Alias, () =>
                  {
-                     var pvCollection = ApplicationContext.Current.Services.DataTypeService.GetPreValuesCollectionByDataTypeId(PropertyType.DataTypeId);
+                     var dataType = Current.Services.DataTypeService.GetDataType(propertyType.DataType.Id);
+                     var configurationJson = (Dictionary<string, object>)dataType.Configuration;
 
-                     if (pvCollection.PreValuesAsDictionary["packages"] != null && !string.IsNullOrEmpty(pvCollection.PreValuesAsDictionary["packages"].Value))
-                     {
-                         return JsonConvert.DeserializeObject<IEnumerable<Package>>(pvCollection.PreValuesAsDictionary["packages"].Value);
-                     }
-                     else
-                     {
-                         return Enumerable.Empty<Package>();
-                     }
+                     var editorConfig = ((JArray)configurationJson["packages"]).ToObject<IEnumerable<Package>>();
+
+                     return editorConfig;                  
                  });
 
             return packages;
@@ -57,22 +38,10 @@ namespace Iconic.Configuration
         {
             get
             {
-                return _packages.FirstOrDefault(p => p.Id == id);
+                return this.FirstOrDefault(p => p.Id == id);
             }
         }
 
-        public IEnumerator<Package> GetEnumerator()
-        {
-            foreach (var item in _packages)
-            {
-                yield return item;
-            }
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
     }
 
 

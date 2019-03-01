@@ -1,28 +1,27 @@
-﻿using Iconic.Configuration;
+﻿using System;
+using System.Web;
+using Iconic.Configuration;
 using Iconic.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Umbraco.Core;
-using Umbraco.Core.Logging;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.PropertyEditors;
 
 namespace Koben.Iconic.ValueConverters
 {
-    [PropertyValueType(typeof(HtmlString))]
-    [PropertyValueCache(PropertyCacheValue.All, PropertyCacheLevel.Content)]
     public class IconicValueConverter : PropertyValueConverterBase
     {
         public override bool IsConverter(PublishedPropertyType propertyType)
-        {
-            return propertyType.PropertyEditorAlias.Equals("koben.iconic");
-        }
+             => propertyType.EditorAlias.Equals("koben.iconic");
 
-        public override object ConvertSourceToObject(PublishedPropertyType propertyType, object source, bool preview)
+        public override Type GetPropertyValueType(PublishedPropertyType propertyType)
+            => typeof(HtmlString);
+
+        public override PropertyCacheLevel GetPropertyCacheLevel(PublishedPropertyType propertyType)
+            => PropertyCacheLevel.Elements;
+
+
+        public override object ConvertSourceToIntermediate(IPublishedElement owner, PublishedPropertyType propertyType, object source, bool preview)
         {
             if (source == null) return string.Empty;
             SelectedIcon icon = null;
@@ -32,20 +31,19 @@ namespace Koben.Iconic.ValueConverters
             }
             else
             {
-                try
-                {
-                    icon = JsonConvert.DeserializeObject<SelectedIcon>(source.ToString());
-                }
-                catch
-                {
-                    // Unexpected source object type
-                    LogHelper.Warn<IconicValueConverter>($"Could not convert {nameof(source)} from {source.GetType()} to SelectedIcon");
-                }
+                icon = JsonConvert.DeserializeObject<SelectedIcon>(source.ToString());
             }
             if (icon == null)
             {
                 return string.Empty;
             }
+
+            return icon;
+        }
+
+        public override object ConvertIntermediateToObject(IPublishedElement owner, PublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
+        {
+            var icon = (SelectedIcon)inter;
 
             var packages = new ConfiguredPackagesCollection(propertyType);
 

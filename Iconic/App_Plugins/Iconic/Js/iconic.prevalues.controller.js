@@ -61,15 +61,15 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
     };
 
     function displayError(alias) {
-        localizationService.localize(alias).then(function (value) {
-            $scope.data.iconicError = value;
+        localizationService.localize(alias).then(function (response) {
+            $scope.data.iconicError = response.value;
         });
     }
 
     function loadPreconfigs() {
-        $http.get("/App_Plugins/Iconic/preconfigs.json").success(function (data) {
-            $scope.preconfig = data.preconfigs;
-        }).error(function (response) {
+        $http.get("/App_Plugins/Iconic/preconfigs.json").then(function (response) {
+            $scope.preconfig = response.data.preconfigs;
+        }, function (response) {
             displayError("iconicErrors_loading");
         });
     }
@@ -84,14 +84,14 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
 
         if (!item.sourcefile) item.sourcefile = item.cssfile;
 
-        $http.get(item.sourcefile).success(function (data) {
+        $http.get(item.sourcefile).then(function (response) {
             item.extractedStyles = [];
             var pattern = new RegExp(item.selector, 'g');
 
-            var match = pattern.exec(data);
+            var match = pattern.exec(response.data);
             while (match !== null) {
                 item.extractedStyles.push(match[1]);
-                match = pattern.exec(data);
+                match = pattern.exec(response.data);
             }
 
             if (item.extractedStyles.length > 0) {
@@ -100,7 +100,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope
                 displayError("iconicErrors_no_rules");
                 errorCallback();
             }
-        }).error(function (response) {
+        }, function (response) {
             displayError("iconicErrors_loadingCss");
             errorCallback();
         });

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iconic", "Iconic\Iconic.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco79", "Umbraco79\Umbraco79.csproj", "{81C539A8-029F-40A0-BB8A-CE25D8EB519A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco713", "Umbraco713\Umbraco713.csproj", "{6DD98F7F-3AC8-4F14-949A-F4D6B5967FA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umb8Testing", "Umb8Testing\Umb8Testing.csproj", "{255F8D6D-0332-41B8-83EB-46AFE6DC09E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{81C539A8-029F-40A0-BB8A-CE25D8EB519A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81C539A8-029F-40A0-BB8A-CE25D8EB519A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81C539A8-029F-40A0-BB8A-CE25D8EB519A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD98F7F-3AC8-4F14-949A-F4D6B5967FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD98F7F-3AC8-4F14-949A-F4D6B5967FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD98F7F-3AC8-4F14-949A-F4D6B5967FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD98F7F-3AC8-4F14-949A-F4D6B5967FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{255F8D6D-0332-41B8-83EB-46AFE6DC09E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{255F8D6D-0332-41B8-83EB-46AFE6DC09E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{255F8D6D-0332-41B8-83EB-46AFE6DC09E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{255F8D6D-0332-41B8-83EB-46AFE6DC09E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

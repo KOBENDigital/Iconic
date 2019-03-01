@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("umbraco").controller("Koben.Iconic.Controller", ['$scope', 'dialogService', 'assetsService', function ($scope, dialogService, assetsService) {
+angular.module("umbraco").controller("Koben.Iconic.Controller", ['$scope', 'assetsService', function ($scope, assetsService) {
     var config = $scope.model.config;
 
     $scope.pckg;
@@ -36,7 +36,7 @@ angular.module("umbraco").controller("Koben.Iconic.Controller", ['$scope', 'dial
 
     function loadPackage(packages, packageId) {
         return packages.find(function (el) {
-            return el.id == packageId;
+            return el.id === packageId;
         });
     }
 

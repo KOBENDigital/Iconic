@@ -1,6 +1,6 @@
 ﻿angular.module("umbraco")
     .controller("Koben.Iconic.Controller",
-    ['$scope', 'dialogService', 'assetsService', function ($scope, dialogService, assetsService) {
+    ['$scope', 'assetsService', function ($scope, assetsService) {
         var config = $scope.model.config;
         
         $scope.pckg;
@@ -9,20 +9,20 @@
                     
         $scope.selectIcon = function (model) {
             if (model.pickerData.icon && model.pickerData.packageId) {
-                $scope.pckg = loadPackage(config.packages, model.pickerData.packageId);                
-                $scope.model.value = model.pickerData;                
+                $scope.pckg = loadPackage(config.packages, model.pickerData.packageId);
+                $scope.model.value = model.pickerData;
                 $scope.modelIsValid = true;
             } else {
                 $scope.modelIsValid = false;
             }
-            
-        }
+
+        };
 
      
         $scope.removeIcon = function () {
-            $scope.model.value = {};            
+            $scope.model.value = {};
             $scope.modelIsValid = false;
-        }
+        };
 
         $scope.overlay = {
             view: "/app_plugins/iconic/views/iconic.dialog.html",
@@ -30,15 +30,15 @@
             hideSubmitButton: true,
             submit: $scope.selectIcon,
             close: function () {
-                $scope.overlay.show = false;                
+                $scope.overlay.show = false;
             },
             pickerData: $scope.model.value,
             pickerConfig: config
-        }
+        };
 
 
         function loadPackage(packages, packageId) {
-            return packages.find((el) => el.id == packageId);
+            return packages.find((el) => el.id === packageId);
         }
 
         function initPicker() {
