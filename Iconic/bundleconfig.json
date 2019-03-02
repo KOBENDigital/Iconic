@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "App_Plugins/Iconic/Js/findPolyfill.min.js",
+    "inputFiles": [
+      "App_Plugins/Iconic/Js/findPolyfill.js"
+    ]
+  },
+  {
+    "outputFileName": "App_Plugins/Iconic/Js/iconic.directives.min.js",
+    "inputFiles": [
+      "App_Plugins/Iconic/Js/iconic.directives.js"
+    ]
+  }
+]

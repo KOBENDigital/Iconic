@@ -388,6 +388,8 @@
     <None Include="App_Plugins\Iconic\package.manifest" />
     <None Include="App_Plugins\Iconic\preconfigs.json" />
     <None Include="App_Plugins\Iconic\Styles\iconic.scss" />
+    <None Include="build.ps1" />
+    <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults" />
     <None Include="Iconic.nuspec">
@@ -399,6 +401,9 @@
     <Content Include=".gitattributes" />
     <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
     <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
+    <Content Include="App_Plugins\Iconic\Js\findPolyfill.min.js">
+      <DependentUpon>findPolyfill.js</DependentUpon>
+    </Content>
     <Content Include="App_Plugins\Iconic\Js\iconic.controller.js">
       <DependentUpon>iconic.controller.es6</DependentUpon>
     </Content>
@@ -413,6 +418,9 @@
     </Content>
     <Content Include="App_Plugins\Iconic\Js\iconic.directives.js" />
     <None Include="App_Plugins\Iconic\Js\iconic.models.es6" />
+    <Content Include="App_Plugins\Iconic\Js\iconic.directives.min.js">
+      <DependentUpon>iconic.directives.js</DependentUpon>
+    </Content>
     <Content Include="App_Plugins\Iconic\Js\iconic.models.js">
       <DependentUpon>iconic.models.es6</DependentUpon>
     </Content>

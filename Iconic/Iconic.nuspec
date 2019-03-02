@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/KOBENDigital/Iconic</projectUrl>
     <iconUrl>https://koben.com.au/media/1047/koben_logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>Icon picker for Umbraco</summary>
+    <summary>Icon picker for Umbraco V8</summary>
     <description>
       <![CDATA[Highly configurable icon picker for Umbraco. With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.
     ]]>
@@ -24,6 +24,10 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="App_Plugins\**\*.*" target="content\App_Plugins\"/>
-  </files> 
+    <file src="App_Plugins\Iconic\**\*.*" target="content\App_Plugins\Iconic"  exclude="App_Plugins\Iconic\Js\*.*;App_Plugins\Iconic\Styles\*.*"/>
+    <file src="App_Plugins\Iconic\Js\*.min.js" target="content\App_Plugins\Iconic\Js" />
+    <file src="App_Plugins\Iconic\Styles\*.min.css" target="content\App_Plugins\Iconic\Styles" />
+
+    <file src="bin\Release\Koben.Iconic.*" target="lib\net472"></file>
+  </files>
 </package>
