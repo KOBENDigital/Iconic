@@ -6,7 +6,7 @@
     <title>Iconic</title>
     <authors>Mario Lopez</authors>
     <owners>KØBEN digital</owners>
-    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/KOBENDigital/Iconic</projectUrl>
     <iconUrl>https://koben.com.au/media/1047/koben_logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

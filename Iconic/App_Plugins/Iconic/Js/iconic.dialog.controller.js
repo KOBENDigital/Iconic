@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
+angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope', 'assetsService', function ($scope, assetsService) {
 
     $scope.packages = $scope.model.pickerConfig.packages;
     $scope.pckgselected;

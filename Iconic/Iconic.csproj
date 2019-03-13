@@ -388,17 +388,16 @@
     <None Include="App_Plugins\Iconic\package.manifest" />
     <None Include="App_Plugins\Iconic\preconfigs.json" />
     <None Include="App_Plugins\Iconic\Styles\iconic.scss" />
-    <None Include="build.ps1" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults" />
-    <None Include="Iconic.nuspec">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Iconic.nuspec" />
     <None Include="packages.config" />
+    <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
+    <Content Include="package.xml" />
     <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
     <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
     <Content Include="App_Plugins\Iconic\Js\findPolyfill.min.js">
@@ -454,7 +453,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y/s "$(ProjectDir)\App_Plugins" "$(SolutionDir)\..\TestingEnvs\Umb8Testing\App_Plugins"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y/s "$(ProjectDir)\App_Plugins" "$(SolutionDir)..\TestingEnvs\Umbraco8\Umbraco8\App_Plugins"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

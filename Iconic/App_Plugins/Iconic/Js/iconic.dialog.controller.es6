@@ -1,6 +1,6 @@
 ﻿angular.module("umbraco")
     .controller("Koben.Iconic.Dialog.Controller",
-    ['$scope', '$http', 'assetsService', function ($scope, $http, assetsService) {
+    ['$scope', 'assetsService', function ($scope, assetsService) {
 
         $scope.packages = $scope.model.pickerConfig.packages;
         $scope.pckgselected;
