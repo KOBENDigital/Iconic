@@ -23,12 +23,12 @@
   ],
 
   "javascript": [
-    "~/App_Plugins/Iconic/Js/findPolyfill.min.js",
-    "~/App_Plugins/Iconic/Js/iconic.models.min.js",
-    "~/App_Plugins/Iconic/Js/iconic.controller.min.js",
-    "~/App_Plugins/Iconic/Js/iconic.dialog.controller.min.js",
-    "~/App_Plugins/Iconic/Js/iconic.prevalues.controller.min.js",
-    "~/App_Plugins/Iconic/Js/iconic.directives.min.js"
+    "~/App_Plugins/Iconic/Js/findPolyfill.js",
+    "~/App_Plugins/Iconic/Js/iconic.models.js",
+    "~/App_Plugins/Iconic/Js/iconic.controller.js",
+    "~/App_Plugins/Iconic/Js/iconic.dialog.controller.js",
+    "~/App_Plugins/Iconic/Js/iconic.prevalues.controller.js",
+    "~/App_Plugins/Iconic/Js/iconic.directives.js"
 
   ],
   "css": [
