@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{4675A8B4
 		Iconic\package.xml = Iconic\package.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco8", "..\TestingEnvs\Umbraco8\Umbraco8\Umbraco8.csproj", "{B3E1790D-1D01-407D-9175-4AD5E1458DCD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,10 +22,6 @@ Global
 		{9894967F-1D73-4FDD-B2BA-22E4A0ECAE38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9894967F-1D73-4FDD-B2BA-22E4A0ECAE38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9894967F-1D73-4FDD-B2BA-22E4A0ECAE38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B3E1790D-1D01-407D-9175-4AD5E1458DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3E1790D-1D01-407D-9175-4AD5E1458DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3E1790D-1D01-407D-9175-4AD5E1458DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3E1790D-1D01-407D-9175-4AD5E1458DCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
