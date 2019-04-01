@@ -388,8 +388,10 @@
     <None Include="App_Plugins\Iconic\package.manifest" />
     <None Include="App_Plugins\Iconic\preconfigs.json" />
     <None Include="App_Plugins\Iconic\Styles\iconic.scss" />
-    <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.bindings">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="compilerconfig.json.defaults" />
     <None Include="Iconic.nuspec" />
     <None Include="packages.config" />
@@ -397,41 +399,38 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
-    <Content Include="package.xml" />
-    <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
-    <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
-    <Content Include="App_Plugins\Iconic\Js\findPolyfill.min.js">
-      <DependentUpon>findPolyfill.js</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.controller.js">
-      <DependentUpon>iconic.controller.es6</DependentUpon>
-    </Content>
     <Content Include="App_Plugins\Iconic\Js\iconic.controller.min.js">
       <DependentUpon>iconic.controller.js</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.js">
-      <DependentUpon>iconic.dialog.controller.es6</DependentUpon>
     </Content>
     <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.min.js">
       <DependentUpon>iconic.dialog.controller.js</DependentUpon>
     </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.directives.js" />
-    <None Include="App_Plugins\Iconic\Js\iconic.models.es6" />
     <Content Include="App_Plugins\Iconic\Js\iconic.directives.min.js">
       <DependentUpon>iconic.directives.js</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.models.js">
-      <DependentUpon>iconic.models.es6</DependentUpon>
     </Content>
     <Content Include="App_Plugins\Iconic\Js\iconic.models.min.js">
       <DependentUpon>iconic.models.js</DependentUpon>
     </Content>
+    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.min.js">
+      <DependentUpon>iconic.prevalues.controller.js</DependentUpon>
+    </Content>
+    <Content Include="package.xml" />
+    <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
+    <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
+    <Content Include="App_Plugins\Iconic\Js\iconic.controller.js">
+      <DependentUpon>iconic.controller.es6</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.js">
+      <DependentUpon>iconic.dialog.controller.es6</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\Js\iconic.directives.js" />
+    <None Include="App_Plugins\Iconic\Js\iconic.models.es6" />
+    <Content Include="App_Plugins\Iconic\Js\iconic.models.js">
+      <DependentUpon>iconic.models.es6</DependentUpon>
+    </Content>
     <None Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.es6" />
     <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.js">
       <DependentUpon>iconic.prevalues.controller.es6</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.min.js">
-      <DependentUpon>iconic.prevalues.controller.js</DependentUpon>
     </Content>
     <Content Include="App_Plugins\Iconic\Js\findPolyfill.js" />
     <Content Include="App_Plugins\Iconic\lang\es-ES.xml">

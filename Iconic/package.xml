@@ -17,29 +17,29 @@
       <orgName>findPolyfill.js</orgName>
     </file>
     <file>
-      <guid>iconic.controller.min.js</guid>
+      <guid>iconic.controller.js</guid>
       <orgPath>/App_Plugins/Iconic/Js</orgPath>
-      <orgName>iconic.controller.min.js</orgName>
+      <orgName>iconic.controller.js</orgName>
     </file>
     <file>
-      <guid>iconic.dialog.controller.min.js</guid>
+      <guid>iconic.dialog.controller.js</guid>
       <orgPath>/App_Plugins/Iconic/Js</orgPath>
-      <orgName>iconic.dialog.controller.min.js</orgName>
+      <orgName>iconic.dialog.controller.js</orgName>
     </file>
     <file>
-      <guid>iconic.directives.min.js</guid>
+      <guid>iconic.directives.js</guid>
       <orgPath>/App_Plugins/Iconic/Js</orgPath>
-      <orgName>iconic.directives.min.js</orgName>
+      <orgName>iconic.directives.js</orgName>
     </file>
     <file>
-      <guid>iconic.models.min.js</guid>
+      <guid>iconic.models.js</guid>
       <orgPath>/App_Plugins/Iconic/Js</orgPath>
-      <orgName>iconic.models.min.js</orgName>
+      <orgName>iconic.models.js</orgName>
     </file>
     <file>
-      <guid>iconic.prevalues.controller.min.js</guid>
+      <guid>iconic.prevalues.controller.js</guid>
       <orgPath>/App_Plugins/Iconic/Js</orgPath>
-      <orgName>iconic.prevalues.controller.min.js</orgName>
+      <orgName>iconic.prevalues.controller.js</orgName>
     </file>
     <file>
       <guid>en-US.xml</guid>
