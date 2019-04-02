@@ -35,15 +35,31 @@
                val-highlight="{{ packageForm.editBackofficeTemplate.$invalid }}"
                ng-if="package.overrideTemplate" />
     </div>
-    <div class="koben-iconic__params_input_group">
-        <label for="editCssFile"><localize key="iconicConfig_cssFile">Css file</localize></label><br />
-        <input name="editCssFile"
-               type="text"
-               ng-model="package.cssfile"
-               ng-text-change="analysing = 'init'"
-               val-highlight="{{ packageForm.editCssFile.$invalid }}"
-               required />
-        <p ng-show="packageForm.editCssFile.$error.required && packageForm.editCssFile.$dirty">
+    <div class="koben-iconic__params_input_group">      
+        <input type="hidden" name="editCssFile" required ng-model="package.cssfile"/>
+        <umb-control-group label="@iconicConfig_cssFile"
+                           description="File to use as your css source to style the extracted icons."
+                           val-highlight="{{ packageForm.editCssFile.$invalid }}">
+
+            <umb-node-preview ng-if="package.cssfile"                              
+                              icon="'icon-document'"
+                              name="package.cssfile"
+                              allow-remove="true"
+                              on-remove="removeCssFile()">
+            </umb-node-preview>
+
+            <a ng-hide="package.cssfile"
+               href=""
+               class="umb-node-preview-add"
+               ng-click="openCssFilePicker(package.cssfile)"
+               prevent-default>
+                <localize key="general_add">Add</localize>
+            </a>
+
+        </umb-control-group>
+
+
+        <p class="alert-error" ng-show="packageForm.editCssFile.$error.required && packageForm.editCssFile.$dirty">
             <localize key="iconicValidation_css">Please select a css file</localize>
         </p>
     </div>
@@ -61,15 +77,33 @@
             </p>
         </div>
         <div class="koben-iconic__params_input_group">
-            <label for="editSourceFile">
-                <localize key="iconicConfig_rulesFile">Rules source file</localize>
-            </label><br />
             <input name="editSourceFile"
-                   type="text"
+                   type="hidden"
                    ng-model="package.sourcefile"
-                   ng-text-change="analysing = 'init'"
-                   val-highlight="{{ packageFormErrors.cssfile.$invalid }}"
                    required />
+            
+            <umb-control-group label="@iconicConfig_rulesFile"
+                               description="File where you want to extract the icons from."
+                               val-highlight="{{ packageForm.sourcefile.$invalid }}">
+
+                <umb-node-preview ng-if="package.sourcefile"
+                                  icon="'icon-document'"
+                                  name="package.sourcefile"
+                                  allow-remove="true"
+                                  on-remove="removeRulesFile()">
+                </umb-node-preview>
+                
+                <a ng-hide="package.sourcefile"
+                   href=""
+                   class="umb-node-preview-add"
+                   ng-click="openRulesFilePicker()"
+                   prevent-default>
+                    <localize key="general_add">Add</localize>
+                </a>
+
+            </umb-control-group>
+
+
             <p ng-show="packageForm.editSourceFile.$error.required && packageForm.editSourceFile.$dirty">
                 <localize key="iconicValidation_rules">Please enter a rules source file</localize>
             </p>

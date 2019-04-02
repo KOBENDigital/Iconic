@@ -34,13 +34,15 @@
 });
 
 angular.module("umbraco").directive("packageForm", function () {
-    var controller = function ($scope, $http, localizationService) {
+    var controller = function ($scope, $http, localizationService, editorService) {
         $scope.submitPackageForm = function () {
+
+
             if ($scope.packageForm.$valid) {
                 extractStyles(
                     $scope.package,
                     function () {
-                        $scope.analysing = "success";                        
+                        $scope.analysing = "success";
                         $scope.onsaved();
                     },
                     function () {
@@ -48,6 +50,60 @@ angular.module("umbraco").directive("packageForm", function () {
                     }
                 );
             }
+        };
+
+        $scope.openCssFilePicker = function () {
+            const config = {
+                select: function (node) {
+                    const id = unescape(node.id);
+                    $scope.package.cssfile = id;
+                    editorService.close();
+                }
+            };
+            openTreePicker(config);
+
+        };
+
+        $scope.openRulesFilePicker = function () {
+            const config = {
+                select: function (node) {
+                    const id = unescape(node.id);
+                    $scope.package.sourcefile = id;
+                    editorService.close();
+                }
+            };
+            openTreePicker(config);
+        };
+
+        function openTreePicker(config) {
+            const picker = {
+                title: "Select file",
+                section: "settings",
+                treeAlias: "files",
+                entityType: "file",
+                filter: function (i) {
+                    if (i.name.indexOf(".min.css") === -1 &&
+                        i.name.indexOf(".css") === -1) {
+                        return true;
+                    }
+                },
+                filterCssClass: "not-allowed",
+                close: function () {
+                    editorService.close();
+                }
+            };
+
+            var args = _.assign(picker, config);
+
+            editorService.treePicker(args);
+        }
+
+        $scope.removeCssFile = function () {
+            $scope.package.cssfile = null;
+        };
+
+        $scope.removeRulesFile = function () {
+            $scope.package.sourcefile = null;
         };
 
         function displayError(alias) {

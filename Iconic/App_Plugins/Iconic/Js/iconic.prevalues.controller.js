@@ -45,45 +45,6 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope
         Object.assign($scope.newItem, config);
     };
 
-    $scope.openFilePicker = function () {
-        var selection = angular.copy(vm["package"].files);
-
-        var filePicker = {
-            title: "Select files",
-            section: "settings",
-            treeAlias: "files",
-            entityType: "file",
-            multiPicker: true,
-            isDialog: true,
-            select: function select(node) {
-                node.selected = !node.selected;
-
-                var id = unescape(node.id);
-                var index = selection.indexOf(id);
-
-                if (node.selected) {
-                    if (index === -1) {
-                        selection.push(id);
-                    }
-                } else {
-                    selection.splice(index, 1);
-                }
-            },
-            submit: function submit() {
-                vm["package"].files = selection;
-                editorService.close();
-            },
-            close: function close() {
-                editorService.close();
-            }
-        };
-        editorService.treePicker(filePicker);
-    };
-
-    $scope.removeFile = function (index) {
-        vm["package"].files.splice(index, 1);
-    };
-
     function loadPreconfigs() {
         $http.get("/App_Plugins/Iconic/preconfigs.json").then(function (response) {
             $scope.preconfig = response.data.preconfigs;

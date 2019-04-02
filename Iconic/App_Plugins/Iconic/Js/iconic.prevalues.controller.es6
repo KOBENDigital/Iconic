@@ -49,44 +49,7 @@
             Object.assign($scope.newItem, config);
         };
 
-        $scope.openFilePicker = function () {
-            let selection = angular.copy(vm.package.files);
-
-            const filePicker = {
-                title: "Select files",
-                section: "settings",
-                treeAlias: "files",
-                entityType: "file",
-                multiPicker: true,
-                isDialog: true,
-                select: function (node) {
-                    node.selected = !node.selected;
-
-                    const id = unescape(node.id);
-                    const index = selection.indexOf(id);
-
-                    if (node.selected) {
-                        if (index === -1) {
-                            selection.push(id);
-                        }
-                    } else {
-                        selection.splice(index, 1);
-                    }
-                },
-                submit: function () {
-                    vm.package.files = selection;
-                    editorService.close();
-                },
-                close: function () {
-                    editorService.close();
-                }
-            };
-            editorService.treePicker(filePicker);
-        };
-
-        $scope.removeFile = function (index) {
-            vm.package.files.splice(index, 1);
-        };
+     
 
         function loadPreconfigs() {
             $http.get("/App_Plugins/Iconic/preconfigs.json").then(
