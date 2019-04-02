@@ -1,123 +1,104 @@
-﻿
-angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ['$scope', '$http', 'assetsService', 'localizationService', function ($scope, $http, assetsService, localizationService) {
+﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", [
+    "$scope",
+    "$http",
+    "assetsService",
+    "localizationService",
+    function ($scope, $http, assetsService, localizationService) {
+        $scope.overrideBgTemplate = false;
 
-    $scope.newItem = new Package();
+        $scope.data = {
+            configType: "custom",
+            selectedItem: null,
+            editItem: null,
+            selectedPreConfig: null,
+            showNewItemForm: false
+        };
 
-	$scope.overrideBgTemplate = false;
-
-    $scope.data = {
-        editPackage: false,
-        analysing: "init",
-        configType: "custom",
-        selectedItem: null,
-        selectedPreConfig: null,
-        showNewItemForm: false,
-        iconicError: null
-    }
-
-    if (!angular.isArray($scope.model.value)) $scope.model.value = [];
+        if (!angular.isArray($scope.model.value)) $scope.model.value = [];
 
 
-    $scope.addNewItem = function (formValid) {		
-
-        if (formValid) {
-            $scope.data.analysing = "busy";
-
-            extractStyles($scope.newItem, function () {
-                $scope.model.value.push(angular.copy($scope.newItem));
-
-                //restart new item form model
-                $scope.newItem = new Package();
-                $scope.data.showNewItemForm = false;
-                $scope.data.analysing = "success";
-                $scope.data.selectedPreConfig = null;
-            }, function () {
-                $scope.data.analysing = "error";
-            });
-
+        $scope.createNewPackage = function () {
+            $scope.newItem = new Package();
         }
 
-    }
+        $scope.saveNewItem = function () {
+            $scope.model.value.push(angular.copy($scope.newItem));
 
-    $scope.submitEditPackage = function (item, formIsValid) {		
-        if (formIsValid) {
-            extractStyles(item, function () {
-                $scope.data.analysing = "success";
-                $scope.data.editPackage = false;
-            }, function () {
-                $scope.data.analysing = "error";
-            });
-        }
-    }
+            $scope.newItem = null;
+            $scope.data.showNewItemForm = false;
+            $scope.data.selectedPreConfig = null;
+        };
 
+        $scope.removeItem = function (index) {
+            $scope.model.value.splice(index, 1);
+        };
 
-
-    $scope.selectItem = function (item) {
-        if ($scope.data.selectedItem === item)
-            $scope.data.selectedItem = null;
-        else
-            $scope.data.selectedItem = item;
-    }
-
-    $scope.removeItem = function (index) {
-        $scope.model.value.splice(index, 1);
-    }
-
-
-
-    $scope.selectPreConfig = function (config) {
-        Object.assign($scope.newItem, config);
-    }
-
-    function displayError(alias) {
-        localizationService.localize(alias).then(function (response) {
-            $scope.data.iconicError = response.value;
-        });
-    }
-
-    function loadPreconfigs() {
-        $http.get("/App_Plugins/Iconic/preconfigs.json").then(function (response) {
-            $scope.preconfig = response.data.preconfigs;
-        }, function (response) {
-            displayError("iconicErrors_loading");
-        });
-    }
-
-    function extractStyles(item, successCallback, errorCallback) {
-        $scope.data.iconicError = null;
-
-        if (!item.selector || item.selector.length <= 0) {
-            errorCallback();
-            displayError("iconicErrors_selector");
-        }
-
-        if (!item.sourcefile) item.sourcefile = item.cssfile;
-
-        $http.get(item.sourcefile).then(function (response) {
-            item.extractedStyles = [];
-            var pattern = new RegExp(item.selector, 'g');
-
-            var match = pattern.exec(response.data);
-            while (match !== null) {
-                item.extractedStyles.push(match[1]);
-                match = pattern.exec(response.data);
-            }
-
-            if (item.extractedStyles.length > 0) {
-                successCallback();
+        $scope.toggleItemDisplay = function (item) {
+            if ($scope.data.selectedItem === item) {
+                $scope.data.selectedItem = null;
             } else {
-                displayError("iconicErrors_no_rules");
-                errorCallback();
-
+                $scope.data.selectedItem = item;
             }
+        }
 
-        }, function (response) {
-            displayError("iconicErrors_loadingCss");
-            errorCallback();
-        });
+        $scope.resetNewItem = function () {
+            $scope.newItem = null;
+        }
 
+        $scope.selectPreConfig = function (config) {
+            Object.assign($scope.newItem, config);
+        };
+
+        $scope.openFilePicker = function () {
+            let selection = angular.copy(vm.package.files);
+
+            const filePicker = {
+                title: "Select files",
+                section: "settings",
+                treeAlias: "files",
+                entityType: "file",
+                multiPicker: true,
+                isDialog: true,
+                select: function (node) {
+                    node.selected = !node.selected;
+
+                    const id = unescape(node.id);
+                    const index = selection.indexOf(id);
+
+                    if (node.selected) {
+                        if (index === -1) {
+                            selection.push(id);
+                        }
+                    } else {
+                        selection.splice(index, 1);
+                    }
+                },
+                submit: function () {
+                    vm.package.files = selection;
+                    editorService.close();
+                },
+                close: function () {
+                    editorService.close();
+                }
+            };
+            editorService.treePicker(filePicker);
+        };
+
+        $scope.removeFile = function (index) {
+            vm.package.files.splice(index, 1);
+        };
+
+        function loadPreconfigs() {
+            $http.get("/App_Plugins/Iconic/preconfigs.json").then(
+                function (response) {
+                    $scope.preconfig = response.data.preconfigs;
+                },
+                function (response) {
+                    displayError("iconicErrors_loading");
+                }
+            );
+        }
+
+        loadPreconfigs();
     }
-
-    loadPreconfigs();
-
-}]);
+]);

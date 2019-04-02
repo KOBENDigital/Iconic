@@ -1,0 +1,91 @@
+<ng-form name="packageForm">
+    <div ng-show="error" class="alert alert-error">
+        {{ error }}
+    </div>
+    <div class="koben-iconic__params_input_group">
+        <label for="editName"><localize key="iconicConfig_name">Name</localize></label><br />
+        <input name="editName"
+               type="text"
+               ng-model="package.name"
+               val-highlight="{{ packageForm.editName.$error }}"
+               required />
+        <p ng-show="packageForm.editName.$error.required && packageForm.editName.$dirty">
+            <localize key="iconicValidation_name">Please enter a name</localize>
+        </p>
+    </div>
+    <div class="koben-iconic__params_input_group">
+        <label for="editTemplate"><localize key="iconicConfig_template">Template</localize></label><br />
+        <input name="editTemplate"
+               type="text"
+               ng-model="package.template"
+               val-highlight="{{ packageForm.editTemplate.$invalid }}"
+               required />
+        <p ng-show="packageForm.editTemplate.$error.required && packageForm.editTemplate.$dirty">
+            <localize key="iconicValidation_name">Please enter a template</localize>
+        </p>
+    </div>
+    <div class="koben-iconic__params_input_group">
+        <label for="editBackofficeTemplate">
+            <localize key="iconicConfig_backofficeTemplate">Override Backoffice Template</localize>
+        </label>
+        <input type="checkbox" ng-model="package.overrideTemplate" /><br />
+        <input name="editBackofficeTemplate"
+               type="text"
+               ng-model="package.backofficeTemplate"
+               val-highlight="{{ packageForm.editBackofficeTemplate.$invalid }}"
+               ng-if="package.overrideTemplate" />
+    </div>
+    <div class="koben-iconic__params_input_group">
+        <label for="editCssFile"><localize key="iconicConfig_cssFile">Css file</localize></label><br />
+        <input name="editCssFile"
+               type="text"
+               ng-model="package.cssfile"
+               ng-text-change="analysing = 'init'"
+               val-highlight="{{ packageForm.editCssFile.$invalid }}"
+               required />
+        <p ng-show="packageForm.editCssFile.$error.required && packageForm.editCssFile.$dirty">
+            <localize key="iconicValidation_css">Please select a css file</localize>
+        </p>
+    </div>
+    <fieldset>
+        <legend><localize key="iconicConfig_icons">Icons</localize></legend>
+        <div class="koben-iconic__params_input_group">
+            <label for="editSelector"><localize key="iconicConfig_selector">Selector</localize></label><br />
+            <input name="editSelector"
+                   type="text"
+                   ng-model="package.selector"
+                   val-highlight="{{ packageForm.editSelector.$invalid }}"
+                   required />
+            <p ng-show="packageForm.editSelector.$error.required && packageForm.editSelector.$dirty">
+                <localize key="iconicValidation_selector">Please enter a selector</localize>
+            </p>
+        </div>
+        <div class="koben-iconic__params_input_group">
+            <label for="editSourceFile">
+                <localize key="iconicConfig_rulesFile">Rules source file</localize>
+            </label><br />
+            <input name="editSourceFile"
+                   type="text"
+                   ng-model="package.sourcefile"
+                   ng-text-change="analysing = 'init'"
+                   val-highlight="{{ packageFormErrors.cssfile.$invalid }}"
+                   required />
+            <p ng-show="packageForm.editSourceFile.$error.required && packageForm.editSourceFile.$dirty">
+                <localize key="iconicValidation_rules">Please enter a rules source file</localize>
+            </p>
+        </div>
+    </fieldset>
+    <umb-button action="submitPackageForm()"
+                type="button"
+                button-style="success"
+                label-key="iconicConfig_save"
+                state="analysing"
+                disabled="packageForm.$invalid">
+    </umb-button>
+    <umb-button v-if="oncancel"
+                action="oncancel()"
+                type="button"
+                button-style="link"
+                label-key="iconicConfig_cancel">
+    </umb-button>
+</ng-form>
