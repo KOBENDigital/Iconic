@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="koben-iconic__params_panelbody control-group" ng-if="data.selectedItem === item">
-                <div ng-show="data.selectedItem === item">
+                <div ng-show="data.selectedItem === item && !data.editItem">
                     <p><strong><localize key="iconicConfig_name">Name</localize>: </strong>{{item.name}}</p>
                     <p><strong><localize key="iconicConfig_selector">Selector</localize>: </strong>{{item.selector}}</p>
                     <p><strong><localize key="iconicConfig_template">Template</localize>: </strong>{{item.template}} </p>
@@ -28,10 +28,13 @@
                     <umb-button action="data.editItem = item"
                                 type="button"
                                 button-style="link"
-                                icon="icon-edit"                                
+                                icon="icon-edit"
                                 label-key="iconicConfig_editPackage">
                 </div>
                 <!-- EDIT PACKAGE FORM HERE -->
+                <div ng-if="data.editItem ===  item">
+                    <h3>Edit package</h3>
+                </div>
                 <package-form ng-if="data.editItem ===  item" package="item" onsaved="data.editItem = null" oncancel="data.editItem = null"></package-form>
             </div>
         </div>
