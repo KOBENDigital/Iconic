@@ -1,4 +1,9 @@
-﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor", function ($scope, $http, localizationService, editorService) {
+﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor", function ($scope, $http, localizationService, editorService, umbRequestHelper) {
+
+    $scope.configType = "custom";
+    $scope.selectedPreConfig = null;
+
+
     $scope.submit = function () {
 
         if ($scope.packageForm.$valid) {
@@ -6,6 +11,8 @@
                 $scope.model.package,
                 function () {
                     $scope.analysing = "success";
+                    $scope.selectedPreConfig = null;
+
                     if ($scope.model.saved) {
                         $scope.model.saved();
                     }
@@ -27,7 +34,11 @@
 
     }
 
-    $scope.toggleOverrideTemplate = function(){
+    $scope.changeConfigType = function (value) {
+        $scope.configType = value;
+    }
+
+    $scope.toggleOverrideTemplate = function () {
         $scope.model.package.overrideTemplate = !$scope.model.package.overrideTemplate;
     }
 
@@ -53,6 +64,28 @@
         };
         openTreePicker(config);
     };
+
+    $scope.selectPreConfig = function (config) {
+        Object.assign($scope.model.package, config);
+    };
+
+
+    function loadPreconfigs() {
+        $http.get("/App_Plugins/Iconic/preconfigs.json").then(
+            function (response) {
+                $scope.preconfig = response.data.preconfigs;
+            },
+            function (response) {
+                displayError("iconicErrors_loading");
+            }
+        );
+    }
+
+    function displayError(alias) {
+        localizationService.localize(alias).then(function (response) {
+            $scope.error = response.value;
+        });
+    }
 
     function openTreePicker(config) {
         const picker = {
@@ -87,7 +120,7 @@
 
     function displayError(alias) {
         localizationService.localize(alias).then(function (response) {
-            $scope.error = response.value;
+            $scope.error = response;
         });
     }
 
@@ -101,7 +134,9 @@
 
         if (!item.sourcefile) item.sourcefile = item.cssfile;
 
-        $http.get(item.sourcefile).then(
+        var path = umbRequestHelper.convertVirtualToAbsolutePath("~/" + item.sourcefile);
+
+        $http.get(path).then(
             function (response) {
                 item.extractedStyles = [];
                 var pattern = new RegExp(item.selector, "g");
@@ -125,4 +160,7 @@
             }
         );
     }
+
+    loadPreconfigs();
+
 });

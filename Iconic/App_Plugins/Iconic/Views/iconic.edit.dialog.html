@@ -11,11 +11,26 @@
 
             <umb-editor-container class="form-horizontal">
                 <umb-box>
+
                     <umb-box-content>
 
                         <div ng-show="error" class="help-inline">
                             {{ error }}
                         </div>
+
+                        <umb-control-group label="Configuration type">
+                            <label><input type="radio" ng-change="changeConfigType('custom')" ng-model="configType" value="custom" /> <localize key="iconicConfig_custom">Custom</localize></label>
+                            <label><input type="radio" ng-change="changeConfigType('preconfigured')" ng-model="configType" value="preconfigured" /> <localize key="iconicConfig_preconf">Pre-Configured</localize></label>
+                        </umb-control-group>
+
+                        <umb-control-group label="Select configuration" ng-show="configType == 'preconfigured'">
+                            <select ng-model="selectedPreConfig"
+                                    ng-change="selectPreConfig(selectedPreConfig)"
+                                    ng-options="conf as conf.name for conf in preconfig">
+                                <option value=""><localize key="iconicConfig_select_preconf">Select a pre-configuration...</localize></option>
+                            </select>
+                        </umb-control-group>
+
                         <umb-control-group label="@iconicConfig_name"
                                            description="Name of the package"
                                            required="true">
@@ -23,8 +38,7 @@
                                    name="editName"
                                    type="text"
                                    ng-model="model.package.name"
-                                   val-highlight="{{ packageForm.editName.$error }}"
-                                   show-validation-on-submit
+                                   val-highlight="{{ packageForm.editName.$error && packageForm.editName.$dirty}}"
                                    required />
 
                             <span ng-messages="packageForm.editName.$error" show-validation-on-submit>
@@ -39,8 +53,7 @@
                                    name="editTemplate"
                                    type="text"
                                    ng-model="model.package.template"
-                                   val-highlight="{{ packageForm.editTemplate.$invalid }}"
-                                   show-validation-on-submit
+                                   val-highlight="{{ packageForm.editTemplate.$invalid && packageForm.editTemplate.$dirty}}"
                                    required />
 
 
@@ -99,8 +112,7 @@
                                        name="editSelector"
                                        type="text"
                                        ng-model="model.package.selector"
-                                       val-highlight="{{ packageForm.editSelector.$invalid }}"
-                                       show-validation-on-submit
+                                       val-highlight="{{ packageForm.editSelector.$invalid && packageForm.editSelector.$dirty}}"
                                        required />
                                 <span ng-messages="packageForm.editSelector.$error" show-validation-on-submit>
                                     <span class="help-inline" ng-message="required"><localize key="iconicValidation_selector">Please enter a selector</localize></span>

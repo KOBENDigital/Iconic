@@ -1,5 +1,4 @@
-﻿<section class="control" ng-controller="Koben.Iconic.Prevalues.Packages">    
-    
+﻿<section class="control" ng-controller="Koben.Iconic.Prevalues.Packages">
     <div ui-sortable="sortableOptions" ng-model="model.value">
         <div ng-repeat="item in model.value">
             <div class="umb-node-preview">
@@ -9,54 +8,13 @@
                     <div class="umb-node-preview__description"><localize key="iconicConfig_styles">Styles</localize>: {{item.extractedStyles.length}}</div>
                 </div>
                 <div class="umb-node-preview__actions">
-                    <a href class="umb-node-preview__action umb-node-preview__action--green" ng-click="toggleItemDisplay(item)" ng-show="data.selectedItem !== item" prevent-default>Details</a>
-                    <a href class="umb-node-preview__action umb-node-preview__action--green" ng-click="toggleItemDisplay(item)" ng-show="data.selectedItem === item" prevent-default>Close</a>
-
+                    <a href class="umb-node-preview__action umb-node-preview__action--green" ng-click="editPackage(item)" prevent-default>Edit</a>
                     <a href class="umb-node-preview__action umb-node-preview__action--red" ng-click="removeItem($index)" prevent-default><localize key="iconicConfig_remove">Remove</localize></a>
                 </div>
-            </div>
-            <div class="koben-iconic__params_panelbody control-group" ng-if="data.selectedItem === item">
-                <div ng-show="data.selectedItem === item && !data.editItem">
-                    <p><strong><localize key="iconicConfig_name">Name</localize>: </strong>{{item.name}}</p>
-                    <p><strong><localize key="iconicConfig_selector">Selector</localize>: </strong>{{item.selector}}</p>
-                    <p><strong><localize key="iconicConfig_template">Template</localize>: </strong>{{item.template}} </p>
-                    <p ng-show="item.overrideTemplate"><strong><localize key="iconicConfig_backofficeTemplate">Override Backoffice Template</localize>: </strong>{{item.backofficeTemplate}}</p>
-                    <p><strong><localize key="iconicConfig_cssFile">Css file</localize>: </strong>{{item.cssfile}}</p>
-                    <p><strong><localize key="iconicConfig_rulesFile">Rules source file</localize> </strong>{{item.sourcefile}}</p>
-                    <hr />
-                    <p><strong><localize key="iconicConfig_extractedStyles">Extracted styles</localize> </strong>{{item.extractedStyles.length}}</p>
-                    <umb-button action="data.editItem = item"
-                                type="button"
-                                button-style="link"
-                                icon="icon-edit"
-                                label-key="iconicConfig_editPackage">
-                </div>
-                <!-- EDIT PACKAGE FORM HERE -->
-                <div ng-if="data.editItem ===  item">
-                    <h3>Edit package</h3>
-                </div>
-                <package-form ng-if="data.editItem ===  item" package="item" onsaved="data.editItem = null" oncancel="data.editItem = null"></package-form>
             </div>
         </div>
     </div>
     <a href class="umb-node-preview-add" ng-click="createNewPackage()" prevent-default>
         <localize key="general_add">Add</localize>
     </a>
-    <div class="koben-iconic__params_add-new-form control-group" ng-if="newItem">
-        <div>
-            <h3><localize key="iconicConfig_addNewPackage">Add new package</localize></h3>
-        </div>
-        <div class="koben-iconic__params_input_group group-horizontal">
-            <label><input type="radio" ng-model="data.configType" value="custom" /> <localize key="iconicConfig_custom">Custom</localize></label>
-            <label><input type="radio" ng-model="data.configType" value="preconfigured" /> <localize key="iconicConfig_preconf">Pre-Configured</localize></label>
-        </div>
-        <div class="koben-iconic__params_input_group" ng-show="data.configType == 'preconfigured'">
-            <select ng-model="data.selectedPreConfig"
-                    ng-change="selectPreConfig(data.selectedPreConfig)"
-                    ng-options="conf as conf.name for conf in preconfig">
-                <option value=""><localize key="iconicConfig_select_preconf">Select a pre-configuration...</localize></option>
-            </select>
-        </div>
-
-    </div>
 </section>
