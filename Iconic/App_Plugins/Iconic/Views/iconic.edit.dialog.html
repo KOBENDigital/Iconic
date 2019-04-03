@@ -9,19 +9,22 @@
                                hide-description="true">
             </umb-editor-header>
 
-            <umb-editor-container>
+            <umb-editor-container class="form-horizontal">
                 <umb-box>
                     <umb-box-content>
 
                         <div ng-show="error" class="help-inline">
                             {{ error }}
                         </div>
-                        <umb-control-group label="@iconicConfig_name" description="Name of the package">
+                        <umb-control-group label="@iconicConfig_name"
+                                           description="Name of the package"
+                                           required="true">
                             <input class="umb-property-editor"
                                    name="editName"
                                    type="text"
                                    ng-model="model.package.name"
                                    val-highlight="{{ packageForm.editName.$error }}"
+                                   show-validation-on-submit
                                    required />
 
                             <span ng-messages="packageForm.editName.$error" show-validation-on-submit>
@@ -29,13 +32,15 @@
                             </span>
                         </umb-control-group>
                         <umb-control-group label="@iconicConfig_template"
-                                           description="Enter an icon template">
+                                           description="Enter an icon template"
+                                           required="true">
 
                             <input class="umb-property-editor"
                                    name="editTemplate"
                                    type="text"
                                    ng-model="model.package.template"
                                    val-highlight="{{ packageForm.editTemplate.$invalid }}"
+                                   show-validation-on-submit
                                    required />
 
 
@@ -61,7 +66,7 @@
 
                         <umb-control-group label="@iconicConfig_cssFile"
                                            description="File to use as your css source to style the extracted icons."
-                                           val-highlight="{{ packageForm.editCssFile.$invalid }}">
+                                           required="true">
                             <input type="hidden" name="editCssFile" required ng-model="model.package.cssfile" />
                             <umb-node-preview ng-if="model.package.cssfile"
                                               icon="'icon-document'"
@@ -88,12 +93,14 @@
 
 
                             <umb-control-group label="@iconicConfig_selector"
-                                               description="Enter a valid regex that extracts the individual icon css rules.">
+                                               description="Enter a valid regex that extracts the individual icon css rules."
+                                               required="true">
                                 <input class="umb-property-editor"
                                        name="editSelector"
                                        type="text"
                                        ng-model="model.package.selector"
                                        val-highlight="{{ packageForm.editSelector.$invalid }}"
+                                       show-validation-on-submit
                                        required />
                                 <span ng-messages="packageForm.editSelector.$error" show-validation-on-submit>
                                     <span class="help-inline" ng-message="required"><localize key="iconicValidation_selector">Please enter a selector</localize></span>
@@ -103,7 +110,7 @@
 
                             <umb-control-group label="@iconicConfig_rulesFile"
                                                description="File where you want to extract the icons from."
-                                               val-highlight="{{ packageForm.sourcefile.$invalid }}">
+                                               required="true">
 
                                 <input name="editSourceFile"
                                        type="hidden"
