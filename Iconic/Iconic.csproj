@@ -414,7 +414,8 @@
     <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.min.js">
       <DependentUpon>iconic.prevalues.controller.js</DependentUpon>
     </Content>
-    <Content Include="App_Plugins\Iconic\Views\directives\package-form.html" />
+    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.editor.controller.js" />
+    <Content Include="App_Plugins\Iconic\Views\iconic.edit.dialog.html" />
     <Content Include="package.xml" />
     <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
     <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />

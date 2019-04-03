@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope", "$http", "assetsService", "localizationService", function ($scope, $http, assetsService, localizationService) {
+angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope", "$http", "editorService", function ($scope, $http, editorService) {
     $scope.overrideBgTemplate = false;
 
     $scope.data = {
@@ -15,14 +15,22 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope
 
     $scope.createNewPackage = function () {
         $scope.newItem = new Package();
-    };
 
-    $scope.saveNewItem = function () {
-        $scope.model.value.push(angular.copy($scope.newItem));
+        editorService.open({
+            title: "Create new package",
+            view: "/app_plugins/iconic/views/iconic.edit.dialog.html",
+            saved: function saved() {
+                $scope.model.value.push(angular.copy($scope.newItem));
 
-        $scope.newItem = null;
-        $scope.data.showNewItemForm = false;
-        $scope.data.selectedPreConfig = null;
+                $scope.newItem = null;
+                $scope.data.showNewItemForm = false;
+                $scope.data.selectedPreConfig = null;
+            },
+            cancel: function cancel() {
+                $scope.newItem = null;
+            },
+            "package": $scope.newItem
+        });
     };
 
     $scope.removeItem = function (index) {
@@ -35,10 +43,6 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope
         } else {
             $scope.data.selectedItem = item;
         }
-    };
-
-    $scope.resetNewItem = function () {
-        $scope.newItem = null;
     };
 
     $scope.selectPreConfig = function (config) {

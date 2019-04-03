@@ -28,8 +28,8 @@
     "~/App_Plugins/Iconic/Js/iconic.controller.js",
     "~/App_Plugins/Iconic/Js/iconic.dialog.controller.js",
     "~/App_Plugins/Iconic/Js/iconic.prevalues.controller.js",
-    "~/App_Plugins/Iconic/Js/iconic.directives.js"
-
+    "~/App_Plugins/Iconic/Js/iconic.directives.js",
+    "~/App_Plugins/Iconic/Js/iconic.prevalues.editor.controller.js"
   ],
   "css": [
     "~/App_Plugins/Iconic/Styles/iconic.min.css"

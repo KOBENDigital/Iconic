@@ -1,9 +1,8 @@
 ﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", [
     "$scope",
-    "$http",
-    "assetsService",
-    "localizationService",
-    function ($scope, $http, assetsService, localizationService) {
+    "$http",     
+    "editorService",
+    function ($scope, $http, editorService) {
         $scope.overrideBgTemplate = false;
 
         $scope.data = {
@@ -19,15 +18,24 @@
 
         $scope.createNewPackage = function () {
             $scope.newItem = new Package();
+
+            editorService.open({
+                title: "Create new package",
+                view: "/app_plugins/iconic/views/iconic.edit.dialog.html",
+                saved: function () {
+                    $scope.model.value.push(angular.copy($scope.newItem));
+
+                    $scope.newItem = null;
+                    $scope.data.showNewItemForm = false;
+                    $scope.data.selectedPreConfig = null;
+                },
+                cancel: function () {
+                    $scope.newItem = null;
+                },
+                package: $scope.newItem
+            })
+
         }
-
-        $scope.saveNewItem = function () {
-            $scope.model.value.push(angular.copy($scope.newItem));
-
-            $scope.newItem = null;
-            $scope.data.showNewItemForm = false;
-            $scope.data.selectedPreConfig = null;
-        };
 
         $scope.removeItem = function (index) {
             $scope.model.value.splice(index, 1);
@@ -41,9 +49,6 @@
             }
         }
 
-        $scope.resetNewItem = function () {
-            $scope.newItem = null;
-        }
 
         $scope.selectPreConfig = function (config) {
             Object.assign($scope.newItem, config);
