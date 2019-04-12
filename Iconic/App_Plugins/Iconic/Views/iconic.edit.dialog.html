@@ -18,12 +18,12 @@
                             {{ error }}
                         </div>
 
-                        <umb-control-group label="Configuration type">
+                        <umb-control-group label="@iconicConfig_configType">
                             <label><input type="radio" ng-change="changeConfigType('custom')" ng-model="configType" value="custom" /> <localize key="iconicConfig_custom">Custom</localize></label>
                             <label><input type="radio" ng-change="changeConfigType('preconfigured')" ng-model="configType" value="preconfigured" /> <localize key="iconicConfig_preconf">Pre-Configured</localize></label>
                         </umb-control-group>
 
-                        <umb-control-group label="Select configuration" ng-show="configType == 'preconfigured'">
+                        <umb-control-group label="@iconicConfig_selectConfig" ng-show="configType == 'preconfigured'">
                             <select ng-model="selectedPreConfig"
                                     ng-change="selectPreConfig(selectedPreConfig)"
                                     ng-options="conf as conf.name for conf in preconfig">
@@ -32,7 +32,6 @@
                         </umb-control-group>
 
                         <umb-control-group label="@iconicConfig_name"
-                                           description="Name of the package"
                                            required="true">
                             <input class="umb-property-editor"
                                    name="editName"
@@ -46,7 +45,7 @@
                             </span>
                         </umb-control-group>
                         <umb-control-group label="@iconicConfig_template"
-                                           description="Enter an icon template"
+                                           description="@iconicConfig_templateDescription"
                                            required="true">
 
                             <input class="umb-property-editor"
@@ -62,7 +61,7 @@
                             </span>
                         </umb-control-group>
                         <umb-control-group label="@iconicConfig_backofficeTemplate"
-                                           description="Activate to have a different icon template in your backoffice. i.e. size, color, ...">
+                                           description="@iconicConfig_backofficeTemplateDescription">
                             <umb-toggle checked="model.package.overrideTemplate"
                                         on-click="toggleOverrideTemplate()">
                             </umb-toggle>
@@ -78,7 +77,7 @@
 
 
                         <umb-control-group label="@iconicConfig_cssFile"
-                                           description="File to use as your css source to style the extracted icons."
+                                           description="@iconicConfig_cssFileDescription"
                                            required="true">
                             <input type="hidden" name="editCssFile" required ng-model="model.package.cssfile" />
                             <umb-node-preview ng-if="model.package.cssfile"
@@ -106,7 +105,7 @@
 
 
                             <umb-control-group label="@iconicConfig_selector"
-                                               description="Enter a valid regex that extracts the individual icon css rules."
+                                               description="@iconicConfig_selectorDescription"
                                                required="true">
                                 <input class="umb-property-editor"
                                        name="editSelector"
@@ -121,7 +120,7 @@
 
 
                             <umb-control-group label="@iconicConfig_rulesFile"
-                                               description="File where you want to extract the icons from."
+                                               description="@iconicConfig_rulesFileDescription"
                                                required="true">
 
                                 <input name="editSourceFile"

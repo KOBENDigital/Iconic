@@ -1,16 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iconic", "Iconic\Iconic.csproj", "{9894967F-1D73-4FDD-B2BA-22E4A0ECAE38}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{4675A8B4-511B-4E9B-B624-B42F2CC5ECD7}"
-	ProjectSection(SolutionItems) = preProject
-		Iconic\build.ps1 = Iconic\build.ps1
-		Iconic\Iconic.nuspec = Iconic\Iconic.nuspec
-		Iconic\package.xml = Iconic\package.xml
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
