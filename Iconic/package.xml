@@ -77,6 +77,11 @@
       <orgName>iconic.prevalues.html</orgName>
     </file>
     <file>
+      <guid>iconic.edit.dialog.html</guid>
+      <orgPath>/App_Plugins/Iconic/Views</orgPath>
+      <orgName>iconic.edit.dialog.html</orgName>
+    </file>
+    <file>
       <guid>Koben.Iconic.dll</guid>
       <orgPath>/bin</orgPath>
       <orgName>Koben.Iconic.dll</orgName>
