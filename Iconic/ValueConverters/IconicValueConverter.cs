@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web;
-using Iconic.Configuration;
+using Iconic;
 using Iconic.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -11,23 +11,31 @@ namespace Koben.Iconic.ValueConverters
 {
     public class IconicValueConverter : PropertyValueConverterBase
     {
-        public override bool IsConverter(PublishedPropertyType propertyType)
+        private readonly ConfiguredPackagesCollection _configuredPackages;
+
+        public IconicValueConverter()
+        {
+            _configuredPackages = new ConfiguredPackagesCollection();
+        }
+
+        public override bool IsConverter(IPublishedPropertyType propertyType)
              => propertyType.EditorAlias.Equals("koben.iconic");
 
-        public override Type GetPropertyValueType(PublishedPropertyType propertyType)
+        public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
             => typeof(HtmlString);
 
-        public override PropertyCacheLevel GetPropertyCacheLevel(PublishedPropertyType propertyType)
+        public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
             => PropertyCacheLevel.Elements;
 
 
-        public override object ConvertSourceToIntermediate(IPublishedElement owner, PublishedPropertyType propertyType, object source, bool preview)
+        public override object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
         {
             if (source == null) return string.Empty;
+
             SelectedIcon icon = null;
-            if (source is JObject)
+            if (source is JObject jObject)
             {
-                icon = ((JObject)source).ToObject<SelectedIcon>();
+                icon = jObject.ToObject<SelectedIcon>();
             }
             else
             {
@@ -41,18 +49,17 @@ namespace Koben.Iconic.ValueConverters
             return icon;
         }
 
-        public override object ConvertIntermediateToObject(IPublishedElement owner, PublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
+        public override object ConvertIntermediateToObject(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
         {
+            if (inter == null) return string.Empty;
+
             var icon = (SelectedIcon)inter;
 
-            var packages = new ConfiguredPackagesCollection(propertyType);
+            var packages = _configuredPackages.GetConfiguratedPackages(propertyType);
 
             var pckg = packages[icon.PackageId];
 
-            if (icon == null || pckg == null)
-            {
-                return string.Empty;
-            }
+            if (pckg == null) return string.Empty;
 
             var display = pckg.FrontendTemplate.Replace("{icon}", icon.Icon);
 
