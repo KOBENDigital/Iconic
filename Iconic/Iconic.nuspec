@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Koben.Iconic</id>
-    <version>2.1.0</version>
-    <title>Iconic</title>
-    <authors>Mario Lopez</authors>
-    <owners>KØBEN digital</owners>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/KOBENDigital/Iconic</projectUrl>
     <iconUrl>https://koben.com.au/media/1047/koben_logo.png</iconUrl>
@@ -16,7 +15,7 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ First release that supports Umbraco V8. Not compatible with V7. Please use Iconic v1.6 for V7. ]]>
+      <![CDATA[ Value converters has been modified on Umbraco 8.1. This version is compatible with it. ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>

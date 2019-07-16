@@ -1,6 +1,7 @@
 param([string]$packageDirectory, [string]$buildConfiguration)
 
-$packageDirectory = "C:\Users\koben\Documents\Visual Studio 2017\Projects\Iconic\Iconic"
+$scriptDir = $PSScriptRoot
+$packageDirectory =  Join-Path $scriptDir "..\"
 $buildConfiguration = "release"
 
 $workingPackageFilePath = Join-Path $packageDirectory "package.xml"

@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Iconic")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Highly configurable icon picker for Umbraco. With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Mario Lopez")]
 [assembly: AssemblyProduct("Iconic")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1.0.0")]
-[assembly: AssemblyFileVersion("2.1.0.0")]
+[assembly: AssemblyVersion("2.2.0.0")]
+[assembly: AssemblyFileVersion("2.2.0.0")]

@@ -22,10 +22,10 @@ $params = '.\Iconic.sln', '-property:Configuration=Release', '-verbosity:minimal
 & $msBuild $params
 
 # Create Nuget package
-.\nuget.exe pack .\Iconic\iconic.nuspec
+.\nuget.exe pack -Build ..\Iconic.csproj
 Write-Host "Nuget package created."
 
 # Create Umbraco package
 Unblock-File -Path .\CreateUmbracoPackage.ps1
-powershell -File .\CreateUmbracoPackage.ps1 -packageDirectory .\Iconic\ -buildConfiguration Release
+powershell -File .\CreateUmbracoPackage.ps1 -packageDirectory ..\ -buildConfiguration Release
 Write-Host "Umbraco package created."
