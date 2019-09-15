@@ -17,15 +17,15 @@ if (![System.IO.File]::Exists($msBuild)) {
 
 Write-Host "MSBuild found. Compile the projects."
 
-$params = '.\Iconic.sln', '-property:Configuration=Release', '-verbosity:minimal', '-p:PostBuildEventUseInBuild=false'
+$params = '..\Iconic.sln', '-property:Configuration=Release', '-verbosity:minimal', '-p:PostBuildEventUseInBuild=false'
 
 & $msBuild $params
 
 # Create Nuget package
-.\nuget.exe pack -Build ..\Iconic.csproj
+.\nuget.exe pack -Build ..\Iconic\Iconic.csproj
 Write-Host "Nuget package created."
 
 # Create Umbraco package
 Unblock-File -Path .\CreateUmbracoPackage.ps1
-powershell -File .\CreateUmbracoPackage.ps1 -packageDirectory ..\ -buildConfiguration Release
+powershell -File .\CreateUmbracoPackage.ps1 -packageDirectory ..\Iconic -buildConfiguration Release
 Write-Host "Umbraco package created."

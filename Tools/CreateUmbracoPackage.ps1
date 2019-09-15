@@ -1,7 +1,5 @@
 param([string]$packageDirectory, [string]$buildConfiguration)
 
-$scriptDir = $PSScriptRoot
-$packageDirectory =  Join-Path $scriptDir "..\"
 $buildConfiguration = "release"
 
 $workingPackageFilePath = Join-Path $packageDirectory "package.xml"
