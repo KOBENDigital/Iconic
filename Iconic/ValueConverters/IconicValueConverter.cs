@@ -30,7 +30,7 @@ namespace Koben.Iconic.ValueConverters
 
         public override object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
         {
-            if (source == null) return string.Empty;
+            if (source == null) return null;
 
             SelectedIcon icon = null;
             if (source is JObject jObject)
@@ -40,18 +40,14 @@ namespace Koben.Iconic.ValueConverters
             else
             {
                 icon = JsonConvert.DeserializeObject<SelectedIcon>(source.ToString());
-            }
-            if (icon == null)
-            {
-                return string.Empty;
-            }
+            }            
 
             return icon;
         }
 
         public override object ConvertIntermediateToObject(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
         {
-            if (inter == null) return string.Empty;
+            if (inter == null) return new HtmlString(string.Empty);
 
             var icon = (SelectedIcon)inter;
 

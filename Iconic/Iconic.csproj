@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -419,7 +419,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>:: xcopy /y/s "$(ProjectDir)\App_Plugins" "$(SolutionDir)..\TestingEnvs\Umbraco8\Umbraco8\App_Plugins"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y/s "$(ProjectDir)\App_Plugins" "C:\Users\Mario\Documents\PersonalRepo\UmbracoTestsV8\UmbracoV8Tests\UmbracoV8Tests\App_Plugins"</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
