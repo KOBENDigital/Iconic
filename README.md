@@ -145,6 +145,10 @@ Currently if you are using font awesome pro and stacked content, icons will not 
 # Umbraco Versions
 Iconic has been tested with Umbraco 7.6 and 7.7.
 
+# Donate
+This package is maintaned by Mario Lopez. If you want to say thank you:
+<a href="https://www.buymeacoffee.com/skartknet" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/yellow_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 # Changelog
 - 1.6
     - Unable to cast object of type 'Newtonsoft.Json.Linq.JObject' to type 'System.String'. FIXED
