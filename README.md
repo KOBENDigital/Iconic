@@ -147,6 +147,7 @@ Iconic has been tested with Umbraco 7.6 and 7.7.
 
 # Donate
 This package is maintaned by Mario Lopez. If you want to say thank you:
+
 <a href="https://www.buymeacoffee.com/skartknet" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/yellow_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 # Changelog
