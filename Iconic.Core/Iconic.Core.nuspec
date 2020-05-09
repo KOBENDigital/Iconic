@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/KOBENDigital/Iconic</projectUrl>
+    <iconUrl>https://koben.com.au/media/1047/koben_logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Core dll files for Koben Iconic</summary>
+    <description>
+      <![CDATA[Supplies the dll files for Koben iconic so they can be used in non web app projects
+    ]]>
+    </description>
+    <releaseNotes>
+      <![CDATA[ Moved Files to build the dll into its own project ]]>
+    </releaseNotes>
+    <tags>Iconic Umbraco icon picker editor backoffice</tags>
+    <dependencies>
+      <dependency id="UmbracoCms.Core" version="[8.0,]" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\Koben.Iconic.Core.*" target="lib\net472"></file>
+  </files>
+</package>

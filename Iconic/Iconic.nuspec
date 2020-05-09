@@ -15,18 +15,16 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Value converters has been modified on Umbraco 8.1. This version is compatible with it. ]]>
+      <![CDATA[ Moved Files to build the dll into its own project ]]>
     </releaseNotes>
-    <tags>Iconic Umbraco icon picker editor backoffice</tags>
+    <tags>Iconic Core</tags>
     <dependencies>
-      <dependency id="UmbracoCms.Core" version="[8.0,]" />
+      <dependency id="Koben.Iconic.Core" version="[$version]" />
     </dependencies>
   </metadata>
   <files>
     <file src="App_Plugins\Iconic\**\*.*" target="content\App_Plugins\Iconic"  exclude="App_Plugins\Iconic\Js\*.*;App_Plugins\Iconic\Styles\*.*"/>
     <file src="App_Plugins\Iconic\Js\*.js" target="content\App_Plugins\Iconic\Js" />
     <file src="App_Plugins\Iconic\Styles\*.min.css" target="content\App_Plugins\Iconic\Styles" />
-
-    <file src="bin\Release\Koben.Iconic.*" target="lib\net472"></file>
   </files>
 </package>
