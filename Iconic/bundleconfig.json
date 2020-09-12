@@ -1,10 +1,8 @@
 [
   {
-    "outputFileName": "App_Plugins/Iconic/Js/iconic.directives.min.js",
+    "outputFileName": "App_Plugins/Iconic/js/build/findPolyfill.min.js",
     "inputFiles": [
-      "App_Plugins/Iconic/Js/iconic.directives.js"
-    ],
-    "sourceMap": false,
-    "sourceMapRootPath": null
+      "App_Plugins/Iconic/js/build/findPolyfill.js"
+    ]
   }
 ]

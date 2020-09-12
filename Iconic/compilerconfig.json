@@ -1,34 +1,48 @@
 ﻿[
   {
     "outputFile": "App_Plugins/Iconic/Styles/iconic.css",
-    "inputFile": "App_Plugins/Iconic/Styles/iconic.scss" 
-  },
+    "inputFile": "App_Plugins/Iconic/Styles/iconic.scss"
+  }, 
   {
-    "outputFile": "App_Plugins/Iconic/Js/iconic.models.js",
-    "inputFile": "App_Plugins/Iconic/Js/iconic.models.es6",
+    "outputFile": "App_Plugins/Iconic/js/build/iconic.models.js",
+    "inputFile": "App_Plugins/Iconic/js/src/iconic.models.js",
     "minify": {
-      "enabled": false
+      "enabled": true
     }
   },
   {
-    "outputFile": "App_Plugins/Iconic/Js/iconic.controller.js",
-    "inputFile": "App_Plugins/Iconic/Js/iconic.controller.es6",
+    "outputFile": "App_Plugins/Iconic/js/build/iconic.controller.js",
+    "inputFile": "App_Plugins/Iconic/js/src/iconic.controller.js",
     "minify": {
-      "enabled": false
+      "enabled": true
     }
   },
   {
-    "outputFile": "App_Plugins/Iconic/Js/iconic.prevalues.controller.js",
-    "inputFile": "App_Plugins/Iconic/Js/iconic.prevalues.controller.es6",
+    "outputFile": "App_Plugins/Iconic/js/build/iconic.prevalues.controller.js",
+    "inputFile": "App_Plugins/Iconic/js/src/iconic.prevalues.controller.js",
     "minify": {
-      "enabled":  false
+      "enabled": true
     }
   },
   {
-    "outputFile": "App_Plugins/Iconic/Js/iconic.dialog.controller.js",
-    "inputFile": "App_Plugins/Iconic/Js/iconic.dialog.controller.es6",
+    "outputFile": "App_Plugins/Iconic/js/build/iconic.dialog.controller.js",
+    "inputFile": "App_Plugins/Iconic/js/src/iconic.dialog.controller.js",
     "minify": {
-      "enabled": false
+      "enabled": true
+    }
+  },
+  {
+    "outputFile": "App_Plugins/Iconic/js/build/iconic.prevalues.editor.controller.js",
+    "inputFile": "App_Plugins/Iconic/js/src/iconic.prevalues.editor.controller.js",
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFile": "App_Plugins/Iconic/js/build/iconic.directives.js",
+    "inputFile": "App_Plugins/Iconic/js/src/iconic.directives.js",
+    "minify": {
+      "enabled": true
     }
   }
 ]

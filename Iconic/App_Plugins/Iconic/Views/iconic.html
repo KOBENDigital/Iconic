@@ -6,6 +6,8 @@
          ng-class="{'-placeholder': model.value===null ||model.value===''}"
          title="{{model.value.style}}">
 
+        <localize key="general_add" class="ng-isolate-scope">Add</localize>
+
         <iconic-icon ng-if="modelIsValid" package="pckg" icon="model.value.icon">
         </iconic-icon>
         <umb-load-indicator ng-if="loading"></umb-load-indicator>

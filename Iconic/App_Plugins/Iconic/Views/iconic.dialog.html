@@ -33,15 +33,20 @@
     <div class="umb-control-group" ng-show="!loading && filtered.length > 0">
         <ul class="umb-iconpicker" ng-show="pckgselected.extractedStyles">
             <li ng-class="{selected: icon == model.pickerData.icon}" class="umb-iconpicker-item" ng-repeat="icon in filtered = (pckgselected.extractedStyles | filter: searchTerm) track by $index">
-                <a  href="#" title="{{icon}}" ng-click="selectIcon(icon)" prevent-default>
+                <button type="button" title="{{icon}}" ng-click="selectIcon(icon)" prevent-default>
                     <iconic-icon package="pckgselected" icon="icon"></iconic-icon>
-                </a>
+                </button>
             </li>
         </ul>
     </div>
 
-    <umb-empty-state ng-if="filtered.length === 0 && !loading"
+    <umb-empty-state ng-if="pckgselected && filtered.length === 0 && !loading"
                      position="center">
         <localize key="iconicDialog_noIconsFound">No icons were found.</localize>
+    </umb-empty-state>
+
+    <umb-empty-state ng-if="!pckgselected"
+                     position="center">
+        <localize key="iconicDialog_noPackageSelected">No package selected.</localize>
     </umb-empty-state>
 </div>

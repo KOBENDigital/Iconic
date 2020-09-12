@@ -3,7 +3,7 @@
     ['$scope', 'assetsService', function ($scope, assetsService) {
 
         $scope.packages = $scope.model.pickerConfig.packages;
-        $scope.pckgselected;
+        $scope.pckgselected = null;
 
 
         $scope.iconsSize = 16;
@@ -17,7 +17,7 @@
 			$scope.loading = true;
 
 		
-            assetsService.loadCss(pckg.cssfile).then(function () {
+            assetsService.loadCss('/' + pckg.cssfile).then(function () {
                 $scope.loading = false;
                 $scope.pckgselected = pckg;
             });
@@ -43,7 +43,7 @@
 
             //if there is only one package we select that one, regardless what the stored values says.
             if ($scope.packages.length === 1) {
-                pckg = $scope.packages[0];
+                pckg = $scope.packages[0]; 
             }
 
             if (angular.isObject(pckg)) {

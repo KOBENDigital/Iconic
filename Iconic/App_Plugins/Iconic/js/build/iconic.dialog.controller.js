@@ -3,7 +3,7 @@
 angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope', 'assetsService', function ($scope, assetsService) {
 
     $scope.packages = $scope.model.pickerConfig.packages;
-    $scope.pckgselected;
+    $scope.pckgselected = null;
 
     $scope.iconsSize = 16;
     $scope.styles = [];
@@ -15,7 +15,7 @@ angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope'
 
         $scope.loading = true;
 
-        assetsService.loadCss("~/" + pckg.cssfile).then(function () {
+        assetsService.loadCss('/' + pckg.cssfile).then(function () {
             $scope.loading = false;
             $scope.pckgselected = pckg;
         });

@@ -6,7 +6,8 @@
   </creator>
   <area alias="iconicDialog">
     <key alias="noIconsFound">No icons were found.</key>
-    <key alias="selectOption">Select an option...</key>
+    <key alias="selectOption">Select a package...</key>
+    <key alias="noPackageSelected">No package selected.</key>
   </area>
   <area alias="iconicConfig">
     <key alias="addNewPackage">Add new package</key>    

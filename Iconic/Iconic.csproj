@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>..\..\UmbracoV8Tests\Web\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -331,7 +331,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.8.1.0\lib\net472\Umbraco.Core.dll</HintPath>
+      <HintPath>..\..\UmbracoV8Tests\packages\UmbracoCms.Core.8.6.4\lib\net472\Umbraco.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Umbraco.ModelsBuilder, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Umbraco.ModelsBuilder.8.1.0\lib\net472\Umbraco.ModelsBuilder.dll</HintPath>
@@ -349,7 +350,8 @@
     <None Include="app.config" />
     <None Include="App_Plugins\Iconic\package.manifest" />
     <None Include="App_Plugins\Iconic\preconfigs.json" />
-    <None Include="App_Plugins\Iconic\Styles\iconic.scss" />
+    <None Include="App_Plugins\Iconic\styles\iconic.scss" />
+    <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.bindings">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -357,60 +359,57 @@
     <None Include="compilerconfig.json.defaults" />
     <None Include="Iconic.nuspec" />
     <None Include="packages.config" />
-    <None Include="Tools\build.ps1" />
-    <None Include="Tools\CreateUmbracoPackage.ps1" />
-    <None Include="Tools\publishNuget.bat" />
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitattributes" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.controller.min.js">
+    <Content Include="App_Plugins\Iconic\js\build\findPolyfill.min.js">
+      <DependentUpon>findPolyfill.js</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\js\build\iconic.controller.js" />
+    <Content Include="App_Plugins\Iconic\js\build\iconic.controller.min.js">
       <DependentUpon>iconic.controller.js</DependentUpon>
     </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.min.js">
+    <Content Include="App_Plugins\Iconic\js\build\iconic.dialog.controller.js" />
+    <Content Include="App_Plugins\Iconic\js\build\iconic.dialog.controller.min.js">
       <DependentUpon>iconic.dialog.controller.js</DependentUpon>
     </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.directives.min.js">
+    <Content Include="App_Plugins\Iconic\js\build\iconic.directives.js" />
+    <Content Include="App_Plugins\Iconic\js\build\iconic.directives.min.js">
       <DependentUpon>iconic.directives.js</DependentUpon>
     </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.models.min.js">
+    <Content Include="App_Plugins\Iconic\js\build\iconic.models.js" />
+    <Content Include="App_Plugins\Iconic\js\build\iconic.models.min.js">
       <DependentUpon>iconic.models.js</DependentUpon>
     </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.min.js">
+    <Content Include="App_Plugins\Iconic\js\build\iconic.prevalues.controller.js" />
+    <Content Include="App_Plugins\Iconic\js\build\iconic.prevalues.controller.min.js">
       <DependentUpon>iconic.prevalues.controller.js</DependentUpon>
     </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.editor.controller.js" />
-    <Content Include="App_Plugins\Iconic\Views\iconic.edit.dialog.html" />
+    <Content Include="App_Plugins\Iconic\js\build\iconic.prevalues.editor.controller.js" />
+    <Content Include="App_Plugins\Iconic\js\build\iconic.prevalues.editor.controller.min.js">
+      <DependentUpon>iconic.prevalues.editor.controller.js</DependentUpon>
+    </Content>
+    <Content Include="App_Plugins\Iconic\js\src\iconic.prevalues.editor.controller.js" />
+    <Content Include="App_Plugins\Iconic\views\iconic.edit.dialog.html" />
     <Content Include="package.xml" />
-    <None Include="App_Plugins\Iconic\Js\iconic.controller.es6" />
-    <None Include="App_Plugins\Iconic\Js\iconic.dialog.controller.es6" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.controller.js">
-      <DependentUpon>iconic.controller.es6</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.dialog.controller.js">
-      <DependentUpon>iconic.dialog.controller.es6</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Iconic\Js\iconic.directives.js" />
-    <None Include="App_Plugins\Iconic\Js\iconic.models.es6" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.models.js">
-      <DependentUpon>iconic.models.es6</DependentUpon>
-    </Content>
-    <None Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.es6" />
-    <Content Include="App_Plugins\Iconic\Js\iconic.prevalues.controller.js">
-      <DependentUpon>iconic.prevalues.controller.es6</DependentUpon>
-    </Content>
-    <Content Include="App_Plugins\Iconic\Js\findPolyfill.js" />
+    <Content Include="App_Plugins\Iconic\js\src\iconic.controller.js" />
+    <Content Include="App_Plugins\Iconic\js\src\iconic.dialog.controller.js" />
+    <Content Include="App_Plugins\Iconic\js\src\iconic.directives.js" />
+    <Content Include="App_Plugins\Iconic\js\src\iconic.models.js" />
+    <Content Include="App_Plugins\Iconic\js\src\iconic.prevalues.controller.js" />
+    <Content Include="App_Plugins\Iconic\js\build\findPolyfill.js" />
     <Content Include="App_Plugins\Iconic\lang\es-ES.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Plugins\Iconic\lang\en-US.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Plugins\Iconic\Styles\iconic.css" />
-    <Content Include="App_Plugins\Iconic\Styles\iconic.min.css" />
-    <Content Include="App_Plugins\Iconic\Views\iconic.dialog.html" />
-    <Content Include="App_Plugins\Iconic\Views\iconic.html" />
-    <Content Include="App_Plugins\Iconic\Views\iconic.prevalues.html" />
+    <Content Include="App_Plugins\Iconic\styles\iconic.css" />
+    <Content Include="App_Plugins\Iconic\styles\iconic.min.css" />
+    <Content Include="App_Plugins\Iconic\views\iconic.dialog.html" />
+    <Content Include="App_Plugins\Iconic\views\iconic.html" />
+    <Content Include="App_Plugins\Iconic\views\iconic.prevalues.html" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
@@ -419,7 +418,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y/s "$(ProjectDir)\App_Plugins" "C:\Users\Mario\Documents\PersonalRepo\UmbracoTestsV8\UmbracoV8Tests\UmbracoV8Tests\App_Plugins"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y/s "$(ProjectDir)\App_Plugins" "C:\Users\Mario\source\repos\UmbracoV8Tests\Web\App_Plugins"</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
