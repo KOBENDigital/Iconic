@@ -15,7 +15,7 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Value converters has been modified on Umbraco 8.1. This version is compatible with it. ]]>
+      <![CDATA[ Code clean and styles improved. ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>
