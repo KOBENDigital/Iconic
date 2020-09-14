@@ -1,6 +1,6 @@
 ﻿angular.module("umbraco")
     .controller("Koben.Iconic.Controller",
-    ['$scope', 'assetsService', function ($scope, assetsService) {
+        ['$scope', 'assetsService', 'umbRequestHelper', function ($scope, assetsService, umbRequestHelper) {
         var config = $scope.model.config;
         
         $scope.pckg;
@@ -25,7 +25,7 @@
         };
 
         $scope.overlay = {
-            view: "/app_plugins/iconic/views/iconic.dialog.html",
+            view: umbRequestHelper.convertVirtualToAbsolutePath("~/app_plugins/iconic/views/iconic.dialog.html"),
             title: "Select an icon",
             hideSubmitButton: true,
             submit: $scope.selectIcon,

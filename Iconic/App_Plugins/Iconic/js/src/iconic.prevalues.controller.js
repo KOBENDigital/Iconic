@@ -2,7 +2,8 @@
     "$scope",
     "$http",
     "editorService",
-    function ($scope, $http, editorService) {
+    "umbRequestHelper",
+    function ($scope, $http, editorService, umbRequestHelper) {
         $scope.overrideBgTemplate = false;
 
         if (!angular.isArray($scope.model.value)) $scope.model.value = [];
@@ -13,7 +14,7 @@
 
             editorService.open({
                 title: "Create new package",
-                view: "/app_plugins/iconic/views/iconic.edit.dialog.html",
+                view: umbRequestHelper.convertVirtualToAbsolutePath("~/app_plugins/iconic/views/iconic.edit.dialog.html"),
                 saved: function () {
                     $scope.model.value.push(angular.copy(newItem));
                 },
@@ -25,7 +26,7 @@
         $scope.editPackage = function (pkg) {
             editorService.open({
                 title: "Edit package",
-                view: "/app_plugins/iconic/views/iconic.edit.dialog.html",
+                view: umbRequestHelper.convertVirtualToAbsolutePath("~/app_plugins/iconic/views/iconic.edit.dialog.html"),
                 package: pkg
             })
         }

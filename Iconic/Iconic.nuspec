@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Koben.Iconic</id>
-    <version>2.3.0</version>
+    <version>2.3.1</version>
     <title>Iconic</title>
     <authors>Mario Lopez</authors>
     <license type="expression">MIT</license>
@@ -15,7 +15,7 @@
     ]]>
     </description>
     <releaseNotes>
-      <![CDATA[ Code clean and styles improved. ]]>
+      <![CDATA[ Code clean and styles improved. Support for virtual paths. ]]>
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>

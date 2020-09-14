@@ -1,4 +1,5 @@
-﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor", function ($scope, $http, localizationService, editorService, umbRequestHelper) {
+﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
+    function ($scope, $http, localizationService, editorService, umbRequestHelper) {
 
     $scope.configType = "custom";
     $scope.selectedPreConfig = null;
@@ -71,7 +72,7 @@
 
 
     function loadPreconfigs() {
-        $http.get("/App_Plugins/Iconic/preconfigs.json").then(
+        $http.get(umbRequestHelper.convertVirtualToAbsolutePath("/App_Plugins/Iconic/preconfigs.json")).then(
             function (response) {
                 $scope.preconfig = response.data.preconfigs;
             },

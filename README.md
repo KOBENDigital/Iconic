@@ -141,11 +141,10 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 ### Font Awesome Pro
 Currently if you are using font awesome pro and stacked content, icons will not render correctly in stacked content preview
 
-
-# Umbraco Versions
-Iconic has been tested with Umbraco 7.6 and 7.7.
-
 # Changelog
+- 2.3.1 
+    - Compatible with Umbraco 8.7
+    - Support for virtual paths.
 - 1.6
     - Unable to cast object of type 'Newtonsoft.Json.Linq.JObject' to type 'System.String'. FIXED
     - Added Pre-Configurations for Font Awesome 5.
