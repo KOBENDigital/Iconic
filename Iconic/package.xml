@@ -13,37 +13,37 @@
     </file>
     <file>
       <guid>findPolyfill.js</guid>
-      <orgPath>/App_Plugins/Iconic/Js</orgPath>
+      <orgPath>/App_Plugins/Iconic/js/build</orgPath>
       <orgName>findPolyfill.js</orgName>
     </file>
     <file>
       <guid>iconic.controller.js</guid>
-      <orgPath>/App_Plugins/Iconic/Js</orgPath>
+      <orgPath>/App_Plugins/Iconic/js/build</orgPath>
       <orgName>iconic.controller.js</orgName>
     </file>
     <file>
       <guid>iconic.dialog.controller.js</guid>
-      <orgPath>/App_Plugins/Iconic/Js</orgPath>
+      <orgPath>/App_Plugins/Iconic/js/build</orgPath>
       <orgName>iconic.dialog.controller.js</orgName>
     </file>
     <file>
       <guid>iconic.prevalues.editor.controller.js</guid>
-      <orgPath>/App_Plugins/Iconic/Js</orgPath>
+      <orgPath>/App_Plugins/Iconic/js/build</orgPath>
       <orgName>iconic.prevalues.editor.controller.js</orgName>
     </file>
     <file>
       <guid>iconic.directives.js</guid>
-      <orgPath>/App_Plugins/Iconic/Js</orgPath>
+      <orgPath>/App_Plugins/Iconic/js/build</orgPath>
       <orgName>iconic.directives.js</orgName>
     </file>
     <file>
       <guid>iconic.models.js</guid>
-      <orgPath>/App_Plugins/Iconic/Js</orgPath>
+      <orgPath>/App_Plugins/Iconic/js/build</orgPath>
       <orgName>iconic.models.js</orgName>
     </file>
     <file>
       <guid>iconic.prevalues.controller.js</guid>
-      <orgPath>/App_Plugins/Iconic/Js</orgPath>
+      <orgPath>/App_Plugins/Iconic/js/build</orgPath>
       <orgName>iconic.prevalues.controller.js</orgName>
     </file>
     <file>

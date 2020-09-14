@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
+    <id>Koben.Iconic</id>
+    <version>2.3.0</version>
+    <title>Iconic</title>
+    <authors>Mario Lopez</authors>
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/KOBENDigital/Iconic</projectUrl>
-    <iconUrl>https://koben.com.au/media/1047/koben_logo.png</iconUrl>
+    <icon>images\iconic_logo.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>Icon picker for Umbraco V8</summary>
+    <summary>Icon picker for Umbraco</summary>
     <description>
       <![CDATA[Highly configurable icon picker for Umbraco. With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.
     ]]>
@@ -19,14 +19,16 @@
     </releaseNotes>
     <tags>Iconic Umbraco icon picker editor backoffice</tags>
     <dependencies>
-      <dependency id="UmbracoCms.Core" version="[8.0,]" />
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="UmbracoCms.Core" version="[8.0,]" />
+      </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="App_Plugins\Iconic\**\*.*" target="content\App_Plugins\Iconic"  exclude="App_Plugins\Iconic\Js\*.*;App_Plugins\Iconic\Styles\*.*"/>
-    <file src="App_Plugins\Iconic\Js\*.js" target="content\App_Plugins\Iconic\Js" />
-    <file src="App_Plugins\Iconic\Styles\*.min.css" target="content\App_Plugins\Iconic\Styles" />
-
+    <file src="images\iconic_logo.png" target="images"/>
+    <file src="App_Plugins\Iconic\**\*.*" target="content\App_Plugins\Iconic"/>
+    <file src="App_Plugins\Iconic\js\build\*.*" target="content\App_Plugins\Iconic\js\build" />
+    <file src="App_Plugins\Iconic\styles\*.*" target="content\App_Plugins\Iconic\styles" />
     <file src="bin\Release\Koben.Iconic.*" target="lib\net472"></file>
   </files>
 </package>
