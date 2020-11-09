@@ -20,8 +20,8 @@ namespace Iconic
 
         public IDictionary<Guid, Package> GetConfiguratedPackages(IPublishedPropertyType propertyType)
         {
-
-            if (!_packagesCache.ContainsKey(propertyType.Alias))
+            var uniqueKey = propertyType.ContentType.Alias + "_" + propertyType.Alias;
+            if (!_packagesCache.ContainsKey(uniqueKey))
             {
 
                 var dataType = Current.Services.DataTypeService.GetDataType(propertyType.DataType.Id);
@@ -29,10 +29,10 @@ namespace Iconic
 
                 var editorConfig = ((JArray)configurationJson["packages"]).ToObject<IEnumerable<Package>>();
 
-                _packagesCache.Add(propertyType.Alias, editorConfig.ToDictionary(p => p.Id));
+                _packagesCache.Add(uniqueKey, editorConfig.ToDictionary(p => p.Id));
             }
 
-            return _packagesCache[propertyType.Alias];
+            return _packagesCache[uniqueKey];
 
         }
 
