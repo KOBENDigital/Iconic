@@ -1,1 +1,0 @@
-﻿dotnet nuget push Koben.Iconic.2.2.0.nupkg -k {key here} -s https://api.nuget.org/v3/index.json
