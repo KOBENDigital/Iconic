@@ -49,7 +49,7 @@
                 
                 $scope.pckg = loadPackage(config.packages, $scope.model.value.packageId);
                 if ($scope.pckg) {
-                    assetsService.loadCss('/' + $scope.pckg.cssfile);
+                    assetsService.loadCss('~/' + $scope.pckg.cssfile);
                     $scope.modelIsValid = true;
                 }
             } else {
