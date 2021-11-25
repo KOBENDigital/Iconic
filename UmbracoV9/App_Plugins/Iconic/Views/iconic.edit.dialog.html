@@ -1,0 +1,177 @@
+<div ng-controller="Koben.Iconic.Prevalues.Editor">
+    <form name="packageForm" novalidate>
+        <umb-editor-view>
+
+            <umb-editor-header name="model.title"
+                               name-locked="true"
+                               hide-alias="true"
+                               hide-icon="true"
+                               hide-description="true">
+            </umb-editor-header>
+
+            <umb-editor-container class="form-horizontal">
+                <umb-box>
+
+                    <umb-box-content>
+
+                        <div ng-show="error" class="help-inline">
+                            {{ error }}
+                        </div>
+
+                        <umb-control-group label="@iconicConfig_configType">
+                            <label><input type="radio" ng-change="changeConfigType('custom')" ng-model="configType" value="custom" /> <localize key="iconicConfig_custom">Custom</localize></label>
+                            <label><input type="radio" ng-change="changeConfigType('preconfigured')" ng-model="configType" value="preconfigured" /> <localize key="iconicConfig_preconf">Pre-Configured</localize></label>
+                        </umb-control-group>
+
+                        <umb-control-group label="@iconicConfig_selectConfig" ng-show="configType == 'preconfigured'">
+                            <select ng-model="selectedPreConfig"
+                                    ng-change="selectPreConfig(selectedPreConfig)"
+                                    ng-options="conf as conf.name for conf in preconfig">
+                                <option value=""><localize key="iconicConfig_select_preconf">Select a pre-configuration...</localize></option>
+                            </select>
+                        </umb-control-group>
+
+                        <umb-control-group label="@iconicConfig_name"
+                                           required="true">
+                            <input class="umb-property-editor"
+                                   name="editName"
+                                   type="text"
+                                   ng-model="model.package.name"
+                                   val-highlight="{{ packageForm.editName.$error && packageForm.editName.$dirty}}"
+                                   required />
+
+                            <span ng-messages="packageForm.editName.$error" show-validation-on-submit>
+                                <span class="help-inline" ng-message="required"><localize key="iconicValidation_name">Please enter a name</localize></span>
+                            </span>
+                        </umb-control-group>
+                        <umb-control-group label="@iconicConfig_template"
+                                           description="@iconicConfig_templateDescription"
+                                           required="true">
+
+                            <input class="umb-property-editor"
+                                   name="editTemplate"
+                                   type="text"
+                                   ng-model="model.package.template"
+                                   val-highlight="{{ packageForm.editTemplate.$invalid && packageForm.editTemplate.$dirty}}"
+                                   required />
+
+
+                            <span ng-messages="packageForm.editTemplate.$error" show-validation-on-submit>
+                                <span class="help-inline" ng-message="required"><localize key="iconicValidation_name">Please enter a template</localize></span>
+                            </span>
+                        </umb-control-group>
+                        <umb-control-group label="@iconicConfig_backofficeTemplate"
+                                           description="@iconicConfig_backofficeTemplateDescription">
+                            <umb-toggle checked="model.package.overrideTemplate"
+                                        on-click="toggleOverrideTemplate()">
+                            </umb-toggle>
+                        </umb-control-group>
+
+                        <umb-control-group label="Enter a backoffice template" ng-if="model.package.overrideTemplate">
+                            <input class="umb-property-editor"
+                                   name="editBackofficeTemplate"
+                                   type="text"
+                                   ng-model="model.package.backofficeTemplate"
+                                   val-highlight="{{ packageForm.editBackofficeTemplate.$invalid }}" />
+                        </umb-control-group>
+
+
+                        <umb-control-group label="@iconicConfig_cssFile"
+                                           description="@iconicConfig_cssFileDescription"
+                                           required="true">
+                            <input type="hidden" name="editCssFile" required ng-model="model.package.cssfile" />
+                            <umb-node-preview ng-if="model.package.cssfile"
+                                              icon="'icon-document'"
+                                              name="model.package.cssfile"
+                                              allow-remove="true"
+                                              on-remove="removeCssFile()">
+                            </umb-node-preview>
+
+                            <a ng-hide="model.package.cssfile"
+                               href=""
+                               class="umb-node-preview-add"
+                               ng-click="openCssFilePicker(model.package.cssfile)"
+                               prevent-default>
+                                <localize key="general_add">Add</localize>
+                            </a>
+
+                            <span ng-messages="packageForm.editCssFile.$error" show-validation-on-submit>
+                                <span class="help-inline" ng-message="required"><localize key="iconicValidation_css">Please select a css file</localize></span>
+                            </span>
+                        </umb-control-group>
+
+                        <fieldset>
+                            <legend><localize key="iconicConfig_icons">Icons</localize></legend>
+
+
+                            <umb-control-group label="@iconicConfig_selector"
+                                               description="@iconicConfig_selectorDescription"
+                                               required="true">
+                                <input class="umb-property-editor"
+                                       name="editSelector"
+                                       type="text"
+                                       ng-model="model.package.selector"
+                                       val-highlight="{{ packageForm.editSelector.$invalid && packageForm.editSelector.$dirty}}"
+                                       required />
+                                <span ng-messages="packageForm.editSelector.$error" show-validation-on-submit>
+                                    <span class="help-inline" ng-message="required"><localize key="iconicValidation_selector">Please enter a selector</localize></span>
+                                </span>
+                            </umb-control-group>
+
+
+                            <umb-control-group label="@iconicConfig_rulesFile"
+                                               description="@iconicConfig_rulesFileDescription"
+                                               required="true">
+
+                                <input name="editSourceFile"
+                                       type="hidden"
+                                       ng-model="model.package.sourcefile"
+                                       required />
+
+                                <umb-node-preview ng-if="model.package.sourcefile"
+                                                  icon="'icon-document'"
+                                                  name="model.package.sourcefile"
+                                                  allow-remove="true"
+                                                  on-remove="removeRulesFile()">
+                                </umb-node-preview>
+
+                                <a ng-hide="model.package.sourcefile"
+                                   href=""
+                                   class="umb-node-preview-add"
+                                   ng-click="openRulesFilePicker()"
+                                   prevent-default>
+                                    <localize key="general_add">Add</localize>
+                                </a>
+                                <span ng-messages="packageForm.editSourceFile.$error" show-validation-on-submit>
+                                    <span class="help-inline" ng-message="required"><localize key="iconicValidation_rules">Please select a valid css file</localize></span>
+                                </span>
+                            </umb-control-group>
+
+                        </fieldset>
+                    </umb-box-content>
+                </umb-box>
+            </umb-editor-container>
+
+
+
+
+            <umb-editor-footer>
+                <umb-editor-footer-content-right>
+                    <umb-button action="submit()"
+                                type="button"
+                                button-style="success"
+                                label-key="iconicConfig_save"
+                                state="analysing"
+                                disabled="packageForm.$invalid">
+                    </umb-button>
+                    <umb-button action="cancel()"
+                                type="button"
+                                button-style="link"
+                                label-key="iconicConfig_cancel">
+                    </umb-button>
+                </umb-editor-footer-content-right>
+            </umb-editor-footer>
+        </umb-editor-view>
+    </form>
+
+</div>

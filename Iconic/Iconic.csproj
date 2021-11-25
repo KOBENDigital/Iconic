@@ -8,7 +8,7 @@
         <Product>Iconic</Product>
         <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
         <RootNamespace>Our.Umbraco.Iconic</RootNamespace>
-		<Version>3.0.0</Version>
+		<Version>3.0.1</Version>
 		<Authors>Mario Lopez</Authors>
 		<PackageProjectUrl>https://github.com/KOBENDigital/Iconic</PackageProjectUrl>
 		<PackageIcon>images\iconic_logo.png</PackageIcon>
@@ -26,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="App_Plugins\Iconic\**\*.*">
+        <Content Include="App_Plugins\Iconic\**\*.*">			
             <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
             <CopyToPublishDirectory>Always</CopyToPublishDirectory>
         </Content>
@@ -40,37 +40,7 @@
       <Content Remove="App_Plugins\Iconic\Styles\iconic.scss" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Remove="App_Plugins\Iconic\js\build\findPolyfill.js" />
-      <None Remove="App_Plugins\Iconic\js\build\findPolyfill.min.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.controller.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.controller.min.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.dialog.controller.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.dialog.controller.min.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.directives.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.directives.min.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.models.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.models.min.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.prevalues.controller.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.prevalues.controller.min.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.prevalues.editor.controller.js" />
-      <None Remove="App_Plugins\Iconic\js\build\iconic.prevalues.editor.controller.min.js" />
-      <None Remove="App_Plugins\Iconic\js\src\iconic.controller.js" />
-      <None Remove="App_Plugins\Iconic\js\src\iconic.dialog.controller.js" />
-      <None Remove="App_Plugins\Iconic\js\src\iconic.directives.js" />
-      <None Remove="App_Plugins\Iconic\js\src\iconic.models.js" />
-      <None Remove="App_Plugins\Iconic\js\src\iconic.prevalues.controller.js" />
-      <None Remove="App_Plugins\Iconic\js\src\iconic.prevalues.editor.controller.js" />
-      <None Remove="App_Plugins\Iconic\lang\en-US.xml" />
-      <None Remove="App_Plugins\Iconic\lang\es-ES.xml" />
-      <None Remove="App_Plugins\Iconic\preconfigs.json" />
-      <None Remove="App_Plugins\Iconic\Styles\iconic.css" />
-      <None Remove="App_Plugins\Iconic\Styles\iconic.min.css" />
-      <None Remove="App_Plugins\Iconic\Views\iconic.dialog.html" />
-      <None Remove="App_Plugins\Iconic\Views\iconic.edit.dialog.html" />
-      <None Remove="App_Plugins\Iconic\Views\iconic.html" />
-      <None Remove="App_Plugins\Iconic\Views\iconic.prevalues.html" />
-    </ItemGroup>
+   
 
     <ItemGroup>
       <Content Include="images\iconic_logo.png">
