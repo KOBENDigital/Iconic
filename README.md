@@ -6,6 +6,10 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 ## Installation
 
+Use V3 for Umbraco 9
+Use V2 for Umbraco 8
+Use V1 for Umbraco 7
+
 ### Nuget
 [![NuGet](https://buildstats.info/nuget/Koben.Iconic)](https://www.nuget.org/packages/Koben.Iconic/)
 
@@ -108,7 +112,7 @@ To add or modify your icon just click on the placeholder, this will open a dialo
 Iconic comes with a value converter that will return a HtmlString containing the icon html. So you just have to use the model of your template like so:
 
 ```
-@Html.Raw(Model.Content.MyIcon)
+@Html.Raw(Model.MyIcon)
 ```
 
 Remember to wrap the icon in Html.Raw so Razor displays the returned html properly.
@@ -120,7 +124,7 @@ There is a second way of rendering your icon that allow you to add extra classes
 **For this extension to work you'll have to include `@using Iconic.Helpers` on your view.**
 
 Example:
-    @Html.RenderIcon(Model.Content.MyIcon, "dataX='mydata'", "myclass")
+    @Html.RenderIcon(Model.MyIcon, "dataX='mydata'", "myclass")
 
 If you had a template like `<i class="fa {icon} {classes} fa-5x" {attributes}></i>` This will render to:
 
@@ -142,6 +146,8 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 Currently if you are using font awesome pro and stacked content, icons will not render correctly in stacked content preview
 
 # Changelog
+- 3.0.0
+    - Compatible with Umbraco 9
 - 2.3.1 
     - Compatible with Umbraco 8.7
     - Support for virtual paths.

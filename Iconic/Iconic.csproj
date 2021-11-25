@@ -2,21 +2,22 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <ContentTargetFolders>.</ContentTargetFolders>
-        <Product>Iconic</Product>
         <PackageId>Koben.Iconic</PackageId>
         <Title>Iconic</Title>
         <Description>Highly configurable icon picker for Umbraco. With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.		</Description>
-        <Product>...</Product>
+        <Product>Iconic</Product>
         <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
         <RootNamespace>Our.Umbraco.Iconic</RootNamespace>
 		<Version>3.0.0</Version>
 		<Authors>Mario Lopez</Authors>
 		<PackageProjectUrl>https://github.com/KOBENDigital/Iconic</PackageProjectUrl>
-		<PackageIcon>iconic_logo.png</PackageIcon>
+		<PackageIcon>images\iconic_logo.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/KOBENDigital/Iconic</RepositoryUrl>
 		<PackageReleaseNotes>Compatible with Umbraco 9</PackageReleaseNotes>
-		<AssemblyName>Our.Umbraco.Iconic</AssemblyName>		
+		<AssemblyName>Our.Umbraco.Iconic</AssemblyName>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>		
     </PropertyGroup>
 
     <ItemGroup>
@@ -36,7 +37,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="App_Plugins\Iconic\preconfigs.json" />
       <Content Remove="App_Plugins\Iconic\Styles\iconic.scss" />
     </ItemGroup>
 
@@ -63,12 +63,19 @@
       <None Remove="App_Plugins\Iconic\js\src\iconic.prevalues.editor.controller.js" />
       <None Remove="App_Plugins\Iconic\lang\en-US.xml" />
       <None Remove="App_Plugins\Iconic\lang\es-ES.xml" />
+      <None Remove="App_Plugins\Iconic\preconfigs.json" />
       <None Remove="App_Plugins\Iconic\Styles\iconic.css" />
       <None Remove="App_Plugins\Iconic\Styles\iconic.min.css" />
       <None Remove="App_Plugins\Iconic\Views\iconic.dialog.html" />
       <None Remove="App_Plugins\Iconic\Views\iconic.edit.dialog.html" />
       <None Remove="App_Plugins\Iconic\Views\iconic.html" />
       <None Remove="App_Plugins\Iconic\Views\iconic.prevalues.html" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="images\iconic_logo.png">
+        <Pack>True</Pack>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
@@ -90,10 +97,7 @@
     <ItemGroup>
       <None Update="images\iconic_logo.png">
         <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
       </None>
-    </ItemGroup>
-
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-      <Exec Command="xcopy /y/s &quot;$(ProjectDir)\App_Plugins&quot;  &quot;$(ProjectDir)..\UmbracoV9\App_Plugins&quot;" />
-    </Target>	
+    </ItemGroup>	
 </Project>
