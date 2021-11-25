@@ -4,7 +4,7 @@
          ng-class="{'-placeholder': model.value===null ||model.value===''}"
          title="{{model.value.style}}">
 
-        <localize ng-show="!modelIsValid" key="general_add" class="ng-isolate-scope">Add</localize>
+        <localize ng-show="!modelIsValid" key="general_add" class="ng-isolate-scope" style="font-size: 1rem;">Add</localize>
 
         <iconic-icon ng-if="modelIsValid" package="pckg" icon="model.value.icon">
         </iconic-icon>

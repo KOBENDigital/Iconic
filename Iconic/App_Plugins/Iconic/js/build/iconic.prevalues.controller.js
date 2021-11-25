@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope", "$http", "editorService", function ($scope, $http, editorService) {
+angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope", "$http", "editorService", "umbRequestHelper", function ($scope, $http, editorService, umbRequestHelper) {
     $scope.overrideBgTemplate = false;
 
     if (!angular.isArray($scope.model.value)) $scope.model.value = [];
@@ -10,7 +10,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope
 
         editorService.open({
             title: "Create new package",
-            view: "/app_plugins/iconic/views/iconic.edit.dialog.html",
+            view: umbRequestHelper.convertVirtualToAbsolutePath("~/app_plugins/iconic/views/iconic.edit.dialog.html"),
             saved: function saved() {
                 $scope.model.value.push(angular.copy(newItem));
             },
@@ -21,7 +21,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Packages", ["$scope
     $scope.editPackage = function (pkg) {
         editorService.open({
             title: "Edit package",
-            view: "/app_plugins/iconic/views/iconic.edit.dialog.html",
+            view: umbRequestHelper.convertVirtualToAbsolutePath("~/app_plugins/iconic/views/iconic.edit.dialog.html"),
             "package": pkg
         });
     };

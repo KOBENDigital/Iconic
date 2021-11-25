@@ -30,7 +30,7 @@ You have to create a new datatype from the Iconic editor:
 2. Right click on *DataTypes*, click *Create* and click on *New data type*.
 3. Enter a name for your datatype and select Iconic from the *Property Editor* dropdown.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/datatype.png" width="600" alt="Create datatype" >
+<img src="Documentation/datatype.png" width="600" alt="Create datatype" >
 
 At this point I would recommend you to save your datatype as the configuration can take a bit of trial an error as you will need to deal with some regex and urls.
 
@@ -63,18 +63,18 @@ For example, some packages like Font Awesome use css rules to apply the specific
 <i class="fa fa-glass"></i> (Template: <i class="fa {icon}"></i>)
 ```
 
-Other packages like Material Icons use the glyph codes or even ligatures to display the icon instead a specific css selector. 
+Other packages like Material Icons use the glyph codes or even ligatures to display the icon instead of a specific css selector. 
 ```
 <i class="material-icons">alarm</i> (Template: <i class="material-icons">{icon}</i>)
 ```
-So this file can be the same css file or another files use to extract the icons property. In the case of Material Icons for instance there is a file called <a href="https://github.com/google/material-design-icons/blob/master/iconfont/codepoints">codepoints</a> where you can extract the icons names from.
+So this file can be the same css file or another files used to extract the icons property. In the case of Material Icons for instance there is a file called <a href="iconfont/codepoints">codepoints</a> where you can extract the icons names from.
 
 ##### Material Icons
 If you're having issues configuring Material Icons, try this configuration:
 
 **Css File**: https://fonts.googleapis.com/icon?family=Material+Icons
 
-**Rules file**: https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/codepoints
+**Rules file**: https://github.com/mattecapu/md-icons-codepoints
 
 ##### Font Awesome 5
 The version 5 is a bit tricky to configure. There is a <a href="https://www.edg3.co.uk/blog/how-to-add-font-awesome-v5-icons-using-iconic-in-umbraco/">great post</a> about it, thanks to Christopher Robinson.
@@ -83,7 +83,7 @@ The version 5 is a bit tricky to configure. There is a <a href="https://www.edg3
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/addPreConfig.png" width="600" alt="Pre-configured package" >
+<img src="Documentation/addPreConfig.png" width="600" alt="Pre-configured package" >
 
 You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
 
@@ -92,17 +92,17 @@ You can add as many packages you like. You can also arrange their order or remov
 #### Reviewing your configuration
 Once you have added your configuration, this will be added to the configurations list. You add add as many as you want. To review the details of your configured package just click on them:
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/configDetails.png" width="600" alt="See configuration details" >
+<img src="Documentation/configDetails.png" width="600" alt="See configuration details" >
 
 You will get a read-only list of your values. To edit them just click on the Edit Package option.
 
 ### Using the DataType
 Once you have configured your datatype, you can use it as a property editor.
 
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/select-editor.png" width="300" alt="Create property" >
+<img src="Documentation/select-editor.png" width="300" alt="Create property" >
 
 To add or modify your icon just click on the placeholder, this will open a dialog where you can select form your configured packages. Once a package is selected, all the icons will be displayed below.
-<img src="https://github.com/KOBENDigital/Iconic/blob/master/Documentation/using-iconic.png" width="600" alt="Using Iconic" >
+<img src="Documentation/using-iconic.png" width="600" alt="Using Iconic" >
 
 ### <a name="displaying"></a> Displaying the icon
 Iconic comes with a value converter that will return a HtmlString containing the icon html. So you just have to use the model of your template like so:

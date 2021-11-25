@@ -1,34 +1,34 @@
-﻿using System;
-using System.Web;
-using Iconic;
-using Iconic.Models;
+﻿using Iconic.Models;
+using Microsoft.AspNetCore.Html;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Umbraco.Core.Models.PublishedContent;
-using Umbraco.Core.PropertyEditors;
+using System;
+using Umbraco.Cms.Core.Models.PublishedContent;
+using Umbraco.Cms.Core.PropertyEditors;
+using Umbraco.Cms.Core.Services;
 
-namespace Koben.Iconic.ValueConverters
+namespace Our.Iconic.ValueConverters
 {
-    public class IconicValueConverter : PropertyValueConverterBase
+    public class IconicValueConverter : IPropertyValueConverter
     {
         private readonly ConfiguredPackagesCollection _configuredPackages;
 
-        public IconicValueConverter()
+        public IconicValueConverter(IDataTypeService dataTypeService)
         {
-            _configuredPackages = new ConfiguredPackagesCollection();
+            _configuredPackages = new ConfiguredPackagesCollection(dataTypeService);
         }
 
-        public override bool IsConverter(IPublishedPropertyType propertyType)
+        public bool IsConverter(IPublishedPropertyType propertyType)
              => propertyType.EditorAlias.Equals("koben.iconic");
 
-        public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
+        public Type GetPropertyValueType(IPublishedPropertyType propertyType)
             => typeof(HtmlString);
 
-        public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
+        public PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
             => PropertyCacheLevel.Elements;
 
 
-        public override object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
+        public object ConvertSourceToIntermediate(IPublishedElement owner, IPublishedPropertyType propertyType, object source, bool preview)
         {
             if (source == null) return null;
 
@@ -40,12 +40,12 @@ namespace Koben.Iconic.ValueConverters
             else
             {
                 icon = JsonConvert.DeserializeObject<SelectedIcon>(source.ToString());
-            }            
+            }
 
             return icon;
         }
 
-        public override object ConvertIntermediateToObject(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
+        public object ConvertIntermediateToObject(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
         {
             if (inter == null) return new HtmlString(string.Empty);
 
@@ -60,6 +60,26 @@ namespace Koben.Iconic.ValueConverters
             var display = pckg.FrontendTemplate.Replace("{icon}", icon.Icon);
 
             return new HtmlString(display);
+        }
+
+
+
+        public bool? IsValue(object value, PropertyValueLevel level)
+        {
+            if (value is null) return null;
+
+            if (value is SelectedIcon && level == PropertyValueLevel.Inter) return true;
+            if (value is HtmlString && level == PropertyValueLevel.Object) return true;
+            if (value is JObject && level == PropertyValueLevel.Source) return true;
+
+
+            return false;
+        }
+
+
+        public object ConvertIntermediateToXPath(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel referenceCacheLevel, object inter, bool preview)
+        {
+            throw new NotImplementedException();
         }
     }
 }

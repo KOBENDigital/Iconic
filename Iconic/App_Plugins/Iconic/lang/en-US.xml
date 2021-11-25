@@ -16,7 +16,7 @@
     <key alias="name">Name</key>
     <key alias="name">Name</key>
     <key alias="selector">Selector</key>
-    <key alias="selectorDescription">Enter a valid regex that extracts the individual icon css rules.</key>
+    <key alias="selectorDescription">Enter a valid regex that extracts the individual icon code.</key>
     <key alias="template">Template</key>
     <key alias="templateDescription">Enter an icon template</key>
     <key alias="backofficeTemplate">Override Backoffice Template</key>

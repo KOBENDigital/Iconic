@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.Mvc;
 
 namespace Iconic.Helpers
 {
@@ -16,8 +16,8 @@ namespace Iconic.Helpers
         /// <param name="htmlAttributes">Replaces an {attributes} placeholder in the icon template with the atttributes.</param>
         /// <param name="extraClasses">Replaces an {classes} placeholder in the icon template.</param>
         /// <returns></returns>
-        public static IHtmlString RenderIcon(this HtmlHelper helper, IHtmlString icon, object htmlAttributes, params string[] extraClasses)
-        {            
+        public static IHtmlContent RenderIcon(this HtmlHelper helper, IHtmlContent icon, object htmlAttributes, params string[] extraClasses)
+        {
 
             var htmlAttributesDict = HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes);
             StringBuilder attributesString = new StringBuilder();
@@ -30,7 +30,7 @@ namespace Iconic.Helpers
 
             var modifiedTemplate = icon.ToString().Replace("{attributes}", attributesString.ToString())
                                                   .Replace("{classes}", String.Join(" ", extraClasses));
-            
+
 
             return new HtmlString(modifiedTemplate);
         }
@@ -40,6 +40,6 @@ namespace Iconic.Helpers
             string pattern = "([A-Z])";
             return Regex.Replace(s, pattern, "-$1").ToLower();
         }
-        
+
     }
 }

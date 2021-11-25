@@ -72,7 +72,7 @@
 
 
     function loadPreconfigs() {
-        $http.get(umbRequestHelper.convertVirtualToAbsolutePath("/App_Plugins/Iconic/preconfigs.json")).then(
+        $http.get(umbRequestHelper.convertVirtualToAbsolutePath("~/App_Plugins/Iconic/preconfigs.json")).then(
             function (response) {
                 $scope.preconfig = response.data.preconfigs;
             },
@@ -135,7 +135,8 @@
 
         if (!item.sourcefile) item.sourcefile = item.cssfile;
 
-        var path = umbRequestHelper.convertVirtualToAbsolutePath("~/" + item.sourcefile);
+
+        var path = umbRequestHelper.convertVirtualToAbsolutePath("~" + item.sourcefile.replace("wwwroot",""));
 
         $http.get(path).then(
             function (response) {

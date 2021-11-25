@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope', 'assetsService', function ($scope, assetsService) {
+angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope', 'assetsService', 'umbRequestHelper', function ($scope, assetsService, umbRequestHelper) {
 
     $scope.packages = $scope.model.pickerConfig.packages;
     $scope.pckgselected = null;
@@ -15,7 +15,7 @@ angular.module("umbraco").controller("Koben.Iconic.Dialog.Controller", ['$scope'
 
         $scope.loading = true;
 
-        assetsService.loadCss('/' + pckg.cssfile).then(function () {
+        assetsService.loadCss('~/' + pckg.cssfile).then(function () {
             $scope.loading = false;
             $scope.pckgselected = pckg;
         });

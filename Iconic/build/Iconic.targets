@@ -1,0 +1,27 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <IconicContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Iconic\**\*.*</IconicContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyIconicAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <IconicContentFiles Include="$(IconicContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying Iconic files: $(IconicContentFilesPath) - #@(IconicContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(IconicContentFiles)"
+            DestinationFiles="@(IconicContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Iconic\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+
+    </Target>
+
+    <Target Name="ClearIconicAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <IconicDir Include="$(MSBuildProjectDirectory)\App_Plugins\Iconic\" />
+        </ItemGroup>
+        <Message Text="Clear old Iconic data"  Importance="high" />
+        <RemoveDir Directories="@(IconicDir)"  />
+    </Target>
+
+</Project>
