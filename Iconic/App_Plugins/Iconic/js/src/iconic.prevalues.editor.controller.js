@@ -136,7 +136,7 @@
         if (!item.sourcefile) item.sourcefile = item.cssfile;
 
 
-        var path = umbRequestHelper.convertVirtualToAbsolutePath("~" + item.sourcefile.replace("wwwroot",""));
+        var path = umbRequestHelper.convertVirtualToAbsolutePath("~/" + item.sourcefile.replace("wwwroot",""));
 
         $http.get(path).then(
             function (response) {
