@@ -4,6 +4,20 @@
         $scope.configType = "custom";
         $scope.selectedPreConfig = null;
 
+        $scope.loadPreview = function() {
+            if ($scope.model.package.cssfile) {
+                extractStyles(
+                    $scope.model.package,
+                    function(extractedStyles) {
+                        $scope.previewIcon = extractedStyles[0];
+                        assetsService.loadCss('~/' + $scope.model.package.cssfile.replace("wwwroot/", ""));
+                    },
+                    function() {
+                        //error
+                    }
+                );
+            }
+        };
 
         $scope.submit = function() {
 

@@ -1,10 +1,7 @@
-﻿
-.koben-iconic__dialog {
-
-    select{
+﻿    .koben-iconic__dialog {
+    select {
         margin-top: 10px;
     }
-
     .umb-iconpicker-item a {
         color: black;
     }
@@ -13,28 +10,29 @@
 .koben-iconic__container {
     .umb-panel-header-icon {
         border: 1px dashed #bbbabf;
-        font-weight: 700;        
-
+        font-weight: 700;
         &:hover {
             color: #2152a3;
             border-color: #2152a3;
         }
-
         &:focus {
             outline-color: #6ab4f0;
         }
     }
-}
-
-.umb-iconpicker-item.selected {
-    border: 1px dashed #808080;
-    background-color: lightyellow;
-}
-
-.group-horizontal {
-    display: flex;
-
-    & * {
-        margin-right: 1em;
+    &.preview {
+        .umb-panel-header-icon.preview {
+            eview {
+                margin-top: 20px;
+            }
+        }
     }
-}
+    .umb-iconpicker-item.selected {
+        border: 1px dashed #808080;
+        background-color: lightyellow;
+    }
+    .group-horizontal {
+        display: flex;
+        & * {
+            margin-right: 1em;
+        }
+    }
