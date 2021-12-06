@@ -6,8 +6,8 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 ## Installation
 
-Use V3 for Umbraco 9
-Use V2 for Umbraco 8
+Use V3 for Umbraco 9\
+Use V2 for Umbraco 8\
 Use V1 for Umbraco 7
 
 ### Nuget
@@ -83,11 +83,17 @@ If you're having issues configuring Material Icons, try this configuration:
 ##### Font Awesome 5
 The version 5 is a bit tricky to configure. There is a <a href="https://www.edg3.co.uk/blog/how-to-add-font-awesome-v5-icons-using-iconic-in-umbraco/">great post</a> about it, thanks to Christopher Robinson.
 
+#### Icon Preview (V3)
+If everything is configured properly, and Iconic can extract a list of your icons, you will be able to preview your configured Template. Click the Reload Preview button and you should get a preview of the first icon found on your source file.
+
+**Cool tip:** you can preview changes to your template in real time (no need to click *Reload preview*) :boom:.
+
+<img src="Documentation/icon-preview.png" width="600" alt="Icon preview" />
 
 #### Pre configured packages
 To make your life easier I have included some help to configure your packages in the form of pre-configured packages. If you select *Pre-Configured* when creating your package, you will have access to a list of pre-configured ones. You will still have to enter your css file path.
 
-<img src="Documentation/addPreConfig.png" width="600" alt="Pre-configured package" >
+<img src="Documentation/addPreConfig.png" width="600" alt="Pre-configured package" />
 
 You can add as many packages you like. You can also arrange their order or remove those you don't want to use anymore.
 

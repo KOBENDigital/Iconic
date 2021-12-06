@@ -1,30 +1,31 @@
 ﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
-    function($scope, $http, localizationService, editorService, umbRequestHelper) {
+    function ($scope, $http, $timeout, localizationService, editorService, umbRequestHelper, assetsService) {
 
         $scope.configType = "custom";
         $scope.selectedPreConfig = null;
+        $scope.previewIcon = null;
 
-        $scope.loadPreview = function() {
+        $scope.loadPreview = function () {
             if ($scope.model.package.cssfile) {
                 extractStyles(
                     $scope.model.package,
-                    function(extractedStyles) {
+                    function (extractedStyles) {
                         $scope.previewIcon = extractedStyles[0];
                         assetsService.loadCss('~/' + $scope.model.package.cssfile.replace("wwwroot/", ""));
                     },
-                    function() {
+                    function () {
                         //error
                     }
                 );
             }
         };
 
-        $scope.submit = function() {
 
+        $scope.submit = function () {
             if ($scope.packageForm.$valid) {
                 extractStyles(
                     $scope.model.package,
-                    function() {
+                    function () {
                         $scope.analysing = "success";
                         $scope.selectedPreConfig = null;
 
@@ -33,7 +34,7 @@
                         }
                         editorService.close();
                     },
-                    function() {
+                    function () {
                         $scope.analysing = "error";
                     }
                 );
@@ -41,7 +42,7 @@
             }
         };
 
-        $scope.cancel = function() {
+        $scope.cancel = function () {
             if ($scope.model.cancel) {
                 $scope.model.cancel();
             }
@@ -49,17 +50,17 @@
 
         }
 
-        $scope.changeConfigType = function(value) {
+        $scope.changeConfigType = function (value) {
             $scope.configType = value;
         }
 
-        $scope.toggleOverrideTemplate = function() {
+        $scope.toggleOverrideTemplate = function () {
             $scope.model.package.overrideTemplate = !$scope.model.package.overrideTemplate;
         }
 
-        $scope.openCssFilePicker = function() {
+        $scope.openCssFilePicker = function () {
             const config = {
-                select: function(node) {
+                select: function (node) {
                     const id = unescape(node.id);
                     $scope.model.package.cssfile = id;
                     editorService.close();
@@ -69,9 +70,9 @@
 
         };
 
-        $scope.openRulesFilePicker = function() {
+        $scope.openRulesFilePicker = function () {
             const config = {
-                select: function(node) {
+                select: function (node) {
                     const id = unescape(node.id);
                     $scope.model.package.sourcefile = id;
                     editorService.close();
@@ -80,24 +81,23 @@
             openTreePicker(config);
         };
 
-        $scope.selectPreConfig = function(config) {
+        $scope.selectPreConfig = function (config) {
             Object.assign($scope.model.package, config);
         };
 
-
         function loadPreconfigs() {
             $http.get(umbRequestHelper.convertVirtualToAbsolutePath("~/App_Plugins/Iconic/preconfigs.json")).then(
-                function(response) {
+                function (response) {
                     $scope.preconfig = response.data.preconfigs;
                 },
-                function(response) {
+                function (response) {
                     displayError("iconicErrors_loading");
                 }
             );
         }
 
         function displayError(alias) {
-            localizationService.localize(alias).then(function(response) {
+            localizationService.localize(alias).then(function (response) {
                 $scope.error = response.value;
             });
         }
@@ -108,14 +108,14 @@
                 section: "settings",
                 treeAlias: "files",
                 entityType: "file",
-                filter: function(i) {
+                filter: function (i) {
                     if (i.name.indexOf(".min.css") === -1 &&
                         i.name.indexOf(".css") === -1) {
                         return true;
                     }
                 },
                 filterCssClass: "not-allowed",
-                close: function() {
+                close: function () {
                     editorService.close();
                 }
             };
@@ -125,16 +125,16 @@
             editorService.treePicker(args);
         }
 
-        $scope.removeCssFile = function() {
+        $scope.removeCssFile = function () {
             $scope.model.package.cssfile = null;
         };
 
-        $scope.removeRulesFile = function() {
+        $scope.removeRulesFile = function () {
             $scope.model.package.sourcefile = null;
         };
 
         function displayError(alias) {
-            localizationService.localize(alias).then(function(response) {
+            localizationService.localize(alias).then(function (response) {
                 $scope.error = response;
             });
         }
@@ -153,7 +153,7 @@
             var path = umbRequestHelper.convertVirtualToAbsolutePath("~/" + item.sourcefile.replace("wwwroot/", ""));
 
             $http.get(path).then(
-                function(response) {
+                function (response) {
                     item.extractedStyles = [];
                     var pattern = new RegExp(item.selector, "g");
 
@@ -164,13 +164,13 @@
                     }
 
                     if (item.extractedStyles.length > 0) {
-                        successCallback();
+                        successCallback(item.extractedStyles);
                     } else {
                         displayError("iconicErrors_no_rules");
                         errorCallback();
                     }
                 },
-                function(response) {
+                function (response) {
                     displayError("iconicErrors_loadingCss");
                     errorCallback();
                 }
@@ -178,5 +178,5 @@
         }
 
         loadPreconfigs();
-
+        $scope.loadPreview();
     });
