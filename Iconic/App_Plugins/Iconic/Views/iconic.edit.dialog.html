@@ -61,7 +61,7 @@
                             </a>
 
                             <span ng-messages="packageForm.editCssFile.$error" show-validation-on-submit>
-                                <span class="help-inline" ng-message="required"><localize key="iconicValidation_css">Please select a css file</localize></span>
+                                <span class="help-inline" ng-message="required"><localize key="iconicValidation_css">Please select a CSS file</localize></span>
                             </span>
                         </umb-control-group>
 
@@ -79,7 +79,7 @@
                             </umb-control-group>
 
 
-                            <umb-control-group label="@iconicConfig_rulesFile" description="@iconicConfig_rulesFileDescription" required="true">
+                            <umb-control-group label="@iconicConfig_rulesFile" description="@iconicConfig_rulesFileDescription">
 
                                 <input name="editSourceFile" type="hidden" ng-model="model.package.sourcefile" required />
 
@@ -90,7 +90,7 @@
                                     <localize key="general_add">Add</localize>
                                 </a>
                                 <span ng-messages="packageForm.editSourceFile.$error" show-validation-on-submit>
-                                    <span class="help-inline" ng-message="required"><localize key="iconicValidation_rules">Please select a valid css file</localize></span>
+                                    <span class="help-inline" ng-message="required"><localize key="iconicValidation_rules">Please select a valid CSS file</localize></span>
                                 </span>
                             </umb-control-group>
 
@@ -98,7 +98,7 @@
 
                         <fieldset>
                             <legend>
-                                Preview
+                                <localize key="iconicConfig_preview">Preview</localize>
                             </legend>
                             <div class="koben-iconic__container preview flex">
                                 <div class="umb-panel-header-icon">
@@ -107,10 +107,10 @@
                                 </div>
 
                                 <div>
-                                    <div ng-show="packageForm.$valid">
+                                    <div ng-show="packageForm.$valid" class="ml2">
                                         <small><em>{{previewIcon}}</em></small>
                                     </div>
-                                    <umb-button action="preview()" label="Reload Preview" class="ml0" type="button" button-style="info" size="xs" disabled="packageForm.$invalid">
+                                    <umb-button action="loadPreview()" label="Reload Preview" class="ml0" type="button" button-style="info" size="xs" disabled="packageForm.$invalid">
                                     </umb-button>
                                 </div>
                             </div>

@@ -1,17 +1,17 @@
-﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
-    function($scope, $http, localizationService, editorService, umbRequestHelper, assetsService) {
+angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
+    function($scope, $http, $timeout, localizationService, editorService, umbRequestHelper, assetsService) {
 
         $scope.configType = "custom";
         $scope.selectedPreConfig = null;
         $scope.previewIcon = null;
 
-        $scope.preview = function() {
-            if ($scope.packageForm.$valid) {
+        $scope.loadPreview = function() {
+            if ($scope.model.package.cssfile) {
                 extractStyles(
                     $scope.model.package,
                     function(extractedStyles) {
                         $scope.previewIcon = extractedStyles[0];
-                        assetsService.loadCss('~' + $scope.model.package.cssfile.replace("wwwroot", ""));
+                        assetsService.loadCss('~/' + $scope.model.package.cssfile.replace("wwwroot/", ""));
                     },
                     function() {
                         //error
@@ -20,8 +20,8 @@
             }
         };
 
-        $scope.submit = function() {
 
+        $scope.submit = function() {
             if ($scope.packageForm.$valid) {
                 extractStyles(
                     $scope.model.package,
@@ -150,7 +150,7 @@
             if (!item.sourcefile) item.sourcefile = item.cssfile;
 
 
-            var path = umbRequestHelper.convertVirtualToAbsolutePath("~" + item.sourcefile.replace("wwwroot", ""));
+            var path = umbRequestHelper.convertVirtualToAbsolutePath("~/" + item.sourcefile.replace("wwwroot/", ""));
 
             $http.get(path).then(
                 function(response) {
@@ -178,5 +178,5 @@
         }
 
         loadPreconfigs();
-
+        $scope.loadPreview();
     });

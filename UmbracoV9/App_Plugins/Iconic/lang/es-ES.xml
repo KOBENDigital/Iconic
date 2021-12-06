@@ -18,15 +18,17 @@
     <key alias="backofficeTemplate">Reemplazar plantilla en backoffice</key>
     <key alias="cssFile">Archivo Css</key>
     <key alias="rulesFile">Archivo fuente de reglas</key>
+    <key alias="rulesFileDescription">De donde extraer la lista de iconos. Si no se elige one, el utilizado para el Archivo CSS se usara por defecto.</key>
     <key alias="extractedStyles">Estilos extraidos</key>
     <key alias="remove">Eliminar</key>
-    <key alias="styles">Estilos</key>
+    <key alias="icons">Iconos</key>
     <key alias="custom">Personalizado</key>
     <key alias="preconf">Pre-Configurado</key>
     <key alias="icons">Iconos</key>
     <key alias="editPackage">Editar Paquete</key>
     <key alias="save">Guardar</key>
     <key alias="cancel">Cancelar</key>
+    <key alias="preview">Vista Previa</key>
   </area>
   <area alias="iconicErrors">
     <key alias="analysing">Hubo un error extrayendo las reglas de los iconos. Revisa que las rutas a los archivos y el Regex son correctos.</key>    
