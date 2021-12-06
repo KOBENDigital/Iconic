@@ -146,6 +146,9 @@ If you try to use Glyphicons as part of the Bootstrap package, you will realise 
 Currently if you are using font awesome pro and stacked content, icons will not render correctly in stacked content preview
 
 # Changelog
+- 3.1.0
+    - Added icon preview to package configuration.
+    - #30 fixed virtual path issues
 - 3.0.0
     - Compatible with Umbraco 9
 - 2.3.1 

@@ -1,9 +1,8 @@
-angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
-    function($scope, $http, $timeout, localizationService, editorService, umbRequestHelper, assetsService) {
+﻿angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
+    function($scope, $http, localizationService, editorService, umbRequestHelper) {
 
         $scope.configType = "custom";
         $scope.selectedPreConfig = null;
-        $scope.previewIcon = null;
 
         $scope.loadPreview = function() {
             if ($scope.model.package.cssfile) {
@@ -20,8 +19,8 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
             }
         };
 
-
         $scope.submit = function() {
+
             if ($scope.packageForm.$valid) {
                 extractStyles(
                     $scope.model.package,
@@ -84,6 +83,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
         $scope.selectPreConfig = function(config) {
             Object.assign($scope.model.package, config);
         };
+
 
         function loadPreconfigs() {
             $http.get(umbRequestHelper.convertVirtualToAbsolutePath("~/App_Plugins/Iconic/preconfigs.json")).then(
@@ -164,7 +164,7 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
                     }
 
                     if (item.extractedStyles.length > 0) {
-                        successCallback(item.extractedStyles);
+                        successCallback();
                     } else {
                         displayError("iconicErrors_no_rules");
                         errorCallback();
@@ -178,5 +178,5 @@ angular.module("umbraco").controller("Koben.Iconic.Prevalues.Editor",
         }
 
         loadPreconfigs();
-        $scope.loadPreview();
+
     });

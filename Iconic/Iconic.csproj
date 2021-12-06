@@ -8,13 +8,13 @@
         <Product>Iconic</Product>
         <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
         <RootNamespace>Our.Umbraco.Iconic</RootNamespace>
-		<Version>3.0.1</Version>
+		<Version>3.1.0</Version>
 		<Authors>Mario Lopez</Authors>
 		<PackageProjectUrl>https://github.com/KOBENDigital/Iconic</PackageProjectUrl>
 		<PackageIcon>images\iconic_logo.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/KOBENDigital/Iconic</RepositoryUrl>
-		<PackageReleaseNotes>Compatible with Umbraco 9</PackageReleaseNotes>
+		<PackageReleaseNotes></PackageReleaseNotes>
 		<AssemblyName>Our.Umbraco.Iconic</AssemblyName>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>		
