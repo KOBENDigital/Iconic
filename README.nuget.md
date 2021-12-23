@@ -6,24 +6,11 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 ## Installation
 
-Use V3 for Umbraco 9\
-Use V2 for Umbraco 8\
+Use V3 for Umbraco 8 & 9\
 Use V1 for Umbraco 7
-
-### Nuget
-[![NuGet](https://buildstats.info/nuget/Koben.Iconic)](https://www.nuget.org/packages/Koben.Iconic/)
-
-You can run the following command from within Visual Studio:
-
-    PM> Install-Package Koben.Iconic
 
 ### Umbraco Package
 https://our.umbraco.com/packages/backoffice-extensions/iconic/
-
-
-### Manually
-Download the code and copy it into you App_Plugin folder.
-
 
 ## Configuration
 Once the plugin is installed is time to configure it to your needs.
