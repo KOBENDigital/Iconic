@@ -137,6 +137,10 @@ If you had a template like `<i class="fa {icon} {classes} fa-5x" {attributes}></
 
 Note that to render `data-x` you have to enter `dataX` as your attribute name.
 
+## Test Website Credentials:
+
+Username: `admin@admin.com`\
+Password: `Password123`
 
 ## Known issues
 

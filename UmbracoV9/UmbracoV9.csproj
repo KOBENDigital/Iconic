@@ -36,6 +36,11 @@
 
 
     <ItemGroup>
+      <None Include="umbraco\Data\Umbraco.sdf" />
+    </ItemGroup>
+
+
+    <ItemGroup>
       <ProjectReference Include="..\Iconic\Koben.Iconic.csproj" />
     </ItemGroup>
 
