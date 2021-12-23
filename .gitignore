@@ -375,3 +375,4 @@ healthchecksdb
 
 # End of https://www.gitignore.io/api/umbraco,visualstudio
 
+/UmbracoV9/App_Plugins/Iconic

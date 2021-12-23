@@ -1,11 +1,24 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iconic", "Iconic\Iconic.csproj", "{3650E87F-B40F-4428-AFB6-BE4AB941B761}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Koben.Iconic", "Iconic\Koben.Iconic.csproj", "{3650E87F-B40F-4428-AFB6-BE4AB941B761}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UmbracoV9", "UmbracoV9\UmbracoV9.csproj", "{3D165ADE-77F6-4C95-85D3-EF1C43A3BED0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{9121531A-AF0E-4C3C-9179-0BB262DA729D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{B47FFF72-7DAF-45DC-B7D1-CD581C17D7BC}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Koben.Iconic.Core", "Koben.Iconic.Core\Koben.Iconic.Core.csproj", "{4461A583-E561-4E6C-8983-2647116F51D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +34,10 @@ Global
 		{3D165ADE-77F6-4C95-85D3-EF1C43A3BED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D165ADE-77F6-4C95-85D3-EF1C43A3BED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D165ADE-77F6-4C95-85D3-EF1C43A3BED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4461A583-E561-4E6C-8983-2647116F51D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4461A583-E561-4E6C-8983-2647116F51D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4461A583-E561-4E6C-8983-2647116F51D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4461A583-E561-4E6C-8983-2647116F51D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

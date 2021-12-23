@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFrameworks>net5.0;net472</TargetFrameworks>
+        <ContentTargetFolders>.</ContentTargetFolders>
+        <Description>Highly configurable icon picker for Umbraco.
+With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.		</Description>
+        <Product>$(AssemblyName)</Product>
+        <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
+		<Version>3.1.1-pre001</Version>
+		<Authors>Mario Lopez</Authors>
+		<PackageProjectUrl>https://github.com/KOBENDigital/Iconic</PackageProjectUrl>
+		<PackageIcon>iconic_logo.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/KOBENDigital/Iconic</RepositoryUrl>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>		
+    </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net472|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net472|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="App_Plugins\Iconic\**\*.*">			
+            <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </Content>
+        <None Include="build\**\*.*">
+            <Pack>True</Pack>
+            <PackagePath>buildTransitive</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+		<None Include="..\iconic_logo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\README.nuget.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Koben.Iconic.Core\Koben.Iconic.Core.csproj" />
+    </ItemGroup>	
+</Project>
