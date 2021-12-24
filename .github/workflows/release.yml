@@ -1,13 +1,13 @@
-name: Our.Umbraco.Icpnic - Release
+name: Our.Umbraco.Iopnic - Release
 
 on:
   push:
     branches: [ master ]
 
 env:
-  SOLUTION: Our.Umbraco.Icpnic.sln
-  PLUGIN_PROJECT: Our.Umbraco.GMaps\Our.Umbraco.GMaps.csproj
-  CORE_PROJECT: Our.Umbraco.GMaps.Core\Our.Umbraco.GMaps.Core.csproj
+  SOLUTION: Our.Umbraco.Iconic.sln
+  PLUGIN_PROJECT: Our.Umbraco.Iconic\Our.Umbraco.Iconic.csproj
+  CORE_PROJECT: Our.Umbraco.Iconic.Core\Our.Umbraco.Iconic.Core.csproj
   OUTPUT_PATH: ${{ github.workspace }}\.output
   
 jobs:
