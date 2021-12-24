@@ -4,17 +4,24 @@
         $scope.configType = "custom";
         $scope.selectedPreConfig = null;
         $scope.previewIcon = null;
+        $scope.previewButtonState = "init";
+        $scope.analysing = "init";
+
 
         $scope.loadPreview = function () {
+            $scope.previewButtonState = "busy";
             if ($scope.model.package.cssfile) {
                 extractStyles(
                     $scope.model.package,
                     function (extractedStyles) {
                         $scope.previewIcon = extractedStyles[0];
                         assetsService.loadCss('~/' + $scope.model.package.cssfile.replace("wwwroot/", ""));
+                        $scope.previewButtonState = "success";
                     },
                     function () {
-                        //error
+                        $scope.previewIcon = null;
+                        displayError("iconicErrors_no_rules");
+                        $scope.previewButtonState = "error";
                     }
                 );
             }
@@ -22,6 +29,7 @@
 
 
         $scope.submit = function () {
+            $scope.analysing = "busy";
             if ($scope.packageForm.$valid) {
                 extractStyles(
                     $scope.model.package,

@@ -6,13 +6,11 @@
             </umb-editor-header>
 
             <umb-editor-container class="form-horizontal">
+
                 <umb-box>
 
                     <umb-box-content>
 
-                        <div ng-show="error" class="help-inline">
-                            {{ error }}
-                        </div>
 
                         <umb-control-group label="@iconicConfig_configType">
                             <label><input type="radio" ng-change="changeConfigType('custom')" ng-model="configType" value="custom" /> <localize key="iconicConfig_custom">Custom</localize></label>
@@ -26,7 +24,7 @@
                         </umb-control-group>
 
                         <umb-control-group label="@iconicConfig_name" required="true">
-                            <input class="umb-property-editor" name="editName" type="text" ng-model="model.package.name" val-highlight="{{ packageForm.editName.$error && packageForm.editName.$dirty}}" required />
+                            <input class="umb-property-editor" name="editName" type="text" ng-model="model.package.name" val-highlight="{{ packageForm.editName.$invalid && packageForm.editName.$dirty}}" required />
 
                             <span ng-messages="packageForm.editName.$error" show-validation-on-submit>
                                 <span class="help-inline" ng-message="required"><localize key="iconicValidation_name">Please enter a name</localize></span>
@@ -110,16 +108,20 @@
                                     <div ng-show="packageForm.$valid" class="ml2">
                                         <small><em>{{previewIcon}}</em></small>
                                     </div>
-                                    <umb-button action="loadPreview()" label="Reload Preview" class="ml0" type="button" button-style="info" size="xs" disabled="packageForm.$invalid">
+                                    <umb-button action="loadPreview()" state="previewButtonState" label="Reload Preview" class="ml0" type="button" button-style="info" size="xs" disabled="packageForm.$invalid">
                                     </umb-button>
                                 </div>
                             </div>
                         </fieldset>
                     </umb-box-content>
                 </umb-box>
+
+                <umb-box ng-show="error" class="umb-alert--warning" style="background-color: #f5c1bc;">
+                    <umb-box-content><umb-icon icon="icon-alert"></umb-icon> {{ error }}</umb-box-content>
+                </umb-box>
             </umb-editor-container>
 
-
+           
 
 
             <umb-editor-footer>

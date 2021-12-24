@@ -39,11 +39,11 @@
     <key alias="preview">Preview</key>
   </area>
   <area alias="iconicErrors">
-    <key alias="analysing">There was an error extracting icon rules. Please check the files paths and Selector regex.</key>
+    <key alias="analysing">There was an error extracting icon rules. Please check the files' paths and Selector regex.</key>
     <key alias="loading_preconfigs">Error loading preconfigs file.</key>
     <key alias="loadingCss">Error loading CSS file.</key>
-    <key alias="no_rules">There is an error somewhere, the extracted rules are 0. Check the regex.</key>
-    <key alias="selector">Error with selector, please review it.</key>
+    <key alias="no_rules">The extracted icons are 0. Please check that the Selector regex is correct.</key>
+    <key alias="selector">Error with Selector, please review it.</key>
   </area>
   <area alias="iconicValidation">
     <key alias="name">Please enter a name</key>
