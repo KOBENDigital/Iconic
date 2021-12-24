@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-  SOLUTION: Our.Umbraco.Iconic.sln
+  SOLUTION: Iconic.sln
   OUTPUT_PATH: ${{ github.workspace }}\.output
 
 jobs:
