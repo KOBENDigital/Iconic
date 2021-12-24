@@ -6,8 +6,7 @@ With Iconic you will be able to create a property editor that can use virtually 
 
 ## Installation
 
-Use V3 for Umbraco 9\
-Use V2 for Umbraco 8\
+Use V3 for Umbraco 8 & 9\
 Use V1 for Umbraco 7
 
 ### Nuget
@@ -138,6 +137,10 @@ If you had a template like `<i class="fa {icon} {classes} fa-5x" {attributes}></
 
 Note that to render `data-x` you have to enter `dataX` as your attribute name.
 
+## Test Website Credentials:
+
+Username: `admin@admin.com`\
+Password: `Password123`
 
 ## Known issues
 

@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0;net472</TargetFrameworks>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+	  <Version>3.1.1-pre001</Version>
+	  <Authors>Mario Lopez</Authors>
+	  <Description>Highly configurable icon picker for Umbraco. 
+With Iconic you will be able to create a property editor that can use virtually any font package out there and not only that, you will be able to select your icon from more than one package on the same property.
+Core DLL Package Only.</Description>
+	  <Copyright>Copyright © Mario Lopez</Copyright>
+	  <Product>$(AssemblyName) - Core DLL</Product>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageProjectUrl>https://github.com/KOBENDigital/Iconic</PackageProjectUrl>
+	  <PackageIcon>icon.png</PackageIcon>
+	  <PackageTags>umbraco plugin package icon picker editor backoffice</PackageTags>
+	  <NeutralLanguage>en-US</NeutralLanguage>
+	  <PackageReadmeFile>README.nuget.md</PackageReadmeFile>
+	  <PackageIcon>iconic_logo.png</PackageIcon>
+	  <PackageReleaseNotes>Now multi-targeting Umbraco 8 and 9</PackageReleaseNotes>
+  </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net472|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net472|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+		<Reference Include="System.Web" />
+		<PackageReference Include="UmbracoCms.Core" Version="8.15.0" />
+		<PackageReference Include="UmbracoCms.Web" Version="8.15.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+		<PackageReference Include="Umbraco.Cms.Web.Common">
+			<Version>9.0.1</Version>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\iconic_logo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<None Include="..\README.nuget.md">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>

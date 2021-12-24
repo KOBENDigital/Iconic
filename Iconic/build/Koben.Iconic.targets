@@ -20,7 +20,7 @@
         <ItemGroup>
             <IconicDir Include="$(MSBuildProjectDirectory)\App_Plugins\Iconic\" />
         </ItemGroup>
-        <Message Text="Clear old Iconic data"  Importance="high" />
+        <Message Text="Clear old Iconic plguin files"  Importance="high" />
         <RemoveDir Directories="@(IconicDir)"  />
     </Target>
 

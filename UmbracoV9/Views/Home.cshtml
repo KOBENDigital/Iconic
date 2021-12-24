@@ -4,6 +4,11 @@
 @{
 	Layout = null;
 }
-
-
-@Html.Raw(Model.Iconic)
+<html>
+	<head>
+		<link href="~/css/simple-line-icons.css" type="text/css" />
+	</head>
+	<body>
+		@Html.Raw(Model.Iconic)
+	</body>
+</html>
