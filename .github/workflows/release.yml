@@ -5,9 +5,9 @@ on:
     branches: [ master ]
 
 env:
-  SOLUTION: Our.Umbraco.Iconic.sln
-  PLUGIN_PROJECT: Our.Umbraco.Iconic\Our.Umbraco.Iconic.csproj
-  CORE_PROJECT: Our.Umbraco.Iconic.Core\Our.Umbraco.Iconic.Core.csproj
+  SOLUTION: Iconic.sln
+  PLUGIN_PROJECT: Iconic\Koben.Iconic.csproj
+  CORE_PROJECT: Koben.Iconic.Core\Koben.Iconic.Core.csproj
   OUTPUT_PATH: ${{ github.workspace }}\.output
   
 jobs:
